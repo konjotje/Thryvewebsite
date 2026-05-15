@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-thryve-white: #FFFFFF;
+  --color-thryve-green: #10b981; /* Emerald-500 */
+  --color-thryve-accent: #10b981; /* Emerald-500 */
+  --color-thryve-dark: #061206; /* Balanced dark green/black */
+  --color-thryve-card: #0c1f0c; /* Slightly lighter dark green/black card */
+  --color-thryve-cream: #e5e7eb; /* Light gray text */
+
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Quicksand", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-thryve-dark);
+  color: var(--color-thryve-cream);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-thryve-white);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+
+.image-fade-edges {
+  mask-image: linear-gradient(to right, transparent 0%, black 30%), linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%), linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.image-fade-abstract {
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 15%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 15%, transparent 80%);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
