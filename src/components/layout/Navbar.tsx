@@ -27,7 +27,6 @@ export const Navbar = () => {
           <Link to="/#method" className="hover:text-white transition-colors">The Method</Link>
           <Link to="/#stories" className="hover:text-white transition-colors">Stories</Link>
           <Link to="/#about" className="hover:text-white transition-colors">Over mij</Link>
-          <Link to="/#services" className="hover:text-white transition-colors">Services</Link>
           <Link to="/#testimonials" className="hover:text-white transition-colors">Reviews</Link>
           <Link to="/#faq" className="hover:text-white transition-colors">FAQ</Link>
           <Link to="/#contact" className="px-6 py-2.5 bg-white/5 text-white rounded-full hover:bg-white/10 transition-all border border-white/10">

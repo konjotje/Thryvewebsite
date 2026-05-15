@@ -11,7 +11,6 @@ import { ClientStories } from './components/sections/ClientStories';
 import { Testimonials } from './components/sections/Testimonials';
 import { ThryveMethod } from './components/sections/ThryveMethod';
 import { About } from './components/sections/About';
-import { Services } from './components/sections/Services';
 import { FAQ } from './components/sections/FAQ';
 import { Contact } from './components/sections/Contact';
 import { TermsAndConditions } from './components/pages/TermsAndConditions';
@@ -48,7 +47,6 @@ export default function App() {
             <ThryveMethod />
             <ClientStories />
             <About />
-            <Services />
             <Testimonials />
             <div className="relative bg-thryve-dark">
               <div className="absolute inset-0 z-0">
