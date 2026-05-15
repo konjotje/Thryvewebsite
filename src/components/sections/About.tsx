@@ -16,8 +16,8 @@ export const About = () => {
           >
             <div className="rounded-3xl overflow-hidden relative aspect-[4/5] group">
               <img 
-                src="https://i.imgur.com/vF9Whqb.jpeg" 
-                alt="Iven van Stekelenburg" 
+                src="/images/about.webp" 
+                alt="Iven van Stekelenburg - Peak Performance Coach en Fysiotherapeut" 
                 className="w-full h-full object-cover image-fade-abstract transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
@@ -36,7 +36,7 @@ export const About = () => {
             <p className="text-thryve-cream/70 leading-relaxed mb-10 text-sm">
               Ik ben Iven van Stekelenburg, fysiotherapeut en peak performance coach. Met ruim 8 jaar ervaring in sport en krachttraining help ik ondernemers om hun lichaam en geest te optimaliseren voor duurzame groei. Geen quick fixes, maar systemen die werken onder druk.
             </p>
-            <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+            <Button onClick={() => window.location.href = '#contact'}>
               Klaar voor?
               <div className="w-8 h-8 rounded-full bg-thryve-accent flex items-center justify-center text-white group-hover:translate-x-1 transition-transform">
                 <ArrowRight size={18} />

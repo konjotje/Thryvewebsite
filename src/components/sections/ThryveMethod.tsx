@@ -1,15 +1,7 @@
 import { motion } from 'motion/react';
-import { Target, Zap, Moon, Dumbbell, Brain } from 'lucide-react';
+import { THRYVE_METHOD_CONTENT } from '../../constants/content';
 
 export const ThryveMethod = () => {
-  const bullets = [
-    { text: "Meer focus, minder afleiding", icon: Target },
-    { text: "Hogere productiviteit", icon: Zap },
-    { text: "Sneller herstel & betere slaap", icon: Moon },
-    { text: "Duurzame energie", icon: Dumbbell },
-    { text: "Stressmanagement", icon: Brain }
-  ];
-
   return (
     <section id="method" className="py-16 md:py-32 bg-thryve-dark">
       <div className="max-w-7xl mx-auto px-6">
@@ -23,8 +15,8 @@ export const ThryveMethod = () => {
             <div className="aspect-[4/3] rounded-3xl overflow-hidden relative group">
               <div className="absolute -inset-4 bg-emerald-500/20 blur-3xl rounded-full opacity-50 -z-10"></div>
               <img 
-                src="https://i.imgur.com/Nz2Hev1.jpeg" 
-                alt="Training method" 
+                src="/images/thryve-method.webp" 
+                alt="Detail van gewicht in fitnessruimte voor The Thryve Method"
                 className="w-full h-full object-cover image-fade-abstract transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
@@ -38,16 +30,15 @@ export const ThryveMethod = () => {
             viewport={{ once: true }}
           >
             <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">The Method</div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl mb-8 text-white">THE THRYVE METHOD</h2>
-            <p className="text-sm text-thryve-cream/80 mb-6 leading-relaxed">
-              The Thryve Method is een peak performance coachingtraject, speciaal ontwikkeld voor ambitieuze ondernemers die het maximale uit zichzelf en hun onderneming willen halen.
-            </p>
-            <p className="text-sm text-thryve-cream/80 mb-10 leading-relaxed">
-              De methode combineert cutting-edge biohacking technieken met wetenschappelijk onderbouwde leefstijlinterventies om focus, productiviteit en vitaliteit naar een next level te tillen.
-            </p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl mb-8 text-white">{THRYVE_METHOD_CONTENT.title}</h2>
+            {THRYVE_METHOD_CONTENT.paragraphs.map((p, i) => (
+              <p key={i} className={`text-sm text-thryve-cream/80 leading-relaxed ${i === THRYVE_METHOD_CONTENT.paragraphs.length - 1 ? 'mb-10' : 'mb-6'}`}>
+                {p}
+              </p>
+            ))}
 
             <ul className="space-y-4">
-              {bullets.map((bullet, i) => {
+              {THRYVE_METHOD_CONTENT.bullets.map((bullet, i) => {
                 const Icon = bullet.icon;
                 return (
                   <li key={i} className="flex items-center gap-4">

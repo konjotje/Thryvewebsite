@@ -8,8 +8,8 @@ export const Services = () => {
     <section id="services" className="py-16 md:py-32 relative">
       <div className="absolute inset-0 z-0 opacity-20">
         <img 
-          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop" 
-          alt="Gym Background" 
+          src="/images/services.webp" 
+          alt="Donkere sportschool met gewichten voor peak performance training"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
@@ -19,7 +19,7 @@ export const Services = () => {
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Services</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl text-white">OPTIMIZE YOUR<br/>BODY & MIND!</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl text-white">OPTIMISEER JE<br/>LICHAAM & GEEST!</h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 items-stretch">
@@ -35,26 +35,26 @@ export const Services = () => {
                 <h3 className="text-2xl text-white">ONLINE COACHING</h3>
               </div>
               <p className="text-thryve-cream/60 text-sm leading-relaxed mb-8 flex-grow">
-                Optimal if you aren't local. In this manner, we can collaborate effectively and I assure you extraordinary outcomes will still be realized.
+                Ideaal voor als je niet in de buurt woont of flexibiliteit wilt. Met online coaching werken we effectief samen om exceptionele resultaten te behalen.
               </p>
               
               <ul className="space-y-4 mb-12">
                 <li className="flex items-center gap-3">
                   <Check className="text-thryve-accent w-5 h-5" />
-                  <span className="text-sm text-thryve-cream/90">Personalized Training Plans</span>
+                  <span className="text-sm text-thryve-cream/90">Gepersonaliseerde Trainingsplannen</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Check className="text-thryve-accent w-5 h-5" />
-                  <span className="text-sm text-thryve-cream/90">Nutritional Advice</span>
+                  <span className="text-sm text-thryve-cream/90">Voedingsadvies & Biohacking</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Check className="text-thryve-accent w-5 h-5" />
-                  <span className="text-sm text-thryve-cream/90">Access to Exclusive Content</span>
+                  <span className="text-sm text-thryve-cream/90">Toegang tot Selecte Community</span>
                 </li>
               </ul>
               
-              <Button className="w-full mt-auto">
-                Start from $199/month
+              <Button className="w-full mt-auto" onClick={() => window.location.href = '#contact'}>
+                Start vanaf €199/mnd
               </Button>
             </Card>
           </motion.div>
@@ -72,26 +72,26 @@ export const Services = () => {
                 <h3 className="text-2xl text-white">IN-PERSON COACHING</h3>
               </div>
               <p className="text-thryve-cream/60 text-sm leading-relaxed mb-8 flex-grow">
-                For those who favor in-person guidance, this choice excels. I can correct your technique during workouts, along with numerous other aspects.
+                Voor degene die de voorkeur geeft aan 1-op-1 begeleiding. We zorgen voor perfecte technieken gedurende workouts en directe bijsturing.
               </p>
               
               <ul className="space-y-4 mb-12">
                 <li className="flex items-center gap-3">
                   <Check className="text-thryve-accent w-5 h-5" />
-                  <span className="text-sm text-thryve-cream/90">Everything from Online Coaching</span>
+                  <span className="text-sm text-thryve-cream/90">Alles van Online Coaching</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Check className="text-thryve-accent w-5 h-5" />
-                  <span className="text-sm text-thryve-cream/90">Direct Supervision</span>
+                  <span className="text-sm text-thryve-cream/90">Directe Supervisie</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Check className="text-thryve-accent w-5 h-5" />
-                  <span className="text-sm text-thryve-cream/90">Immediate Feedback</span>
+                  <span className="text-sm text-thryve-cream/90">Optimale Techniek & Directe Feedback</span>
                 </li>
               </ul>
               
-              <Button className="w-full mt-auto">
-                Start from $499/month
+              <Button className="w-full mt-auto" onClick={() => window.location.href = '#contact'}>
+                Start vanaf €499/mnd
               </Button>
             </Card>
           </motion.div>

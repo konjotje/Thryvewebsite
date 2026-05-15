@@ -1,34 +1,8 @@
 import { motion } from 'motion/react';
 import { Card } from '../ui/Card';
+import { TESTIMONIALS } from '../../constants/content';
 
 export const Testimonials = () => {
-  const testimonials = [
-    {
-      name: "Mark de Vries",
-      role: "CEO TechStartup",
-      text: "Sinds ik met Iven werk, is mijn focus en energielevel enorm gestegen. Ik kan veel meer aan zonder me opgebrand te voelen.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
-    },
-    {
-      name: "Sarah Jansen",
-      role: "Marketing Director",
-      text: "De combinatie van training en biohacking heeft mijn slaapkwaliteit en dagelijkse productiviteit drastisch verbeterd.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop"
-    },
-    {
-      name: "Thomas Bakker",
-      role: "Ondernemer",
-      text: "Iven begrijpt precies wat een ondernemer nodig heeft. Geen standaard schema's, maar maatwerk dat echt werkt.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop"
-    },
-    {
-      name: "Lisa van Dijk",
-      role: "Creative Lead",
-      text: "Ik voel me fitter en scherper dan ooit. Het programma is uitdagend maar perfect in te passen in een drukke agenda.",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop"
-    }
-  ];
-
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-thryve-dark">
       <div className="max-w-7xl mx-auto px-6">
@@ -39,12 +13,12 @@ export const Testimonials = () => {
           transition={{ duration: 1.0 }}
           className="text-center mb-12"
         >
-          <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Testimonials</div>
+          <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Reviews</div>
           <h2 className="text-4xl md:text-5xl text-white">WAT KLANTEN ZEGGEN</h2>
         </motion.div>
 
         <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:gap-6 md:pb-0 hide-scrollbar">
-          {testimonials.map((t, i) => (
+          {TESTIMONIALS.map((t, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}

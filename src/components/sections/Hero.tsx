@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { HERO_CONTENT } from '../../constants/content';
 
 export const Hero: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ export const Hero: React.FC = () => {
       {/* Mobile background image */}
       <div className="absolute inset-0 lg:hidden group overflow-hidden">
         <img 
-          src="https://i.imgur.com/YOBOpQy.jpeg" 
+          src="/images/hero.webp" 
           alt="Iven van Stekelenburg - Peak Performance Coach" 
           className="w-full h-full object-cover image-fade-abstract transition-transform duration-700 group-hover:scale-105"
           referrerPolicy="no-referrer"
@@ -25,18 +26,19 @@ export const Hero: React.FC = () => {
           className="max-w-2xl pt-20 lg:pt-0"
         >
           <div className="text-thryve-accent text-sm font-semibold tracking-widest uppercase mb-3">
-            Peak Performance Coaching
+            {HERO_CONTENT.subtitle}
           </div>
           <h1 className="text-4xl md:text-7xl lg:text-[5.5rem] font-heading leading-[0.95] mb-4 text-white">
-            MAXIMALISEER<br/>
-            JOUW POTENTIEEL
+            {HERO_CONTENT.title.split(' ').map((word, i) => (
+              <span key={i} className="block">{word}</span>
+            ))}
           </h1>
           <p className="text-sm text-thryve-cream/70 mb-6 max-w-md leading-relaxed">
-            Wetenschappelijk onderbouwde coaching voor ambitieuze ondernemers die hun energie, focus en prestaties naar een hoger niveau willen tillen.
+            {HERO_CONTENT.description}
           </p>
           
           <Button onClick={() => window.location.href = '#stories'} className="font-heading">
-            Resultaten 
+            {HERO_CONTENT.cta} 
             <div className="w-8 h-8 rounded-full bg-thryve-accent flex items-center justify-center text-white group-hover:translate-x-1 transition-transform">
               <ArrowRight size={18} />
             </div>
@@ -50,7 +52,7 @@ export const Hero: React.FC = () => {
               initial={{ scale: 1.1, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              src="https://i.imgur.com/YOBOpQy.jpeg" 
+              src="/images/hero.webp" 
               alt="Iven van Stekelenburg - Peak Performance Coach" 
               className="w-full h-full object-cover object-top image-fade-abstract transition-transform duration-700 group-hover:scale-105"
               referrerPolicy="no-referrer"
