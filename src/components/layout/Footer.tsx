@@ -1,29 +1,75 @@
-import { Instagram } from 'lucide-react';
+import { Instagram, Mail, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
-    <footer className="py-6 border-t border-white/10 bg-black/40 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        {/* Logo & Socials */}
-        <div className="flex items-center gap-4">
-          <Link to="/" className="text-lg font-bold tracking-widest text-white uppercase cursor-pointer">
-            THRYVE
-          </Link>
-          <a href="#" className="text-thryve-cream/60 hover:text-white transition-colors"><Instagram size={18} /></a>
+    <footer className="pt-16 pb-8 border-t border-white/10 bg-black/40 backdrop-blur-sm">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Brand & Description */}
+          <div className="flex flex-col gap-4">
+            <Link to="/" className="text-2xl font-bold tracking-widest text-white uppercase inline-block">
+              THRYVE
+            </Link>
+            <p className="text-thryve-cream/60 text-sm leading-relaxed">
+              Premium online en in-person fitness coaching om jouw potentieel volledig te unlocken. Optimale gezondheid, fysieke en mentale performance.
+            </p>
+            <div className="flex items-center gap-4 mt-2">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-thryve-cream/60 hover:text-white hover:border-white hover:bg-white/5 transition-all">
+                <Instagram size={18} />
+              </a>
+            </div>
+          </div>
+
+          {/* Navigatie */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-white font-bold tracking-widest uppercase text-sm mb-2">Navigatie</h3>
+            <nav className="flex flex-col gap-3 text-sm text-thryve-cream/60" aria-label="Footer Navigatie">
+              <Link to="/#method" className="hover:text-white transition-colors w-fit">The Method</Link>
+              <Link to="/#stories" className="hover:text-white transition-colors w-fit">Stories</Link>
+              <Link to="/#about" className="hover:text-white transition-colors w-fit">Over mij</Link>
+              <Link to="/#testimonials" className="hover:text-white transition-colors w-fit">Reviews</Link>
+              <Link to="/#faq" className="hover:text-white transition-colors w-fit">FAQ</Link>
+            </nav>
+          </div>
+
+          {/* Contact */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-white font-bold tracking-widest uppercase text-sm mb-2">Contact</h3>
+            <address className="flex flex-col gap-3 text-sm text-thryve-cream/60 not-italic">
+              <a href="mailto:info@thethryvemethod.com" className="flex items-center gap-3 hover:text-white transition-colors w-fit">
+                <Mail size={16} className="text-thryve-accent shrink-0" />
+                info@thethryvemethod.com
+              </a>
+              <div className="flex items-center gap-3">
+                <MapPin size={16} className="text-thryve-accent shrink-0" />
+                Nederland
+              </div>
+              <div className="flex items-center gap-3 mt-2">
+                <span className="text-thryve-cream/40">KVK:</span> 74191187
+              </div>
+            </address>
+          </div>
+
+          {/* Legal */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-white font-bold tracking-widest uppercase text-sm mb-2">Legal</h3>
+            <nav className="flex flex-col gap-3 text-sm text-thryve-cream/60" aria-label="Legal Navigatie">
+              <Link to="/privacy-policy" className="hover:text-white transition-colors w-fit">Privacy Policy</Link>
+              <Link to="/terms-and-conditions" className="hover:text-white transition-colors w-fit">Algemene Voorwaarden</Link>
+            </nav>
+          </div>
         </div>
 
-        {/* Links */}
-        <div className="flex flex-wrap justify-center gap-4 text-xs text-thryve-cream/60">
-          <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
-          <Link to="/terms-and-conditions" className="hover:text-white transition-colors">Voorwaarden</Link>
-          <span>KVK: 74191187</span>
-          <a href="mailto:info@thethryvemethod.com" className="hover:text-white transition-colors">info@thethryvemethod.com</a>
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-center md:text-left text-xs text-thryve-cream/40">
+            &copy; {new Date().getFullYear()} The Thryve Method. Alle rechten voorbehouden.
+          </div>
+          <div className="text-center md:text-right text-[10px] text-thryve-cream/30">
+            Designed for optimal performance
+          </div>
         </div>
-      </div>
-      
-      <div className="text-center text-[10px] text-thryve-cream/30 mt-4">
-        &copy; {new Date().getFullYear()} The Thryve Method. All rights reserved.
       </div>
     </footer>
   );
