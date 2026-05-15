@@ -7,11 +7,11 @@ export const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-thryve-dark">
       {/* Mobile background image */}
-      <div className="absolute inset-0 lg:hidden">
+      <div className="absolute inset-0 lg:hidden group overflow-hidden">
         <img 
           src="https://i.imgur.com/YOBOpQy.jpeg" 
           alt="Iven van Stekelenburg - Peak Performance Coach" 
-          className="w-full h-full object-cover image-fade-abstract"
+          className="w-full h-full object-cover image-fade-abstract transition-transform duration-700 group-hover:scale-105"
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-thryve-dark/80"></div>
@@ -45,11 +45,14 @@ export const Hero: React.FC = () => {
 
         {/* Desktop image */}
         <div className="hidden lg:block relative h-[90vh] w-full">
-          <div className="rounded-3xl overflow-hidden relative w-full h-full">
-            <img 
+          <div className="rounded-3xl overflow-hidden relative w-full h-full group">
+            <motion.img 
+              initial={{ scale: 1.1, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1.2, ease: "easeOut" }}
               src="https://i.imgur.com/YOBOpQy.jpeg" 
               alt="Iven van Stekelenburg - Peak Performance Coach" 
-              className="w-full h-full object-cover object-top image-fade-abstract"
+              className="w-full h-full object-cover object-top image-fade-abstract transition-transform duration-700 group-hover:scale-105"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-bl from-thryve-dark via-transparent to-thryve-dark pointer-events-none opacity-80"></div>

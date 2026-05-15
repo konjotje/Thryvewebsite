@@ -1,4 +1,5 @@
 import { CheckCircle2 } from 'lucide-react';
+import { motion } from 'motion/react';
 import { Card } from '../ui/Card';
 
 export const ClientStories = () => {
@@ -32,10 +33,16 @@ export const ClientStories = () => {
   return (
     <section id="stories" className="py-16 md:py-32 bg-thryve-dark overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 1.0 }}
+          className="text-center mb-16"
+        >
           <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Klantverhalen</div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl text-white">RESULTATEN SPREKEN VOOR ZICH</h2>
-        </div>
+        </motion.div>
 
         <div className="relative">
           <div className="absolute inset-x-0 -top-20 h-96 bg-emerald-500/10 blur-3xl rounded-full -z-10"></div>
@@ -46,12 +53,12 @@ export const ClientStories = () => {
                 className={`p-6 min-w-[85vw] sm:min-w-[350px] md:min-w-0 snap-center transition-all duration-500 flex flex-col h-full ${story.active ? 'opacity-100 scale-100 md:scale-105 z-10 border-thryve-accent/30' : 'opacity-100 md:opacity-50 scale-100 md:scale-95 hover:opacity-100'}`}
               >
                 <div className="grid grid-cols-2 gap-3 mb-6">
-                  <div className="relative">
-                    <img src={story.before} alt="Voor" className="rounded-xl object-cover aspect-[3/4] w-full" referrerPolicy="no-referrer" />
+                  <div className="relative overflow-hidden rounded-xl group/img">
+                    <img src={story.before} alt="Voor" className="object-cover aspect-[3/4] w-full transition-transform duration-700 group-hover/img:scale-110" referrerPolicy="no-referrer" />
                     <span className="absolute top-2 left-2 bg-black/50 text-white text-[10px] px-2 py-1 rounded-full uppercase tracking-wider">Voor</span>
                   </div>
-                  <div className="relative">
-                    <img src={story.after} alt="Na" className="rounded-xl object-cover aspect-[3/4] w-full" referrerPolicy="no-referrer" />
+                  <div className="relative overflow-hidden rounded-xl group/img">
+                    <img src={story.after} alt="Na" className="object-cover aspect-[3/4] w-full transition-transform duration-700 group-hover/img:scale-110" referrerPolicy="no-referrer" />
                     <span className="absolute top-2 left-2 bg-thryve-accent text-black text-[10px] px-2 py-1 rounded-full uppercase tracking-wider font-bold">Na</span>
                   </div>
                 </div>

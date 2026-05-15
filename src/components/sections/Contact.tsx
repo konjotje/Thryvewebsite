@@ -1,9 +1,16 @@
 import { InlineWidget } from 'react-calendly';
+import { motion } from 'motion/react';
 
 export const Contact = () => {
   return (
     <section id="contact" className="py-16 md:py-32 relative">
-      <div className="max-w-xl mx-auto px-6 relative z-10">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 1.0 }}
+        className="max-w-xl mx-auto px-6 relative z-10"
+      >
         <div className="text-center mb-12">
           <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Contact</div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6">KLAAR OM JE<br/>PERFORMANCE TE UNLOCKEN?</h2>
@@ -26,7 +33,7 @@ export const Contact = () => {
               }}
             />
           </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

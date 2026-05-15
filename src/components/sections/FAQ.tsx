@@ -12,7 +12,13 @@ export const FAQ = () => {
   ];
   return (
     <section id="faq" className="py-12 md:py-24">
-      <div className="max-w-2xl mx-auto px-6">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 1.0 }}
+        className="max-w-2xl mx-auto px-6"
+      >
         <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4 text-center">FAQ</div>
         <h2 className="text-3xl md:text-4xl text-center mb-10 text-white">VEELGESTELDE VRAGEN</h2>
         <div className="space-y-2">
@@ -43,7 +49,7 @@ export const FAQ = () => {
             </Card>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

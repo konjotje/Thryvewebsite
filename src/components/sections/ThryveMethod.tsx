@@ -20,12 +20,12 @@ export const ThryveMethod = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-[4/3] rounded-3xl overflow-hidden relative">
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden relative group">
               <div className="absolute -inset-4 bg-emerald-500/20 blur-3xl rounded-full opacity-50 -z-10"></div>
               <img 
                 src="https://i.imgur.com/Nz2Hev1.jpeg" 
                 alt="Training method" 
-                className="w-full h-full object-cover image-fade-abstract"
+                className="w-full h-full object-cover image-fade-abstract transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-thryve-dark via-transparent to-thryve-dark pointer-events-none opacity-80"></div>

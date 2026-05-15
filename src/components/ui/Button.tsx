@@ -9,7 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = ({ children, className = "", onClick, ...props }: ButtonProps) => {
   return (
     <button 
-      className={`relative p-[2px] rounded-xl bg-gradient-to-br from-emerald-400/40 via-emerald-600/20 to-transparent shadow-[0_10px_25px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] transition-all duration-300 ${className}`}
+      className={`relative p-[2px] rounded-xl bg-gradient-to-br from-emerald-400/40 via-emerald-600/20 to-transparent shadow-[0_10px_25px_rgba(0,0,0,0.5)] active:scale-95 group hover-glow hover:scale-105 ${className}`}
       onClick={onClick}
       {...props}
     >
