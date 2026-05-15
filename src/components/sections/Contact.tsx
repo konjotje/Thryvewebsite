@@ -16,10 +16,10 @@ export const Contact = () => {
             <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Contact</div>
             <h2 className="text-4xl md:text-5xl lg:text-5xl xl:text-6xl text-white mb-6">KLAAR OM JE<br/>POTENTIEEL TE UNLOCKEN?</h2>
             <div className="space-y-4">
-              <p className="text-thryve-cream/70 leading-relaxed text-base md:text-lg">
+              <p className="text-thryve-cream/70 leading-relaxed text-sm">
                 Elke grote transformatie begint met die ene, cruciale beslissing: in actie komen. Plan vandaag nog je gratis en volledig vrijblijvende kennismakingsgesprek in.
               </p>
-              <p className="text-thryve-cream/70 leading-relaxed text-base md:text-lg">
+              <p className="text-thryve-cream/70 leading-relaxed text-sm">
                 Tijdens deze strategische sessie duiken we diep in jouw huidige levensstijl, analyseren we je grootste obstakels en definiëren we je ultieme doelen. We creëren een heldere visie voor jouw toekomst en ontdekken samen in detail hoe The Thryve Method jou structureel kan helpen om je fysieke en mentale performance te maximaliseren.
               </p>
             </div>
