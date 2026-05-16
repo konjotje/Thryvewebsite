@@ -124,7 +124,7 @@ export default function PerformanceTestPage() {
                 Ontdek in 3 minuten op welke gebieden jij energie laat liggen en hoe je jouw productiviteit naar het volgende niveau tilt.
               </p>
               <Button onClick={() => setStep('quiz')} className="px-10 py-4 text-lg">
-                Start de test <ChevronRight className="ml-2 w-5 h-5" />
+                Start de test <ChevronRight size={20} strokeWidth={3} className="text-thryve-accent" />
               </Button>
             </motion.div>
           )}
