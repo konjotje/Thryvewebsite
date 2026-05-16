@@ -24,7 +24,8 @@ export const ClientStories = () => {
             {CLIENT_STORIES.map((story, i) => (
               <Card 
                 key={i} 
-                className={`p-6 min-w-[85vw] sm:min-w-[350px] md:min-w-0 snap-center transition-all duration-500 flex flex-col h-full ${story.active ? 'opacity-100 scale-100 md:scale-105 z-10 border-thryve-accent/30' : 'opacity-100 md:opacity-50 scale-100 md:scale-95 hover:opacity-100'}`}
+                className={`min-w-[85vw] sm:min-w-[350px] md:min-w-0 snap-center transition-all duration-500 flex flex-col h-full ${story.active ? 'opacity-100 scale-100 md:scale-105 z-10 border-thryve-accent/30' : 'opacity-100 md:opacity-50 scale-100 md:scale-95 hover:opacity-100'}`}
+                innerClassName="p-6"
               >
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   <div className="relative overflow-hidden rounded-xl group/img">

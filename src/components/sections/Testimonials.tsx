@@ -27,7 +27,7 @@ export const Testimonials = () => {
               transition={{ duration: 1.0, delay: i * 0.1 }}
               className="h-full"
             >
-              <Card className="p-6 flex flex-col min-w-[85vw] sm:min-w-[300px] md:min-w-0 snap-center relative h-full shadow-none">
+              <Card className="flex flex-col min-w-[85vw] sm:min-w-[300px] md:min-w-0 snap-center relative h-full shadow-none" innerClassName="p-6">
                 <p className="text-thryve-cream/80 text-sm leading-relaxed mb-8 flex-grow italic">"{t.text}"</p>
                 <div className="border-t border-white/10 pt-4 flex justify-between items-center mt-auto">
                   <div>

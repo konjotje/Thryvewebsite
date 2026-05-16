@@ -42,7 +42,7 @@ export const Contact = () => {
           >
             <Cal 
               namespace="30min"
-              calLink="luc-hijdra-wawaa0/30min"
+              calLink="thryvemethod/45min"
               style={{ width: "100%" }}
               config={{ "layout": "month_view", "useSlotsViewOnSmallScreen": "true" }}
             />

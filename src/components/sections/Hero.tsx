@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { HERO_CONTENT } from '../../constants/content';
 
@@ -39,9 +39,7 @@ export const Hero: React.FC = () => {
           
           <Button onClick={() => window.location.href = '#stories'} className="font-heading">
             {HERO_CONTENT.cta} 
-            <div className="w-8 h-8 rounded-full bg-thryve-accent flex items-center justify-center text-white group-hover:translate-x-1 transition-transform">
-              <ArrowRight size={18} />
-            </div>
+            <ChevronRight size={20} strokeWidth={3} className="text-thryve-accent group-hover:translate-x-1 transition-transform" />
           </Button>
         </motion.div>
 

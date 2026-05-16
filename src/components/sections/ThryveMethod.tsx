@@ -60,7 +60,7 @@ export const ThryveMethod = () => {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto w-full"
         >
-          <Card className="w-full p-8 md:p-12">
+          <Card className="w-full" innerClassName="p-8 md:p-12">
             <div className="flex flex-col md:flex-row gap-8 md:gap-12">
               <div className="flex-1 flex flex-col">
                 <div className="flex items-center gap-4 mb-6">
