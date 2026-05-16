@@ -7,7 +7,7 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="pt-8 pb-16 md:pt-12 md:pb-24 relative">
+    <section id="faq" className="pt-8 pb-16 md:pt-12 md:pb-24 relative overflow-hidden">
       {/* Fixed background accent to replace Card glow, positioned at the top so it doesn't move on toggle */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none mt-20"></div>
       

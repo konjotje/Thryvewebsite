@@ -6,7 +6,7 @@ import { THRYVE_METHOD_CONTENT } from '../../constants/content';
 
 export const ThryveMethod = () => {
   return (
-    <section id="method" className="py-16 md:py-24 bg-thryve-dark">
+    <section id="method" className="py-16 md:py-24 bg-thryve-dark overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div 

@@ -26,7 +26,7 @@ export const Testimonials = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-thryve-dark">
+    <section id="testimonials" className="py-16 md:py-24 bg-thryve-dark overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
