@@ -15,6 +15,8 @@ import { FAQ } from './components/sections/FAQ';
 import { Contact } from './components/sections/Contact';
 import { TermsAndConditions } from './components/pages/TermsAndConditions';
 import { PrivacyPolicy } from './components/pages/PrivacyPolicy';
+import PerformanceTestPage from './components/performance-test/PerformanceTestPage';
+import { PerformanceTestPopup } from './components/performance-test/PerformanceTestPopup';
 
 export default function App() {
   const { pathname, hash } = useLocation();
@@ -35,6 +37,7 @@ export default function App() {
   return (
     <div className="bg-thryve-dark min-h-screen text-thryve-cream selection:bg-thryve-accent selection:text-white">
       <Navbar />
+      <PerformanceTestPopup />
       <Routes>
         <Route path="/" element={
           <>
@@ -85,6 +88,7 @@ export default function App() {
             <PrivacyPolicy />
           </>
         } />
+        <Route path="/performance-test" element={<PerformanceTestPage />} />
       </Routes>
       <Footer />
       <SpeedInsights />
