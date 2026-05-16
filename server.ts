@@ -25,7 +25,7 @@ async function startServer() {
 
       // Email 1: To the Client
       const clientEmail = await resend.emails.send({
-        from: "The Thryve Method <rapport@thethryvemethod.com>",
+        from: "The Thryve Method <onboarding@resend.dev>",
         to: [email],
         subject: "Jouw Thryve Performance Rapport & Score",
         html: `

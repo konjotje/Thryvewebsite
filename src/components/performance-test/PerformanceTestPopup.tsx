@@ -61,8 +61,8 @@ export const PerformanceTestPopup: React.FC = () => {
             </p>
 
             <div className="flex flex-col gap-3">
-              <Button onClick={handleStartTest} className="w-full justify-center py-4">
-                Doe de gratis test
+              <Button onClick={handleStartTest} className="w-full text-lg px-10 py-4 flex justify-between items-center">
+                  Doe de gratis test <ChevronRight className="w-5 h-5" />
               </Button>
               <button 
                 onClick={() => setIsVisible(false)}
