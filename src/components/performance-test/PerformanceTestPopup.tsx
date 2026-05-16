@@ -61,7 +61,7 @@ export const PerformanceTestPopup: React.FC = () => {
             </p>
 
             <div className="flex flex-col gap-3">
-              <Button onClick={handleStartTest} size="lg" className="w-full">
+              <Button onClick={handleStartTest} size="md" className="w-full">
                 Doe de gratis test <ChevronRight size={20} strokeWidth={3} className="text-thryve-accent" />
               </Button>
               <button 
