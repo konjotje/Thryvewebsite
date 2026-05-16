@@ -55,57 +55,43 @@ export const Navbar = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-thryve-dark/80 backdrop-blur-md lg:hidden flex items-center justify-center p-6"
-            onClick={() => setMobileMenuOpen(false)}
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -100 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed top-0 left-0 w-full z-40 bg-thryve-dark/98 backdrop-blur-lg lg:hidden pt-24 pb-8 px-6 border-b border-white/10 shadow-2xl"
           >
-            <motion.div 
-              initial={{ scale: 0.9, y: 20, opacity: 0 }}
-              animate={{ scale: 1, y: 0, opacity: 1 }}
-              exit={{ scale: 0.9, y: 20, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-thryve-card border border-white/10 rounded-3xl w-full max-w-sm p-8 shadow-2xl relative overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-thryve-accent/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-thryve-accent/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
-              
-              <div className="relative z-10 flex flex-col space-y-6 pt-2">
-                {[
-                  { name: 'The Method', path: '/#method' },
-                  { name: 'Stories', path: '/#stories' },
-                  { name: 'Over mij', path: '/#about' },
-                  { name: 'Reviews', path: '/#testimonials' },
-                  { name: 'FAQ', path: '/#faq' },
-                ].map((item, i) => (
-                  <motion.button 
-                    key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 + (i * 0.1) }}
-                    onClick={() => handleMobileLinkClick(item.path)} 
-                    className="text-3xl font-heading font-bold text-white text-left hover:text-thryve-accent transition-colors w-full group relative"
-                  >
-                    <span className="relative z-10">{item.name}</span>
-                    <span className="absolute left-0 bottom-0 w-0 h-1 bg-thryve-accent transition-all duration-300 group-hover:w-12 rounded-full -mb-2"></span>
-                  </motion.button>
-                ))}
-                
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="pt-6 w-full"
+            <div className="relative z-10 flex flex-col space-y-5 max-w-sm mx-auto">
+              {[
+                { name: 'The Method', path: '/#method' },
+                { name: 'Stories', path: '/#stories' },
+                { name: 'Over mij', path: '/#about' },
+                { name: 'Reviews', path: '/#testimonials' },
+                { name: 'FAQ', path: '/#faq' },
+              ].map((item, i) => (
+                <motion.button 
+                  key={item.name}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  onClick={() => handleMobileLinkClick(item.path)} 
+                  className="text-xl font-heading font-medium text-white text-left hover:text-thryve-accent transition-colors w-full group relative"
                 >
-                  <Button size="lg" className="w-full text-lg shadow-[0_0_20px_rgba(16,185,129,0.3)]" onClick={() => handleMobileLinkClick('/#contact')}>
-                    Contact
-                  </Button>
-                </motion.div>
-              </div>
-            </motion.div>
+                  <span className="relative z-10">{item.name}</span>
+                </motion.button>
+              ))}
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="pt-4 w-full"
+              >
+                <Button size="md" className="w-full text-base shadow-[0_0_20px_rgba(16,185,129,0.2)]" onClick={() => handleMobileLinkClick('/#contact')}>
+                  Contact
+                </Button>
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
