@@ -25,7 +25,7 @@ export const Navbar = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`fixed top-0 w-full z-50 transition-colors duration-300 ${scrolled ? 'bg-thryve-dark/95 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-6'}`}
+        className={`fixed top-0 w-full z-50 transition-colors duration-300 ${scrolled ? 'bg-thryve-dark/95 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-4 sm:py-6'}`}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
           <Link to="/" className="text-xl font-heading font-bold tracking-widest text-white uppercase relative z-50">
@@ -55,43 +55,49 @@ export const Navbar = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -100 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="fixed top-0 left-0 w-full z-40 bg-thryve-dark/98 backdrop-blur-lg lg:hidden pt-24 pb-8 px-6 border-b border-white/10 shadow-2xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="fixed inset-0 z-40 bg-thryve-dark/60 backdrop-blur-3xl lg:hidden flex flex-col justify-center px-8 sm:px-12"
+            onClick={() => setMobileMenuOpen(false)}
           >
-            <div className="relative z-10 flex flex-col space-y-5 max-w-sm mx-auto">
+            {/* Background elements */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-thryve-accent/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-thryve-accent/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+            
+            <div 
+              className="relative z-10 flex flex-col space-y-4 sm:space-y-6"
+              onClick={(e) => e.stopPropagation()}
+            >
               {[
                 { name: 'The Method', path: '/#method' },
                 { name: 'Stories', path: '/#stories' },
                 { name: 'Over mij', path: '/#about' },
                 { name: 'Reviews', path: '/#testimonials' },
                 { name: 'FAQ', path: '/#faq' },
+                { name: 'Contact', path: '/#contact' },
               ].map((item, i) => (
                 <motion.button 
                   key={item.name}
-                  initial={{ opacity: 0, x: -10 }}
+                  initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
+                  transition={{ 
+                    delay: 0.1 + (i * 0.08), 
+                    duration: 0.6, 
+                    ease: [0.22, 1, 0.36, 1] 
+                  }}
                   onClick={() => handleMobileLinkClick(item.path)} 
-                  className="text-xl font-heading font-medium text-white text-left hover:text-thryve-accent transition-colors w-full group relative"
+                  className="group flex items-baseline text-4xl sm:text-7xl font-heading font-black text-white text-left transition-all duration-300 w-full"
                 >
-                  <span className="relative z-10">{item.name}</span>
+                  <span className="text-thryve-accent text-sm sm:text-lg font-mono mr-6 opacity-30 group-hover:opacity-100 transition-opacity">0{i + 1}</span>
+                  <span className="relative uppercase tracking-tighter group-hover:pl-4 transition-all duration-300 group-hover:text-thryve-accent">
+                    {item.name}
+                  </span>
                 </motion.button>
               ))}
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="pt-4 w-full"
-              >
-                <Button size="md" className="w-full text-base shadow-[0_0_20px_rgba(16,185,129,0.2)]" onClick={() => handleMobileLinkClick('/#contact')}>
-                  Contact
-                </Button>
-              </motion.div>
             </div>
+
           </motion.div>
         )}
       </AnimatePresence>
