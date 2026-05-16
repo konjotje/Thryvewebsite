@@ -30,7 +30,7 @@ export const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 1.0 }}
-            className="rounded-3xl overflow-hidden border border-white/10 aspect-square w-full bg-[#0a0a0a]"
+            className="rounded-3xl overflow-hidden border border-white/10 h-[500px] lg:h-auto lg:aspect-square w-full bg-[#0a0a0a]"
           >
             <InlineWidget 
               url="https://calendly.com/thethryvemethod/45min" 
