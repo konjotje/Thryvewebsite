@@ -15,11 +15,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
-    // CONFIGURATIE VOOR TEST EN VERZENDEN
-    const TEST_EMAIL = "luchijdra1@gmail.com";
+    // CONFIGURATIE VOOR VERZENDEN (onboarding@resend.dev blijft actief)
+    const COACH_TEST_EMAIL = "thethryvemethod@gmail.com";
     const FROM_EMAIL = "The Thryve Method <onboarding@resend.dev>";
     
-    // Directe, live link van de coach (Imgur) die nu overal laadt
+    // Directe, live link van de coach (Imgur)
     const COACH_IMAGE_URL = "https://i.imgur.com/Nz2Hev1.jpg";
 
     // Gedeelde stijlen: Helvetica voor tekst, Space Grotesk voor titels. Geen zwarte buitenachtergrond.
@@ -55,12 +55,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       </style>
     `;
 
-    // Waterdichte tabel layout voor de pijlerbalken (geen flexbox problemen meer)
+    // Waterdichte tabel layout voor de pijlerbalken
     const pillarBarsHtml = Object.entries(breakdown).map(([pillar, score]) => {
       const s = score as number;
       const pct = Math.round((s / 20) * 100);
       
-      // Zorg voor nette Schrijfwijze (alleen eerste letter hoofdletter)
       const formattedPillar = pillar.charAt(0).toUpperCase() + pillar.slice(1).toLowerCase();
 
       return `
@@ -85,11 +84,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }).join('');
 
     // ==========================================
-    // EMAIL 1: NAAR DE KLANT
+    // EMAIL 1: DYNAMISCH NAAR DE KLANT
     // ==========================================
     await resend.emails.send({
       from: FROM_EMAIL,
-      to: [TEST_EMAIL], // In productie: [email]
+      to: [email], // Gestuurd naar het e-mailadres dat is ingevuld in de quiz
       subject: `⚡ Jouw Thryve Performance Rapport is klaar, ${firstName}!`,
       html: `
         <!DOCTYPE html>
@@ -124,9 +123,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 <img src="${COACH_IMAGE_URL}" alt="Iven van Stekelenburg" class="coach-avatar">
                 <h3 style="font-size: 20px; margin-bottom: 6px; letter-spacing: -0.01em;">Laten we jouw systeem optimaliseren</h3>
                 <p style="font-size: 14px; color: #a3b8a3; line-height: 1.6; max-width: 420px; margin: 0 auto 25px auto; font-weight: 500;">
-                  Als ondernemer is je brein en energie de motor van je business. Laten we tijdens een gratis strategiesessie jouw knelpunten omzetten in een onbreekbaar peak-performance ritme.
+                  Als ondernemer is je brein en energie de motor van je business. Laten we tijdens een gratis kennismakingsgesprek jouw knelpunten omzetten in een onbreekbaar peak-performance ritme.
                 </p>
-                <a href="https://cal.com/thryvemethod/45min" class="cta-button">Plan je strategiesessie</a>
+                <a href="https://cal.com/thryvemethod/45min" class="cta-button">Laten we eens kennismaken!</a>
               </div>
 
               <p class="footer-text">
@@ -140,11 +139,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
     // ==========================================
-    // EMAIL 2: NAAR DE COACH
+    // EMAIL 2: NAAR DE COACH (TESTADRES)
     // ==========================================
     await resend.emails.send({
       from: FROM_EMAIL,
-      to: [TEST_EMAIL], // In productie: ["info@thethryvemethod.com"]
+      to: [COACH_TEST_EMAIL], // Blijft naar jouw e-mail gaan voor controle
       subject: `🔥 Nieuwe Lead Performance Test: ${firstName} ${lastName} (${totalScore}/100)`,
       html: `
         <!DOCTYPE html>
