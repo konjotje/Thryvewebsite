@@ -1,8 +1,10 @@
 import { ChevronRight } from 'lucide-react';
 import { motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui/Button';
 
 export const About = () => {
+  const navigate = useNavigate();
   return (
     <section id="about" className="py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
@@ -36,7 +38,7 @@ export const About = () => {
             <p className="text-thryve-cream/70 leading-relaxed mb-10 text-sm">
               Ik ben Iven van Stekelenburg, fysiotherapeut en peak performance coach. Met ruim 8 jaar ervaring in sport en krachttraining help ik ondernemers om hun lichaam en geest te optimaliseren voor duurzame groei. Geen quick fixes, maar systemen die werken onder druk.
             </p>
-            <Button onClick={() => window.location.href = '#contact'}>
+            <Button onClick={() => navigate('/#contact')}>
               Klaar voor?
               <ChevronRight size={20} strokeWidth={3} className="text-thryve-accent" />
             </Button>

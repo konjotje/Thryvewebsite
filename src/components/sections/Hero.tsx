@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui/Button';
 import { HERO_CONTENT } from '../../constants/content';
 
 export const Hero: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-thryve-dark">
       {/* Mobile background image */}
@@ -37,7 +39,7 @@ export const Hero: React.FC = () => {
             {HERO_CONTENT.description}
           </p>
           
-          <Button onClick={() => window.location.href = '#stories'} className="font-heading">
+          <Button onClick={() => navigate('/#stories')} className="font-heading">
             {HERO_CONTENT.cta} 
             <ChevronRight size={20} strokeWidth={3} className="text-thryve-accent" />
           </Button>

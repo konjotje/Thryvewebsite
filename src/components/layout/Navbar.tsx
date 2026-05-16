@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -14,9 +15,9 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleMobileLinkClick = (href: string) => {
+  const handleMobileLinkClick = (path: string) => {
     setMobileMenuOpen(false);
-    window.location.href = href;
+    navigate(path);
   };
 
   return (
@@ -38,7 +39,7 @@ export const Navbar = () => {
             <Link to="/#about" className="hover:text-white transition-colors">Over mij</Link>
             <Link to="/#testimonials" className="hover:text-white transition-colors">Reviews</Link>
             <Link to="/#faq" className="hover:text-white transition-colors">FAQ</Link>
-            <Button size="sm" onClick={() => window.location.href = '#contact'}>
+            <Button size="sm" onClick={() => navigate('/#contact')}>
               Contact
             </Button>
           </div>
