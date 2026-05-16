@@ -9,10 +9,9 @@ import { QUIZ_QUESTIONS, PILLAR_RECOMMENDATIONS } from '../../constants/quizData
 import { Pillar, PerformanceTestData, LeadFormData } from '../../types/quiz';
 
 export default function PerformanceTestPage() {
-  const [step, setStep] = useState<'intro' | 'quiz' | 'form' | 'results'>('intro');
+  const [step, setStep] = useState<'intro' | 'quiz' | 'form' | 'confirmation'>('intro');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
-  const [results, setResults] = useState<PerformanceTestData | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const currentQuestion = QUIZ_QUESTIONS[currentQuestionIndex];
@@ -74,7 +73,6 @@ export default function PerformanceTestPage() {
   const onSubmitForm = async (data: LeadFormData) => {
     setIsSubmitting(true);
     const calculatedResults = calculateResults(data);
-    setResults(calculatedResults);
 
     try {
       const response = await fetch('/api/send-report', {
@@ -89,11 +87,10 @@ export default function PerformanceTestPage() {
 
       if (!response.ok) throw new Error('Failed to send report');
       
-      setStep('results');
+      setStep('confirmation');
     } catch (error) {
       console.error(error);
-      // Even if email fails, show results to user
-      setStep('results');
+      setStep('confirmation');
     } finally {
       setIsSubmitting(false);
     }
@@ -187,7 +184,7 @@ export default function PerformanceTestPage() {
                 <CheckCircle2 className="w-16 h-16 text-thryve-accent mx-auto mb-4" />
                 <h2 className="text-3xl mb-4">Laatste stap!</h2>
                 <p className="text-thryve-cream/70">
-                  Vul je gegevens in om je gepersonaliseerde Peak Performance Rapport direct te bekijken.
+                  Vul je gegevens in om je gepersonaliseerde Peak Performance Rapport direct in je mailbox te ontvangen.
                 </p>
               </div>
 
@@ -195,90 +192,18 @@ export default function PerformanceTestPage() {
             </motion.div>
           )}
 
-          {step === 'results' && results && (
+          {step === 'confirmation' && (
             <motion.div
-              key="results"
+              key="confirmation"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="space-y-12"
+              className="text-center py-20"
             >
-              <div className="text-center mb-12">
-                <div className="inline-block relative mb-6">
-                  <svg className="w-48 h-48 transform -rotate-90">
-                    <circle
-                      cx="96"
-                      cy="96"
-                      r="88"
-                      stroke="currentColor"
-                      strokeWidth="12"
-                      fill="transparent"
-                      className="text-thryve-card"
-                    />
-                    <motion.circle
-                      cx="96"
-                      cy="96"
-                      r="88"
-                      stroke="currentColor"
-                      strokeWidth="12"
-                      fill="transparent"
-                      strokeDasharray={552.92}
-                      initial={{ strokeDashoffset: 552.92 }}
-                      animate={{ strokeDashoffset: 552.92 - (552.92 * (results.totalScore as number)) / 100 }}
-                      transition={{ duration: 2, ease: "easeOut" }}
-                      className="text-thryve-accent"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-5xl font-bold text-white">{results.totalScore}</span>
-                    <span className="text-sm text-thryve-cream/50 uppercase tracking-widest">Score</span>
-                  </div>
-                </div>
-                <h2 className="text-3xl mb-2">Jouw Profiel: <span className="text-thryve-accent">{results.type}</span></h2>
-                <p className="text-thryve-cream/70">We hebben een kopie van je volledige rapport naar je e-mail gestuurd.</p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                {Object.entries(results.pillarScores).map(([pillar, score]) => {
-                  const s = score as number;
-                  const percentage = Math.round((s / 20) * 100);
-                  return (
-                    <Card key={pillar} className="p-6">
-                      <div className="flex justify-between items-end mb-4">
-                        <h4 className="text-sm font-semibold uppercase tracking-wider m-0">{pillar}</h4>
-                        <span className="text-thryve-accent font-mono">{percentage}%</span>
-                      </div>
-                      <div className="w-full bg-thryve-dark h-1.5 rounded-full overflow-hidden">
-                        <motion.div 
-                          className="bg-thryve-accent h-full"
-                          initial={{ width: 0 }}
-                          animate={{ width: `${percentage}%` }}
-                          transition={{ duration: 1, delay: 0.5 }}
-                        />
-                      </div>
-                    </Card>
-                  );
-                })}
-              </div>
-
-              <div className="bg-thryve-card p-8 rounded-3xl border border-thryve-accent/20 relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-4 opacity-10">
-                  <AlertCircle size={80} />
-                </div>
-                <h3 className="text-xl mb-4 italic">Grootste groeikans: {results.weakestPillar}</h3>
-                <p className="text-thryve-cream/80 text-lg leading-relaxed mb-8">
-                  "{results.recommendation}"
-                </p>
-                <div className="flex flex-col md:flex-row gap-4 items-center">
-                  <Button 
-                    onClick={() => window.open('https://cal.com/thryvemethod/45min', '_blank')}
-                    className="w-full md:w-auto"
-                  >
-                    Plan Strategiegesprek
-                  </Button>
-                  <p className="text-xs text-thryve-cream/50">Gratis en vrijblijvend advies over je resultaten.</p>
-                </div>
-              </div>
+              <CheckCircle2 className="w-20 h-20 text-thryve-accent mx-auto mb-6" />
+              <h2 className="text-3xl mb-4">Rapport Verzonden!</h2>
+              <p className="text-thryve-cream/70 text-lg max-w-md mx-auto">
+                Je gepersonaliseerde Peak Performance Rapport is onderweg naar je mailbox. Check bij vragen ook even je spam-folder.
+              </p>
             </motion.div>
           )}
         </AnimatePresence>
