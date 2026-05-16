@@ -52,7 +52,6 @@ export const PerformanceTestPopup: React.FC = () => {
                 <Trophy size={28} />
               </div>
               <div>
-                <div className="text-thryve-accent text-[10px] font-bold tracking-[0.2em] uppercase mb-1">Lead Magnet</div>
                 <h3 className="text-xl md:text-2xl m-0 leading-tight">Peak Performance <span className="text-thryve-accent">Test</span></h3>
               </div>
             </div>
@@ -62,9 +61,8 @@ export const PerformanceTestPopup: React.FC = () => {
             </p>
 
             <div className="flex flex-col gap-3">
-              <Button onClick={handleStartTest} className="w-full flex justify-between items-center group/btn py-4">
+              <Button onClick={handleStartTest} className="w-full justify-center py-4">
                 Doe de gratis test
-                <ChevronRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
               </Button>
               <button 
                 onClick={() => setIsVisible(false)}

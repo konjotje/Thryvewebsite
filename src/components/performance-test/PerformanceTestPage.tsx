@@ -288,10 +288,10 @@ export default function PerformanceTestPage() {
 }
 
 function LeadForm({ onSubmit, isSubmitting }: { onSubmit: (data: LeadFormData) => void, isSubmitting: boolean }) {
-  const { register, handleSubmit, formState: { errors } } = useForm<LeadFormData>();
+  const { register, handleSubmit, control, formState: { errors } } = useForm<LeadFormData & { consent: boolean }>();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <form onSubmit={handleSubmit(onSubmit as any)} className="space-y-4">
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-xs uppercase tracking-widest text-thryve-cream/50 mb-1 ml-1">Voornaam</label>
@@ -335,6 +335,27 @@ function LeadForm({ onSubmit, isSubmitting }: { onSubmit: (data: LeadFormData) =
           className="w-full bg-thryve-card border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-thryve-accent transition-colors"
         />
         {errors.phone && <span className="text-red-500 text-xs mt-1">{errors.phone.message}</span>}
+      </div>
+      <div>
+        <Controller
+          name="consent"
+          control={control}
+          rules={{ required: 'Je moet akkoord gaan met het contact opnemen' }}
+          render={({ field }) => (
+            <label className="flex items-start gap-2 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={field.value}
+                onChange={(e) => field.onChange(e.target.checked)}
+                className="mt-1"
+              />
+              <span className="text-xs text-thryve-cream/70">
+                Ik ga ermee akkoord dat The Thryve Method contact met mij opneemt naar aanleiding van mijn resultaten.
+              </span>
+            </label>
+          )}
+        />
+        {errors.consent && <span className="text-red-500 text-xs mt-1">{errors.consent.message}</span>}
       </div>
       <Button 
         type="submit"
