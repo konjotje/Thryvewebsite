@@ -17,7 +17,7 @@ export const PerformanceTestPopup: React.FC = () => {
         setHasBeenShown(true);
         localStorage.setItem('performance_popup_shown', 'true');
       }
-    }, 3000); // 3 seconds delay
+    }, 5000); // 5 seconds delay
 
     return () => clearTimeout(timer);
   }, []);
@@ -30,7 +30,8 @@ export const PerformanceTestPopup: React.FC = () => {
   return (
     <AnimatePresence>
       {isVisible && (
-        <div className="fixed inset-0 z-[100] flex items-end justify-center md:items-center p-6 bg-black/40 backdrop-blur-sm">
+        // HIER IS DE FIX: items-center in plaats van items-end
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/40 backdrop-blur-sm">
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -62,7 +63,7 @@ export const PerformanceTestPopup: React.FC = () => {
 
             <div className="flex flex-col gap-3">
               <Button onClick={handleStartTest} size="md" className="w-full">
-                Doe de gratis test <ChevronRight size={20} strokeWidth={3} className="text-thryve-accent" />
+                Doe de gratis test <ChevronRight size={18} strokeWidth={3} className="text-thryve-accent ml-1" />
               </Button>
               <button 
                 onClick={() => setIsVisible(false)}
