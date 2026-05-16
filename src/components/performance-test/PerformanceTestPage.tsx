@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { useForm, Controller } from 'react-hook-form';
@@ -12,6 +12,15 @@ export default function PerformanceTestPage() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (step === 'confirmation') {
+      const timer = setTimeout(() => {
+        window.location.href = '/';
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [step]);
 
   const currentQuestion = QUIZ_QUESTIONS[currentQuestionIndex];
   const progress = ((currentQuestionIndex + 1) / QUIZ_QUESTIONS.length) * 100;
@@ -294,7 +303,7 @@ function LeadForm({ onSubmit, isSubmitting }: { onSubmit: (data: LeadFormData) =
         )}
       </Button>
       <p className="text-[9px] text-center text-thryve-cream/30 mt-3 uppercase tracking-widest">
-        Geen spam, alleen waarde.
+        Geen spam, alleen je rapport.
       </p>
     </form>
   );
