@@ -8,7 +8,7 @@ export const ThryveMethod = () => {
   return (
     <section id="method" className="py-16 md:py-24 bg-thryve-dark">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}

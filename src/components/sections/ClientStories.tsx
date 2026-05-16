@@ -6,7 +6,12 @@ import { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 
 export const ClientStories = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ align: 'start', loop: false, containScroll: 'trimSnaps' });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    align: 'start', 
+    loop: false, 
+    containScroll: 'trimSnaps',
+    breakpoints: { '(min-width: 1024px)': { active: false } }
+  });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onSelect = useCallback(() => {
@@ -22,7 +27,7 @@ export const ClientStories = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <section id="stories" className="py-16 md:py-24 bg-thryve-dark overflow-hidden">
+    <section id="stories" className="py-16 md:py-24 bg-thryve-dark overflow-x-clip">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -36,12 +41,12 @@ export const ClientStories = () => {
         </motion.div>
 
         <div className="relative">
-          <div className="absolute inset-x-0 -top-20 h-96 bg-emerald-500/10 blur-3xl rounded-full -z-10"></div>
+          <div className="absolute inset-x-0 -top-20 h-96 bg-emerald-500/10 blur-3xl rounded-full -z-10 pointer-events-none"></div>
           
-          <div className="overflow-hidden pb-8" ref={emblaRef}>
-            <div className="flex gap-6 md:gap-8 items-stretch">
+          <div className="overflow-hidden pb-8 lg:overflow-visible lg:p-4 lg:-m-4" ref={emblaRef}>
+            <div className="flex gap-6 md:gap-8 items-stretch lg:grid lg:grid-cols-3">
               {CLIENT_STORIES.map((story, i) => (
-                <div key={i} className="flex-[0_0_85vw] sm:flex-[0_0_350px] md:flex-[0_0_33.333%] min-w-0 h-auto">
+                <div key={i} className="flex-[0_0_85vw] sm:flex-[0_0_350px] lg:flex-none min-w-0 h-auto">
                   <Card 
                     className={`transition-all duration-500 flex flex-col h-full w-full opacity-100 scale-100 ${story.active ? 'md:scale-105 z-10 border-thryve-accent/30' : 'md:opacity-50 md:scale-95 hover:opacity-100'}`}
                     innerClassName="p-6 h-full flex flex-col"

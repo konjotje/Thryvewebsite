@@ -5,7 +5,12 @@ import { Card } from '../ui/Card';
 import { TESTIMONIALS } from '../../constants/content';
 
 export const Testimonials = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ align: 'start', loop: false, containScroll: 'trimSnaps' });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    align: 'start', 
+    loop: false, 
+    containScroll: 'trimSnaps',
+    breakpoints: { '(min-width: 1024px)': { active: false } }
+  });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onSelect = useCallback(() => {
@@ -34,12 +39,12 @@ export const Testimonials = () => {
           <h2 className="mb-10 text-center">WAT KLANTEN ZEGGEN</h2>
         </motion.div>
 
-        <div className="overflow-hidden pb-8" ref={emblaRef}>
-          <div className="flex gap-6 items-stretch">
+        <div className="overflow-hidden pb-8 lg:overflow-visible lg:p-4 lg:-m-4" ref={emblaRef}>
+          <div className="flex gap-6 items-stretch lg:grid lg:grid-cols-4">
             {TESTIMONIALS.map((t, i) => (
               <div
                 key={i}
-                className="flex-[0_0_85vw] sm:flex-[0_0_300px] lg:flex-[0_0_25%] min-w-0 h-auto"
+                className="flex-[0_0_85vw] sm:flex-[0_0_300px] lg:flex-[1_1_100%] min-w-0 h-auto"
               >
                 <Card className="flex flex-col relative h-full shadow-none w-full" innerClassName="p-6 h-full flex flex-col">
                   <p className="text-thryve-cream/80 text-sm leading-relaxed mb-8 flex-grow italic">"{t.text}"</p>
