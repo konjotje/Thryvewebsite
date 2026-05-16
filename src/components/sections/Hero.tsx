@@ -16,6 +16,10 @@ export const Hero: React.FC = () => {
           alt="Iven van Stekelenburg - Peak Performance Coach" 
           className="w-full h-full object-cover image-fade-abstract transition-transform duration-700 group-hover:scale-105"
           referrerPolicy="no-referrer"
+          fetchPriority="high"
+          loading="eager"
+          width="823"
+          height="1646"
         />
         <div className="absolute inset-0 bg-thryve-dark/80"></div>
       </div>
@@ -56,6 +60,10 @@ export const Hero: React.FC = () => {
               alt="Iven van Stekelenburg - Peak Performance Coach" 
               className="w-full h-full object-cover object-top image-fade-abstract transition-transform duration-700 group-hover:scale-105"
               referrerPolicy="no-referrer"
+              fetchPriority="high"
+              loading="eager"
+              width="1558"
+              height="3118"
             />
             <div className="absolute inset-0 bg-gradient-to-bl from-thryve-dark via-transparent to-thryve-dark pointer-events-none opacity-80"></div>
           </div>

@@ -80,7 +80,7 @@ export const ClientStories = () => {
              {emblaApi.scrollSnapList().map((_, index) => (
               <button
                 key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${index === selectedIndex ? 'bg-thryve-accent w-6' : 'bg-white/20 hover:bg-white/40'}`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${index === selectedIndex ? 'bg-thryve-accent w-8' : 'bg-white/20 hover:bg-white/40'}`}
                 onClick={() => emblaApi.scrollTo(index)}
                 aria-label={`Go to slide ${index + 1}`}
               />

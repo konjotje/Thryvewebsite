@@ -22,6 +22,9 @@ export const ThryveMethod = () => {
                 alt="Detail van gewicht in fitnessruimte voor The Thryve Method"
                 className="w-full h-full object-cover image-fade-abstract transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
+                loading="lazy"
+                width="800"
+                height="600"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-thryve-dark via-transparent to-thryve-dark pointer-events-none opacity-80"></div>
             </div>

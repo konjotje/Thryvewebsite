@@ -33,7 +33,7 @@ export const Navbar = () => {
             THRYVE
           </Link>
           
-          <div className="hidden lg:flex items-center space-x-6 text-sm font-medium font-heading text-thryve-cream/80">
+          <div className="hidden lg:flex items-center space-x-6 text-sm font-medium font-heading text-thryve-cream">
             <Link to="/#method" className="hover:text-white transition-colors">The Method</Link>
             <Link to="/#stories" className="hover:text-white transition-colors">Stories</Link>
             <Link to="/#about" className="hover:text-white transition-colors">Over mij</Link>
@@ -47,6 +47,7 @@ export const Navbar = () => {
           <button 
             className="lg:hidden text-white relative z-50 p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle mobile menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
