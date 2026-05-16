@@ -123,7 +123,7 @@ export default function PerformanceTestPage() {
               <p className="text-thryve-cream/70 mb-10 text-lg max-w-xl mx-auto">
                 Ontdek in 3 minuten op welke gebieden jij energie laat liggen en hoe je jouw productiviteit naar het volgende niveau tilt.
               </p>
-              <Button onClick={() => setStep('quiz')} className="px-10 py-4 text-lg">
+              <Button onClick={() => setStep('quiz')} size="lg" className="px-10 py-4 text-lg">
                 Start de test <ChevronRight size={20} strokeWidth={3} className="text-thryve-accent" />
               </Button>
             </motion.div>
