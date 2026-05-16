@@ -39,7 +39,7 @@ export const Testimonials = () => {
           <h2 className="mb-10 text-center">WAT KLANTEN ZEGGEN</h2>
         </motion.div>
 
-        <div className="overflow-hidden pb-8 lg:overflow-visible lg:p-4 lg:-m-4" ref={emblaRef}>
+        <div className="overflow-hidden p-4 -m-4 pb-12 lg:overflow-visible" ref={emblaRef}>
           <div className="flex gap-6 items-stretch lg:grid lg:grid-cols-4">
             {TESTIMONIALS.map((t, i) => (
               <div

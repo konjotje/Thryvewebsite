@@ -27,7 +27,7 @@ export const ClientStories = () => {
   }, [emblaApi, onSelect]);
 
   return (
-    <section id="stories" className="py-16 md:py-24 bg-thryve-dark overflow-x-clip">
+    <section id="stories" className="py-16 md:py-24 bg-thryve-dark overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -43,7 +43,7 @@ export const ClientStories = () => {
         <div className="relative">
           <div className="absolute inset-x-0 -top-20 h-96 bg-emerald-500/10 blur-3xl rounded-full -z-10 pointer-events-none"></div>
           
-          <div className="overflow-hidden pb-8 lg:overflow-visible lg:p-4 lg:-m-4" ref={emblaRef}>
+          <div className="overflow-hidden p-4 -m-4 pb-12 lg:overflow-visible" ref={emblaRef}>
             <div className="flex gap-6 md:gap-8 items-stretch lg:grid lg:grid-cols-3">
               {CLIENT_STORIES.map((story, i) => (
                 <div key={i} className="flex-[0_0_85vw] sm:flex-[0_0_350px] lg:flex-none min-w-0 h-auto">

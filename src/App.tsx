@@ -49,10 +49,17 @@ export default function App() {
             <About />
             <Testimonials />
             <div className="relative bg-thryve-dark overflow-hidden">
-              <div className="absolute inset-0 z-0 overflow-hidden">
-                <img src="/images/services.webp" alt="Ondernemer bezig met krachttraining en vitaliteit in een donkere sportschool" className="absolute inset-0 w-full h-full object-cover object-[50%_25%] opacity-20 image-fade-abstract" referrerPolicy="no-referrer" />
-                <div className="absolute inset-0 bg-gradient-to-b from-thryve-dark via-transparent to-thryve-dark pointer-events-none"></div>
-              </div>
+              <div 
+                className="absolute inset-0 z-0 opacity-20 image-fade-abstract"
+                style={{ 
+                  backgroundImage: 'url(/images/services.webp)',
+                  backgroundAttachment: 'fixed',
+                  backgroundPosition: '50% 25%',
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat'
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-thryve-dark via-transparent to-thryve-dark pointer-events-none z-[1]"></div>
               <div className="relative z-10">
                 <Contact />
                 <FAQ />
