@@ -21,7 +21,7 @@ export const Features = () => {
                   <div className="text-thryve-accent transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h4 className="text-lg font-bold text-white uppercase">{f.title}</h4>
+                  <h4>{f.title}</h4>
                 </div>
                 <p className="text-thryve-cream/60 text-sm leading-relaxed">{f.desc}</p>
               </motion.div>

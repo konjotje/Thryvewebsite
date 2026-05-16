@@ -16,7 +16,7 @@ export const FAQ = () => {
         className="max-w-2xl mx-auto px-6"
       >
         <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4 text-center">FAQ</div>
-        <h2 className="text-3xl md:text-4xl text-center mb-10 text-white">VEELGESTELDE VRAGEN</h2>
+        <h2 className="text-center mb-10">VEELGESTELDE VRAGEN</h2>
         <div className="space-y-2">
           {FAQS.map((faq, i) => (
             <Card key={i} className="overflow-hidden" innerClassName="p-3 md:p-4">

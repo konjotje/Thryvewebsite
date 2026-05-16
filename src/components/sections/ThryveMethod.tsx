@@ -33,14 +33,14 @@ export const ThryveMethod = () => {
             viewport={{ once: true }}
           >
             <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">The Method</div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl mb-8 text-white">{THRYVE_METHOD_CONTENT.title}</h2>
+            <h2 className="mb-8">{THRYVE_METHOD_CONTENT.title}</h2>
             {THRYVE_METHOD_CONTENT.paragraphs.map((p, i) => (
               <p key={i} className={`text-sm text-thryve-cream/80 leading-relaxed ${i === THRYVE_METHOD_CONTENT.paragraphs.length - 1 ? 'mb-10' : 'mb-6'}`}>
                 {p}
               </p>
             ))}
 
-            <ul className="space-y-4">
+            <ul className="space-y-4 font-heading font-bold">
               {THRYVE_METHOD_CONTENT.bullets.map((bullet, i) => {
                 const Icon = bullet.icon;
                 return (
@@ -65,13 +65,13 @@ export const ThryveMethod = () => {
               <div className="flex-1 flex flex-col">
                 <div className="flex items-center gap-4 mb-6">
                   <Monitor className="w-8 h-8 text-thryve-accent" />
-                  <h3 className="text-2xl text-white">ONLINE COACHING</h3>
+                  <h3>ONLINE COACHING</h3>
                 </div>
                 <p className="text-thryve-cream/60 text-sm leading-relaxed mb-8 flex-grow">
                   Ideaal voor als je niet in de buurt woont of flexibiliteit wilt. Met online coaching werken we effectief samen om exceptionele resultaten te behalen.
                 </p>
                 
-                <ul className="space-y-4 mb-12">
+                <ul className="space-y-4 mb-12 font-heading">
                   <li className="flex items-center gap-3">
                     <Check className="text-thryve-accent w-5 h-5 shrink-0" />
                     <span className="text-sm text-thryve-cream/90">Gepersonaliseerde Trainingsplannen</span>
@@ -97,13 +97,13 @@ export const ThryveMethod = () => {
               <div className="flex-1 flex flex-col">
                 <div className="flex items-center gap-4 mb-6">
                   <User className="w-8 h-8 text-thryve-accent" />
-                  <h3 className="text-2xl text-white">IN-PERSON COACHING</h3>
+                  <h3>IN-PERSON COACHING</h3>
                 </div>
                 <p className="text-thryve-cream/60 text-sm leading-relaxed mb-8 flex-grow">
                   Voor degene die de voorkeur geeft aan 1-op-1 begeleiding. We zorgen voor perfecte technieken gedurende workouts en directe bijsturing.
                 </p>
                 
-                <ul className="space-y-4 mb-12">
+                <ul className="space-y-4 mb-12 font-heading">
                   <li className="flex items-center gap-3">
                     <Check className="text-thryve-accent w-5 h-5 shrink-0" />
                     <span className="text-sm text-thryve-cream/90">Alles van Online Coaching</span>

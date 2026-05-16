@@ -10,7 +10,7 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 export const Card = ({ children, className = "", innerClassName = "", ...props }: CardProps) => {
   return (
     <div 
-      className={`group relative p-[1px] rounded-3xl bg-gradient-to-b from-white/30 via-white/10 to-emerald-900/20 hover:from-emerald-400/50 hover:via-emerald-900/20 hover:to-emerald-900/40 shadow-[0_8px_30px_rgb(0,0,0,0.4)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(16,185,129,0.12)] ${className}`} 
+      className={`group relative p-[1px] rounded-3xl bg-gradient-to-br from-emerald-400/60 via-emerald-800/20 to-emerald-900/30 hover:from-emerald-400/80 hover:via-emerald-700/30 hover:to-emerald-900/50 shadow-[0_8px_30px_rgb(0,0,0,0.4)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(16,185,129,0.12)] ${className}`} 
       {...props}
     >
       <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-emerald-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>

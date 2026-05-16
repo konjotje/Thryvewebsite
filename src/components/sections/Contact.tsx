@@ -22,7 +22,7 @@ export const Contact = () => {
             className="text-center"
           >
             <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Contact</div>
-            <h2 className="text-4xl md:text-5xl lg:text-5xl xl:text-6xl text-white mb-6">KLAAR OM JE<br/>POTENTIEEL TE UNLOCKEN?</h2>
+            <h2 className="mb-6">KLAAR OM JE<br/>POTENTIEEL TE UNLOCKEN?</h2>
             <div className="space-y-4 max-w-3xl mx-auto">
               <p className="text-thryve-cream/70 leading-relaxed text-sm md:text-base">
                 Elke grote transformatie begint met die ene, cruciale beslissing: in actie komen. Plan vandaag nog je gratis en volledig vrijblijvende kennismakingsgesprek in.

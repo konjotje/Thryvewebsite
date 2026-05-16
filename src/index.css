@@ -32,6 +32,54 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+h1 {
+  font-size: var(--text-5xl);
+  line-height: var(--text-5xl--line-height);
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: var(--text-7xl);
+    line-height: var(--text-7xl--line-height);
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 5.5rem;
+    line-height: 0.95;
+  }
+}
+
+h2 {
+  font-size: var(--text-4xl);
+  line-height: var(--text-4xl--line-height);
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: var(--text-5xl);
+    line-height: var(--text-5xl--line-height);
+  }
+}
+
+@media (min-width: 1024px) {
+  h2 {
+    font-size: var(--text-6xl);
+    line-height: var(--text-6xl--line-height);
+  }
+}
+
+h3 {
+  font-size: var(--text-2xl);
+  line-height: var(--text-2xl--line-height);
+}
+
+h4 {
+  font-size: var(--text-xl);
+  line-height: var(--text-xl--line-height);
+}
+
 
 .image-fade-edges {
   mask-image: linear-gradient(to right, transparent 0%, black 30%), linear-gradient(to bottom, black 70%, transparent 100%);

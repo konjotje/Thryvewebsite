@@ -15,7 +15,7 @@ export const ClientStories = () => {
           className="text-center mb-16"
         >
           <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Stories</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl text-white">RESULTATEN SPREKEN VOOR ZICH</h2>
+          <h2>RESULTATEN SPREKEN VOOR ZICH</h2>
         </motion.div>
 
         <div className="relative">
@@ -39,7 +39,7 @@ export const ClientStories = () => {
                 </div>
                 <div className="flex items-center gap-3 mb-3">
                   <CheckCircle2 className="w-5 h-5 text-thryve-accent" />
-                  <h3 className="text-lg font-bold text-white">{story.title}</h3>
+                  <h3>{story.title}</h3>
                 </div>
                 <p className="text-thryve-cream/60 text-sm leading-relaxed mb-6 flex-grow">
                   {story.desc}

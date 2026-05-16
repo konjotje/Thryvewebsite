@@ -28,7 +28,7 @@ export const Hero: React.FC = () => {
           <div className="text-thryve-accent text-sm font-semibold tracking-widest uppercase mb-3">
             {HERO_CONTENT.subtitle}
           </div>
-          <h1 className="text-4xl md:text-7xl lg:text-[5.5rem] font-heading leading-[0.95] mb-4 text-white">
+          <h1 className="mb-4 text-white">
             {HERO_CONTENT.title.split(' ').map((word, i) => (
               <span key={i} className="block">{word}</span>
             ))}
