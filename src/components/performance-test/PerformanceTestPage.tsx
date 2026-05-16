@@ -284,7 +284,8 @@ function LeadForm({ onSubmit, isSubmitting }: { onSubmit: (data: LeadFormData) =
       </div>
       <Button 
         type="submit"
-        className="w-full py-4 mt-4" 
+        size="lg"
+        className="w-full mt-4" 
         {...({ disabled: isSubmitting } as any)}
       >
         {isSubmitting ? (

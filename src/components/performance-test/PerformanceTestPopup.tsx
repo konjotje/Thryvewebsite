@@ -17,7 +17,7 @@ export const PerformanceTestPopup: React.FC = () => {
         setHasBeenShown(true);
         localStorage.setItem('performance_popup_shown', 'true');
       }
-    }, 5000); // 5 seconds delay
+    }, 3000); // 3 seconds delay
 
     return () => clearTimeout(timer);
   }, []);
