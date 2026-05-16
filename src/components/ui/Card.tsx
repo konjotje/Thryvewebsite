@@ -3,18 +3,20 @@ import React from 'react';
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
-  innerClassName?: string;
   key?: React.Key;
 }
 
-export const Card = ({ children, className = "", innerClassName = "p-4 md:p-6", ...props }: CardProps) => {
+export const Card = ({ children, className = "", ...props }: CardProps) => {
   return (
-    <div className={`relative p-[2px] rounded-3xl bg-gradient-to-br from-white/30 via-emerald-500/20 to-transparent shadow-[0_20px_50px_rgba(0,0,0,0.7)] hover-glow ${className}`} {...props}>
-      <div className="absolute -inset-4 bg-emerald-500/10 blur-3xl rounded-full opacity-40"></div>
-      <div className={`relative overflow-hidden bg-black/40 backdrop-blur-xl rounded-[calc(1.5rem-2px)] shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] ${innerClassName}`}>
-        <div className="relative z-10">
-          {children}
-        </div>
+    <div 
+      className={`group relative rounded-3xl bg-[#0c1f0c]/90 backdrop-blur-xl border border-white/5 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(16,185,129,0.12)] hover:border-emerald-500/30 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.4)] ${className}`} 
+      {...props}
+    >
+      {/* Subtler central green glow inside the card */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-emerald-500/10 blur-[60px] rounded-full pointer-events-none transition-opacity duration-300 group-hover:opacity-100 opacity-50"></div>
+      
+      <div className="relative z-10 h-full">
+        {children}
       </div>
     </div>
   );

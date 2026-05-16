@@ -20,7 +20,7 @@ export const ClientStories = () => {
 
         <div className="relative">
           <div className="absolute inset-x-0 -top-20 h-96 bg-emerald-500/10 blur-3xl rounded-full -z-10"></div>
-          <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 md:grid md:grid-cols-3 md:overflow-visible md:gap-8 md:pb-0 hide-scrollbar items-center">
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 -mx-6 px-6 pt-4 pb-8 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:overflow-visible md:gap-8 md:pt-0 md:pb-0 hide-scrollbar items-stretch">
             {CLIENT_STORIES.map((story, i) => (
               <Card 
                 key={i} 

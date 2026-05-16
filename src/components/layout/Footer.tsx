@@ -62,13 +62,8 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-center md:text-left text-xs text-thryve-cream/40">
-            &copy; {new Date().getFullYear()} The Thryve Method. Alle rechten voorbehouden.
-          </div>
-          <div className="text-center md:text-right text-[10px] text-thryve-cream/30">
-            Designed for optimal performance
-          </div>
+        <div className="pt-8 border-t border-white/10 text-center md:text-left text-xs text-thryve-cream/40">
+          &copy; {new Date().getFullYear()} The Thryve Method. Alle rechten voorbehouden.
         </div>
       </div>
     </footer>

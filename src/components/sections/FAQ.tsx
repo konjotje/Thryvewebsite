@@ -19,7 +19,7 @@ export const FAQ = () => {
         <h2 className="text-3xl md:text-4xl text-center mb-10 text-white">VEELGESTELDE VRAGEN</h2>
         <div className="space-y-2">
           {FAQS.map((faq, i) => (
-            <Card key={i} className="overflow-hidden" innerClassName="p-3 md:p-4">
+            <Card key={i} className="overflow-hidden p-3 md:p-4">
               <button 
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full text-left flex justify-between items-center group"

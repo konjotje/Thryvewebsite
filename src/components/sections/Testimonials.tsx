@@ -17,7 +17,7 @@ export const Testimonials = () => {
           <h2 className="text-4xl md:text-5xl text-white">WAT KLANTEN ZEGGEN</h2>
         </motion.div>
 
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:gap-6 md:pb-0 hide-scrollbar">
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 -mx-6 px-6 pt-4 pb-8 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:gap-6 md:pt-0 md:pb-0 hide-scrollbar items-stretch">
           {TESTIMONIALS.map((t, i) => (
             <motion.div
               key={i}
