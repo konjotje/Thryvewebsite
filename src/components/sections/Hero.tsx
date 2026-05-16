@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
           
           <Button onClick={() => window.location.href = '#stories'} className="font-heading">
             {HERO_CONTENT.cta} 
-            <ChevronRight size={20} strokeWidth={3} className="text-thryve-accent group-hover:translate-x-1 transition-transform" />
+            <ChevronRight size={20} strokeWidth={3} className="text-thryve-accent" />
           </Button>
         </motion.div>
 

@@ -4,7 +4,7 @@ import { Button } from '../ui/Button';
 
 export const About = () => {
   return (
-    <section id="about" className="py-16 md:py-32">
+    <section id="about" className="py-16 md:py-24">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div 
@@ -38,7 +38,7 @@ export const About = () => {
             </p>
             <Button onClick={() => window.location.href = '#contact'}>
               Klaar voor?
-              <ChevronRight size={20} strokeWidth={3} className="text-thryve-accent group-hover:translate-x-1 transition-transform" />
+              <ChevronRight size={20} strokeWidth={3} className="text-thryve-accent" />
             </Button>
           </motion.div>
         </div>

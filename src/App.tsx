@@ -49,9 +49,9 @@ export default function App() {
             <About />
             <Testimonials />
             <div className="relative bg-thryve-dark">
-              <div className="absolute inset-0 z-0">
-                <img src="/images/services.webp" alt="Ondernemer bezig met krachttraining en vitaliteit in een donkere sportschool" className="w-full h-full object-cover object-[20%_center] image-fade-abstract" referrerPolicy="no-referrer" />
-                <div className="absolute inset-0 bg-thryve-dark/80 pointer-events-none"></div>
+              <div className="absolute inset-0 z-0 overflow-hidden">
+                <img src="/images/services.webp" alt="Ondernemer bezig met krachttraining en vitaliteit in een donkere sportschool" className="absolute inset-0 w-full h-full object-cover object-[50%_25%] opacity-20 image-fade-abstract" referrerPolicy="no-referrer" />
+                <div className="absolute inset-0 bg-gradient-to-b from-thryve-dark via-transparent to-thryve-dark pointer-events-none"></div>
               </div>
               <div className="relative z-10">
                 <Contact />

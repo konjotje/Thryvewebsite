@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand & Description */}
           <div className="flex flex-col gap-4">
-            <Link to="/" className="text-2xl font-bold tracking-widest text-white uppercase inline-block">
+            <Link to="/" className="text-2xl font-heading font-bold tracking-widest text-white uppercase inline-block">
               THRYVE
             </Link>
             <p className="text-thryve-cream/60 text-sm leading-relaxed">

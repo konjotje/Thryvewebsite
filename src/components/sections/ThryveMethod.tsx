@@ -6,7 +6,7 @@ import { THRYVE_METHOD_CONTENT } from '../../constants/content';
 
 export const ThryveMethod = () => {
   return (
-    <section id="method" className="py-16 md:py-32 bg-thryve-dark">
+    <section id="method" className="py-16 md:py-24 bg-thryve-dark">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           <motion.div 
@@ -54,77 +54,6 @@ export const ThryveMethod = () => {
           </motion.div>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-5xl mx-auto w-full"
-        >
-          <Card className="w-full" innerClassName="p-8 md:p-12">
-            <div className="flex flex-col md:flex-row gap-8 md:gap-12">
-              <div className="flex-1 flex flex-col">
-                <div className="flex items-center gap-4 mb-6">
-                  <Monitor className="w-8 h-8 text-thryve-accent" />
-                  <h3>ONLINE COACHING</h3>
-                </div>
-                <p className="text-thryve-cream/60 text-sm leading-relaxed mb-8 flex-grow">
-                  Ideaal voor als je niet in de buurt woont of flexibiliteit wilt. Met online coaching werken we effectief samen om exceptionele resultaten te behalen.
-                </p>
-                
-                <ul className="space-y-4 mb-12 font-heading">
-                  <li className="flex items-center gap-3">
-                    <Check className="text-thryve-accent w-5 h-5 shrink-0" />
-                    <span className="text-sm text-thryve-cream/90">Gepersonaliseerde Trainingsplannen</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <Check className="text-thryve-accent w-5 h-5 shrink-0" />
-                    <span className="text-sm text-thryve-cream/90">Voedingsadvies & Biohacking</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <Check className="text-thryve-accent w-5 h-5 shrink-0" />
-                    <span className="text-sm text-thryve-cream/90">Toegang tot Selecte Community</span>
-                  </li>
-                </ul>
-                
-                <Button className="w-full mt-auto" onClick={() => window.location.href = '#contact'}>
-                  Start vanaf €50/mnd
-                </Button>
-              </div>
-
-              <div className="hidden md:block w-px bg-white/10 self-stretch"></div>
-              <div className="md:hidden h-px bg-white/10 w-full my-2"></div>
-
-              <div className="flex-1 flex flex-col">
-                <div className="flex items-center gap-4 mb-6">
-                  <User className="w-8 h-8 text-thryve-accent" />
-                  <h3>IN-PERSON COACHING</h3>
-                </div>
-                <p className="text-thryve-cream/60 text-sm leading-relaxed mb-8 flex-grow">
-                  Voor degene die de voorkeur geeft aan 1-op-1 begeleiding. We zorgen voor perfecte technieken gedurende workouts en directe bijsturing.
-                </p>
-                
-                <ul className="space-y-4 mb-12 font-heading">
-                  <li className="flex items-center gap-3">
-                    <Check className="text-thryve-accent w-5 h-5 shrink-0" />
-                    <span className="text-sm text-thryve-cream/90">Alles van Online Coaching</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <Check className="text-thryve-accent w-5 h-5 shrink-0" />
-                    <span className="text-sm text-thryve-cream/90">Directe Supervisie</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <Check className="text-thryve-accent w-5 h-5 shrink-0" />
-                    <span className="text-sm text-thryve-cream/90">Optimale Techniek & Directe Feedback</span>
-                  </li>
-                </ul>
-                
-                <Button className="w-full mt-auto" onClick={() => window.location.href = '#contact'}>
-                  Start vanaf €100/mnd
-                </Button>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
       </div>
     </section>
   );

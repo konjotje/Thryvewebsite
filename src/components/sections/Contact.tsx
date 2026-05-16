@@ -11,7 +11,7 @@ export const Contact = () => {
   }, []);
 
   return (
-    <section id="contact" className="py-16 md:py-32 relative">
+    <section id="contact" className="pt-16 pb-8 md:pt-24 md:pb-12 relative">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col gap-12 lg:gap-16">
           <motion.div 
@@ -22,13 +22,13 @@ export const Contact = () => {
             className="text-center"
           >
             <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Contact</div>
-            <h2 className="mb-6">KLAAR OM JE<br/>POTENTIEEL TE UNLOCKEN?</h2>
-            <div className="space-y-4 max-w-3xl mx-auto">
-              <p className="text-thryve-cream/70 leading-relaxed text-sm md:text-base">
-                Elke grote transformatie begint met die ene, cruciale beslissing: in actie komen. Plan vandaag nog je gratis en volledig vrijblijvende kennismakingsgesprek in.
+            <h2 className="mb-6">KLAAR OM TE<br/>STARTEN?</h2>
+            <div className="space-y-4 max-w-2xl mx-auto">
+              <p className="text-thryve-cream/80 leading-relaxed text-base md:text-lg">
+                Zet vandaag de eerste stap naar maximale fysieke en mentale performance.
               </p>
               <p className="text-thryve-cream/70 leading-relaxed text-sm md:text-base">
-                Tijdens deze strategische sessie duiken we diep in jouw huidige levensstijl, analyseren we je grootste obstakels en definiëren we je ultieme doelen. We creëren een heldere visie voor jouw toekomst en ontdekken samen in detail hoe The Thryve Method jou structureel kan helpen om je fysieke en mentale performance te maximaliseren.
+                Plan een gratis en vrijblijvende strategische sessie. We bespreken je doelen, analyseren je obstakels en ontdekken direct hoe The Thryve Method jouw potentieel kan unlocken.
               </p>
             </div>
           </motion.div>
