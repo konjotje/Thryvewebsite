@@ -4,7 +4,7 @@ export const HERO_CONTENT = {
   title: "ONTDEK JOUW POTENTIEEL",
   subtitle: "PEAK PERFORMANCE COACHING",
   description: "Wetenschappelijk onderbouwde coaching voor ambitieuze ondernemers die hun energie, focus en prestaties naar een hoger niveau willen tillen.",
-  cta: "Resultaten"
+  cta: "Performance audit"
 };
 
 export const FEATURES_ITEMS = [

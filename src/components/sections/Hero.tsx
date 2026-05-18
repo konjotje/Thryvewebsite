@@ -43,7 +43,7 @@ export const Hero: React.FC = () => {
             {HERO_CONTENT.description}
           </p>
           
-          <Button onClick={() => navigate('/#stories')} className="font-heading">
+          <Button onClick={() => navigate('/performance-audit')} className="font-heading">
             {HERO_CONTENT.cta} 
             <ChevronRight size={20} strokeWidth={3} className="text-thryve-accent" />
           </Button>

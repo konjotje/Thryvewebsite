@@ -3,11 +3,13 @@ import React from 'react';
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement> | (() => void);
   size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-export const Button = ({ children, className = "", size = "md", onClick, ...props }: ButtonProps) => {
+export const Button = ({ children, className = "", size = "md", onClick, disabled, type = 'button', ...props }: ButtonProps) => {
   const paddingClasses = {
     sm: "px-4 py-2",
     md: "px-6 py-3",
@@ -22,8 +24,10 @@ export const Button = ({ children, className = "", size = "md", onClick, ...prop
 
   return (
     <button 
-      className={`group relative p-[1px] rounded-xl bg-gradient-to-br from-emerald-400/80 via-emerald-600/30 to-emerald-900/40 hover:from-emerald-400 hover:via-emerald-500/50 hover:to-emerald-900/60 shadow-[0_4px_15px_rgba(0,0,0,0.5)] transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_8px_30px_rgba(16,185,129,0.2)] ${className}`}
+      className={`group relative p-[1px] rounded-xl bg-gradient-to-br from-emerald-400/80 via-emerald-600/30 to-emerald-900/40 hover:from-emerald-400 hover:via-emerald-500/50 hover:to-emerald-900/60 shadow-[0_4px_15px_rgba(0,0,0,0.5)] transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_8px_30px_rgba(16,185,129,0.2)] disabled:opacity-50 disabled:pointer-events-none ${className}`}
       onClick={onClick}
+      disabled={disabled}
+      type={type}
       {...props}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none"></div>

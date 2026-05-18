@@ -15,8 +15,7 @@ import { FAQ } from './components/sections/FAQ';
 import { Contact } from './components/sections/Contact';
 import { TermsAndConditions } from './components/pages/TermsAndConditions';
 import { PrivacyPolicy } from './components/pages/PrivacyPolicy';
-import PerformanceTestPage from './components/performance-test/PerformanceTestPage';
-import { PerformanceTestPopup } from './components/performance-test/PerformanceTestPopup';
+import PerformanceAuditPage from './components/performance-audit/PerformanceAuditPage';
 
 export default function App() {
   const { pathname, hash } = useLocation();
@@ -37,7 +36,6 @@ export default function App() {
   return (
     <div className="bg-thryve-dark min-h-screen text-thryve-cream selection:bg-thryve-accent selection:text-white">
       <Navbar />
-      <PerformanceTestPopup />
       <Routes>
         <Route path="/" element={
           <>
@@ -88,7 +86,15 @@ export default function App() {
             <PrivacyPolicy />
           </>
         } />
-        <Route path="/performance-test" element={<PerformanceTestPage />} />
+        <Route path="/performance-audit" element={
+          <>
+            <Helmet>
+              <title>Performance Audit | The Thryve Method</title>
+              <meta name="description" content="Krijg direct inzicht in wat je energie en focus kost. Start de Performance Audit." />
+            </Helmet>
+            <PerformanceAuditPage />
+          </>
+        } />
       </Routes>
       <Footer />
       <SpeedInsights />

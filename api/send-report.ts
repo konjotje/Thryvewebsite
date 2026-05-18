@@ -1,15 +1,15 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import type { Request, Response } from 'express';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: Request, res: Response) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
-    const { firstName, lastName, email, phone, totalScore, breakdown, type } = req.body;
+    const { firstName, lastName, email, phone, totalScore, breakdown, type, pdfBase64 } = req.body;
 
     if (!firstName || !email) {
       return res.status(400).json({ error: "Missing required fields" });
@@ -25,6 +25,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Gedeelde stijlen: Helvetica voor tekst, Space Grotesk voor titels. Geen zwarte buitenachtergrond.
     const emailStyles = `
       <style>
+        //... keep previous style...
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #e5e7eb; background-color: #0c1f0c; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
         h1, h2, h3, h4 { font-family: 'Space Grotesk', -apple-system, sans-serif; font-weight: 700; color: #ffffff; text-transform: uppercase; margin: 0; letter-spacing: -0.02em; }
         p, span, td, li { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
@@ -56,7 +57,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     `;
 
     // Waterdichte tabel layout voor de pijlerbalken
-    const pillarBarsHtml = Object.entries(breakdown).map(([pillar, score]) => {
+    const pillarBarsHtml = Object.entries(breakdown || {}).map(([pillar, score]) => {
       const s = score as number;
       const pct = Math.round((s / 20) * 100);
       
@@ -86,10 +87,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // ==========================================
     // EMAIL 1: DYNAMISCH NAAR DE KLANT
     // ==========================================
+    
+    const clientAttachments = pdfBase64 ? [{
+      filename: 'Thryve_Performance_Audit.pdf',
+      content: pdfBase64
+    }] : [];
+
     await resend.emails.send({
       from: FROM_EMAIL,
       to: [email], // Gestuurd naar het e-mailadres dat is ingevuld in de quiz
       subject: `⚡ Jouw Thryve Performance Rapport is klaar, ${firstName}!`,
+      attachments: clientAttachments,
       html: `
         <!DOCTYPE html>
         <html>
@@ -106,26 +114,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 <span class="thryve-logo">THRYVE</span>
               </div>
               
-              <h1 style="font-size: 28px; text-align: center; line-height: 1.1; margin-bottom: 12px;">Jouw Performance Rapport</h1>
-              <p style="font-size: 15px; text-align: center; color: #a3b8a3; margin: 0; line-height: 1.5; font-weight: 500;">Beste ${firstName}, we hebben je data geanalyseerd. Dit is jouw operating system blauwdruk:</p>
-              
-              <div class="score-badge-box">
-                <div class="score-number">${totalScore}<span style="font-size: 26px; color: rgba(255,255,255,0.35);">/100</span></div>
-                <div class="type-label">Systeem Profiel: ${type}</div>
-              </div>
+              <h1 style="font-size: 28px; text-align: center; line-height: 1.1; margin-bottom: 12px;">Jouw Performance Audit is Klaar</h1>
+              <p style="font-size: 15px; text-align: center; color: #a3b8a3; margin: 0 0 20px 0; line-height: 1.5; font-weight: 500;">
+                Beste ${firstName}, we hebben je systeem geanalyseerd. Je persoonlijke Blueprint zit als PDF in de bijlage.
+              </p>
 
-              <h3 style="font-size: 15px; border-bottom: 1px solid rgba(16, 185, 129, 0.2); padding-bottom: 10px; margin-bottom: 25px; letter-spacing: 0.05em; color: #10b981;">Gedetailleerde Pijler Status</h3>
-              <table class="pillar-table">
-                ${pillarBarsHtml}
-              </table>
-
-              <div class="coach-section">
-                <img src="${COACH_IMAGE_URL}" alt="Iven van Stekelenburg" class="coach-avatar">
-                <h3 style="font-size: 20px; margin-bottom: 6px; letter-spacing: -0.01em;">Laten we jouw systeem optimaliseren</h3>
-                <p style="font-size: 14px; color: #a3b8a3; line-height: 1.6; max-width: 420px; margin: 0 auto 25px auto; font-weight: 500;">
-                  Als ondernemer is je brein en energie de motor van je business. Laten we tijdens een gratis kennismakingsgesprek jouw knelpunten omzetten in een onbreekbaar peak-performance ritme.
+              <div class="coach-section" style="border-top: none; margin-top: 10px; padding-top: 10px;">
+                <h3 style="font-size: 20px; margin-bottom: 10px; letter-spacing: -0.01em;">Wat Kost Dit Jou?</h3>
+                <p style="font-size: 14px; color: #e5e7eb; line-height: 1.6; max-width: 420px; margin: 0 auto 25px auto;">
+                  Energie en focus lekken betekent dat je hard werkt voor een systeem dat niet is geoptimaliseerd. 
+                  Bekijk je blueprint en ontdek waar jouw grootste groeipotentie ligt. Dit is geen discipline-probleem, dit is een systeem-probleem.
                 </p>
-                <a href="https://cal.com/thryvemethod/45min" class="cta-button">Laten we eens kennismaken!</a>
+                
+                <h3 style="font-size: 20px; margin-bottom: 6px; letter-spacing: -0.01em; margin-top: 30px;">Klaar Voor Actie?</h3>
+                <p style="font-size: 14px; color: #a3b8a3; line-height: 1.6; max-width: 420px; margin: 0 auto 25px auto; font-weight: 500;">
+                  Plan een gratis kennismakingsgesprek om te ontdekken hoe we samen jouw valkuilen kunnen dichten via Peak Performance architecture.
+                </p>
+                <a href="https://cal.com/thryvemethod/45min" class="cta-button">Plan een Performance Call</a>
               </div>
 
               <p class="footer-text">
