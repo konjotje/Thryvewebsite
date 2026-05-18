@@ -170,28 +170,15 @@ export default async function handler(req: Request, res: Response) {
                 </div>
                 
                 <div class="lead-info-box">
-                  <h4 class="lead-title">📋 Contactgegevens Ondernemer</h4>
+                  <h4 class="lead-title">📋 Contactgegevens Nieuwe Lead</h4>
                   <div class="lead-metric"><strong>Naam:</strong> ${firstName}</div>
                   <div class="lead-metric"><strong>E-mail:</strong> ${email}</div>
                   <div class="lead-metric"><strong>Telefoon:</strong> ${phone || 'Niet ingevuld'}</div>
+                  <div class="lead-metric"><strong>Score:</strong> ${totalScore}/100</div>
+                  <div class="lead-metric"><strong>Archetype:</strong> ${type}</div>
                 </div>
 
-                <h1 style="font-size: 22px; text-align: center; line-height: 1.2; margin-bottom: 5px; color: #ffffff;">Gegenereerd Rapport Overzicht</h1>
-                <p style="font-size: 14px; text-align: center; color: #a3b8a3; margin: 0; padding-bottom: 15px; font-weight: 500;">Dit is de exacte blauwdruk die naar de lead is verzonden:</p>
-                
-                <div class="score-badge-box">
-                  <div class="score-number">${totalScore}<span style="font-size: 26px; color: rgba(255,255,255,0.35);">/100</span></div>
-                  <div class="type-label">Systeem Profiel: ${type}</div>
-                </div>
-
-                <h3 style="font-size: 15px; border-bottom: 1px solid rgba(16, 185, 129, 0.2); padding-bottom: 10px; margin-bottom: 25px; letter-spacing: 0.05em; color: #10b981;">Pijler Verdeling</h3>
-                <table class="pillar-table">
-                  ${pillarBarsHtml}
-                </table>
-
-                <div class="coach-section">
-                  <img src="${COACH_IMAGE_URL}" alt="Iven van Stekelenburg" class="coach-avatar">
-                </div>
+                <p style="font-size: 14px; text-align: center; color: #a3b8a3; margin: 0; padding-bottom: 15px; font-weight: 500;">De gegenereerde PDF Blueprint vind je in de bijlage van deze e-mail.</p>
 
                 <p class="footer-text">
                   © ${new Date().getFullYear()} The Thryve Method HQ. Directe opvolging vereist.
