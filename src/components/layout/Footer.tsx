@@ -15,7 +15,7 @@ export const Footer = () => {
               Premium online en in-person fitness coaching om jouw potentieel volledig te unlocken. Optimale gezondheid, fysieke en mentale performance.
             </p>
             <div className="flex items-center gap-4 mt-2">
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-thryve-cream/80 hover:text-white hover:border-white hover:bg-white/5 transition-all">
+              <a href="https://www.instagram.com/thethryvemethod" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-thryve-cream/80 hover:text-white hover:border-white hover:bg-white/5 transition-all">
                 <Instagram size={18} />
               </a>
             </div>
