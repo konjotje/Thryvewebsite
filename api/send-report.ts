@@ -16,8 +16,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     // CONFIGURATIE VOOR VERZENDEN (onboarding@resend.dev blijft actief)
-    const COACH_TEST_EMAIL = "thethryvemethod@gmail.com";
-    const FROM_EMAIL = "The Thryve Method <onboarding@resend.dev>";
+    const COACH_TEST_EMAIL = "info@thethryvemethod.com";
+    const FROM_EMAIL = "The Thryve Method <info@thethryvemethod.com>";
     
     // Directe, live link van de coach (Imgur)
     const COACH_IMAGE_URL = "https://i.imgur.com/Nz2Hev1.jpg";
