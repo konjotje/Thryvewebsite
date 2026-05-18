@@ -9,7 +9,7 @@ export default async function handler(req: Request, res: Response) {
   }
 
   try {
-    const { firstName, lastName, email, phone, totalScore, breakdown, type, pdfBase64 } = req.body;
+    const { firstName, email, phone, totalScore, breakdown, type, pdfBase64 } = req.body;
 
     if (!firstName || !email) {
       return res.status(400).json({ error: "Missing required fields" });
@@ -88,14 +88,14 @@ export default async function handler(req: Request, res: Response) {
     // ==========================================
     
     const clientAttachments = pdfBase64 ? [{
-      filename: 'Thryve_Performance_Audit.pdf',
+      filename: 'The_Thryve_Method_Audit.pdf',
       content: pdfBase64
     }] : [];
 
     await resend.emails.send({
       from: FROM_EMAIL,
       to: [email], // Gestuurd naar het e-mailadres dat is ingevuld in de quiz
-      subject: `⚡ Jouw Thryve Performance Rapport is klaar, ${firstName}!`,
+      subject: `⚡ Jouw The Thryve Method Performance Rapport is klaar, ${firstName}!`,
       attachments: clientAttachments,
       html: `
         <!DOCTYPE html>
@@ -111,7 +111,7 @@ export default async function handler(req: Request, res: Response) {
             <div class="email-container">
               <div class="main-card">
                 <div class="logo-wrapper">
-                  <span class="thryve-logo">THRYVE</span>
+                  <span class="thryve-logo">THE THRYVE METHOD</span>
                 </div>
                 
                 <h1 style="font-size: 28px; text-align: center; line-height: 1.1; margin-bottom: 12px; color: #ffffff;">Jouw Performance Audit is Klaar</h1>
@@ -150,7 +150,8 @@ export default async function handler(req: Request, res: Response) {
     await resend.emails.send({
       from: FROM_EMAIL,
       to: [COACH_TEST_EMAIL], // Blijft naar jouw e-mail gaan voor controle
-      subject: `🔥 Nieuwe Lead Performance Test: ${firstName} ${lastName} (${totalScore}/100)`,
+      subject: `🔥 Nieuwe Lead Performance Test: ${firstName} (${totalScore}/100)`,
+      attachments: clientAttachments,
       html: `
         <!DOCTYPE html>
         <html>
@@ -165,14 +166,14 @@ export default async function handler(req: Request, res: Response) {
             <div class="email-container">
               <div class="main-card">
                 <div class="logo-wrapper">
-                  <span class="thryve-logo">THRYVE SYSTEM</span>
+                  <span class="thryve-logo">THE THRYVE METHOD</span>
                 </div>
                 
                 <div class="lead-info-box">
                   <h4 class="lead-title">📋 Contactgegevens Ondernemer</h4>
-                  <div class="lead-metric"><strong>Naam:</strong> ${firstName} ${lastName}</div>
+                  <div class="lead-metric"><strong>Naam:</strong> ${firstName}</div>
                   <div class="lead-metric"><strong>E-mail:</strong> ${email}</div>
-                  <div class="lead-metric"><strong>Telefoon:</strong> ${phone}</div>
+                  <div class="lead-metric"><strong>Telefoon:</strong> ${phone || 'Niet ingevuld'}</div>
                 </div>
 
                 <h1 style="font-size: 22px; text-align: center; line-height: 1.2; margin-bottom: 5px; color: #ffffff;">Gegenereerd Rapport Overzicht</h1>

@@ -123,6 +123,7 @@ export default function PerformanceAuditPage() {
           totalScore={result.performanceScore}
           level={result.level}
           label={result.label}
+          diagnosisText={result.diagnosisText}
           archetype={result.archetype}
           breakdown={result.breakdown}
         />

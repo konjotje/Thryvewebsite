@@ -176,6 +176,7 @@ interface PerformanceAuditPDFProps {
   totalScore: number;
   level: string;
   label: string;
+  diagnosisText: string;
   archetype: {
     name: string;
     profile: string;
@@ -191,6 +192,7 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
   totalScore,
   level,
   label,
+  diagnosisText,
   archetype,
   breakdown
 }) => {
@@ -200,7 +202,7 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
     <Document>
       {/* Cover Page */}
       <Page size="A4" style={styles.coverPage}>
-        <Text style={styles.logo}>THRYVE METHOD</Text>
+        <Text style={styles.logo}>THE THRYVE METHOD</Text>
         <Text style={styles.title}>Jouw Performance Audit</Text>
         <Text style={styles.subtitle}>{firstName}</Text>
         <Text style={styles.date}>{dateStr}</Text>
@@ -217,12 +219,15 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
 
         <View style={styles.highlightBox}>
           <Text style={styles.highlightText}>Je zit in: {level}</Text>
-          <Text style={[styles.text, { marginTop: 10 }]}>{label}</Text>
+          <Text style={[styles.text, { marginTop: 10, fontSize: 16, color: '#10b981', fontWeight: 'bold' }]}>{label}</Text>
         </View>
 
-        <Text style={[styles.text, { marginTop: 20 }]}>
-          Dit is geen discipline-probleem. Dit is een structuur-probleem.
-          Je werkt keihard voor een systeem dat hier niet op gebouwd is.
+        <Text style={[styles.text, { marginTop: 20, fontSize: 13, lineHeight: 1.7 }]}>
+          {diagnosisText}
+        </Text>
+        
+        <Text style={[styles.text, { marginTop: 30, fontSize: 12, color: '#a3b8a3', fontStyle: 'italic' }]}>
+          * Dit is een indicatie op basis van de ingevulde The Thryve Method Performance Audit. Echte peak performance begint bij het dichten van onzichtbare lekkages in je systeem.
         </Text>
 
         <Text style={styles.footer}>© {new Date().getFullYear()} The Thryve Method | Performance Audit</Text>
@@ -311,7 +316,7 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
           </View>
         </View>
 
-        <Text style={[styles.header, { marginTop: 60, borderBottomWidth: 0, fontSize: 20 }]}>Wat Thryve Doet</Text>
+        <Text style={[styles.header, { marginTop: 60, borderBottomWidth: 0, fontSize: 20 }]}>Wat The Thryve Method Doet</Text>
         <Text style={styles.text}>Dit is geen fitness coaching. Dit is performance architecture.</Text>
         <Text style={styles.text}>• Muscular Foundation</Text>
         <Text style={styles.text}>• Nervous System Control</Text>

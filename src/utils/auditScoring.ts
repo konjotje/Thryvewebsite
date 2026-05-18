@@ -46,18 +46,48 @@ export const calculateScores = (answers: Record<string, any>, questions: AuditQu
   
   let level = '';
   let label = '';
-  if (performanceScore <= 40) {
-    level = 'Survival Mode';
-    label = 'Je systeem leakt op meerdere fronten';
+  let diagnosisText = '';
+  
+  if (performanceScore <= 10) {
+    level = 'Kritieke Status';
+    label = 'Je systeem staat op instorten';
+    diagnosisText = 'Je overleeft momenteel puur op adrenaline en noodreserves. Zowel fysiek als mentaal ben je uitgedroogd en roofbouw aan het plegen op je lichaam. Dit is code rood. Het is cruciaal dat we direct ingrijpen met fysiologische basis-ankers voordat je systeem volledig blokkeert. Focus je puur op herstel en het bouwen van een absoluut fundament.';
+  } else if (performanceScore <= 20) {
+    level = 'Zware Lekkage';
+    label = 'Je verliest extreem veel energie';
+    diagnosisText = 'Je bent elke dag enorm veel energie kwijt aan reactieve en destructieve patronen. Dit is het moment om een meedogenloze reset te maken. Je hebt grote potentie, maar je fundament ontbreekt momenteel. Wat je nu als "normale" vermoeidheid beschouwt, is in werkelijkheid chronische uitputting. Stop met harder werken, begin met slimmer opbouwen.';
+  } else if (performanceScore <= 30) {
+    level = 'Brandjes Blussen';
+    label = 'Leven op korte pieken en diepe dalen';
+    diagnosisText = 'Je bent waarschijnlijk de hele dag bezig om jezelf "aan" te houden met externe prikkels. Korte momenten van energie worden gevolgd door zware instortingen. Met een paar strategische aanpassingen in je slaaparchitectuur, voeding en vroege ochtend-cadans kun je binnen enkele weken al exponentiële sprongen maken in je mentale helderheid.';
+  } else if (performanceScore <= 40) {
+    level = 'Functioneel Uitgeput';
+    label = 'Je leeft puur op wilskracht';
+    diagnosisText = 'Mensen om je heen zien waarschijnlijk niet hoeveel moeite het je kost om dit niveau vast te houden. Je push jezelf constant door de vermoeidheid heen. Dat doorzettingsvermogen is prijzenswaardig, maar biologisch totaal onhoudbaar. We moeten de transitie maken van "dingen forceren op wilskracht" naar "gedragen worden door fysiologische systemen".';
+  } else if (performanceScore <= 50) {
+    level = 'De Gevaarlijke Middenmoot';
+    label = 'Je laat pijnlijk veel op tafel liggen';
+    diagnosisText = 'Je doet veel dingen "oké", maar mist de precisie om écht door te breken. Je hebt goede intenties, maar zonder eenduidige, gestroomlijnde systemen blijf je hangen op hooguit de helft van je ware potentie. Dit is het definitieve breekpunt waar specifieke, datagedreven protocollen je uit het vastgelopen midden naar de high-performance top trekken.';
   } else if (performanceScore <= 60) {
-    level = 'Functioneel maar lekkend';
-    label = 'Je presteert, maar onder je niveau';
+    level = 'Inconsistente Presteerder';
+    label = 'Goede dagen, afgewisseld met "brain fog"';
+    diagnosisText = 'Je bent gemiddeld goed aan het functioneren, maar de pieken zijn onvoorspelbaar. Je hebt dagen waarop je de wereld aankan, gevolgd door periodes van vage focus of middagdips. Je systeem is nog te reactief. Ons doel is om díe peak-performance dagen geen uitzondering meer te laten zijn, maar je absoluut gegarandeerde, dagelijkse baseline.';
+  } else if (performanceScore <= 70) {
+    level = 'Solide, Met Groot Groeipotentieel';
+    label = 'Goede basis, maar je ceiling is nog ver weg';
+    diagnosisText = 'Je hebt de basisprincipes redelijk scherp staan en dat vertaalt zich in goede prestaties. Toch mis je nog de rauwe, onuitputtelijke energie en de laserscherpe focus van de echte 1%. Jouw uitdaging is geen discipline of mindset meer. Jouw probleem is een ontbrekend gelaagd systeem om onzichtbare energielekken chirurgisch te dichten. Tijd voor fine-tuning.';
   } else if (performanceScore <= 80) {
-    level = 'Solide, met groeiruimte';
-    label = 'Goede basis, ceiling nog niet bereikt';
+    level = 'Advanced High-Performer';
+    label = 'Meer is niet beter, beter is beter';
+    diagnosisText = 'Bovengemiddeld. Je sport, presteert goed en leeft bewust. Maar de strijd voor de allerlaatste 20% winst vereist een compleet andere, bijna chirurgische aanpak. Dit gaat niet meer om "meer doen" of "harder trainen", maar om stategisch afschakelen, het manipuleren van je zenuwstelsel en fysiologische micro-optimalisatie voor decennialange, duurzame dominantie.';
+  } else if (performanceScore <= 90) {
+    level = 'Elite Niveau';
+    label = 'Tijd voor grensverleggende optimalisatie';
+    diagnosisText = 'Je systeem en routines lopen als een krachtige machine. Het grootste gevaar in deze fase is overtraining, arrogantie of het niet herkennen van subtiele burn-out signalen. We moeten overstappen op geavanceerde bio-feedback en strikte periodisering, zodat we deze absurde output onbeperkt kunnen blijven leveren zonder dat je lichaam in opstand komt.';
   } else {
-    level = 'Compounding';
-    label = 'Je systeem werkt — fine-tuning fase';
+    level = 'Peak Performance Master';
+    label = 'De Absolute Top 1%';
+    diagnosisText = 'Fysiologisch, mentaal en structureel begeef je je in de elite-klasse. Je systeem is een onbreekbare vesting. Jouw taak is puur onderhoud, adaptie aan extreme stressoren en het ontwerpen van schilden tegen externe ruis. Blijf je ankers respecteren, laat de fundamentals nooit los, en de resultaten zullen vanzelf blijven compounden.';
   }
 
   // Bepaal Archetype
@@ -135,6 +165,7 @@ export const calculateScores = (answers: Record<string, any>, questions: AuditQu
     performanceScore,
     level,
     label,
+    diagnosisText,
     breakdown,
     archetypeType,
     archetype: archetypes[archetypeType as 1|2|3|4|5]
