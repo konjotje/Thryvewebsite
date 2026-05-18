@@ -130,7 +130,7 @@ export default async function handler(req: Request, res: Response) {
                   <p style="font-size: 14px; color: #a3b8a3; line-height: 1.6; max-width: 420px; margin: 0 auto 25px auto; font-weight: 500;">
                     Plan een gratis kennismakingsgesprek om te ontdekken hoe we samen jouw valkuilen kunnen dichten via Peak Performance architecture.
                   </p>
-                  <a href="https://cal.com/thryvemethod/45min" class="cta-button">Plan een Performance Call</a>
+                  <a href="https://cal.com/thethryvemethod/30min" class="cta-button">Plan een Performance Call</a>
                 </div>
 
                 <p class="footer-text">

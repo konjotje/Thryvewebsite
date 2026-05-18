@@ -391,7 +391,7 @@ export default function PerformanceAuditPage() {
                   <p className="text-sm md:text-base text-gray-400 mb-6">
                     Je hebt aangegeven open te staan voor gepersonaliseerde begeleiding. In deze gratis call deconstrueren we je knelpunten direct.
                   </p>
-                  <Button onClick={() => window.open('https://cal.com/thryvemethod/45min', '_blank')} className="w-full">
+                  <Button onClick={() => window.open('https://cal.com/thethryvemethod/30min', '_blank')} className="w-full">
                     Plan Direct In
                   </Button>
                 </div>

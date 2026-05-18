@@ -39,7 +39,7 @@ export const Contact = () => {
           >
             <Cal 
               namespace="30min"
-              calLink="thryvemethod/45min"
+              calLink="thethryvemethod/30min"
               style={{ width: "100%" }}
               config={{ "layout": "month_view", "useSlotsViewOnSmallScreen": "true" }}
             />
