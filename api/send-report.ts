@@ -25,7 +25,6 @@ export default async function handler(req: Request, res: Response) {
     // Gedeelde stijlen: Helvetica voor tekst, Space Grotesk voor titels. Geen zwarte buitenachtergrond.
     const emailStyles = `
       <style>
-        //... keep previous style...
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #e5e7eb; background-color: #0c1f0c; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
         h1, h2, h3, h4 { font-family: 'Space Grotesk', -apple-system, sans-serif; font-weight: 700; color: #ffffff; text-transform: uppercase; margin: 0; letter-spacing: -0.02em; }
         p, span, td, li { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
@@ -107,35 +106,37 @@ export default async function handler(req: Request, res: Response) {
           <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
           ${emailStyles}
         </head>
-        <body>
-          <div class="email-container">
-            <div class="main-card">
-              <div class="logo-wrapper">
-                <span class="thryve-logo">THRYVE</span>
-              </div>
-              
-              <h1 style="font-size: 28px; text-align: center; line-height: 1.1; margin-bottom: 12px;">Jouw Performance Audit is Klaar</h1>
-              <p style="font-size: 15px; text-align: center; color: #a3b8a3; margin: 0 0 20px 0; line-height: 1.5; font-weight: 500;">
-                Beste ${firstName}, we hebben je systeem geanalyseerd. Je persoonlijke Blueprint zit als PDF in de bijlage.
-              </p>
-
-              <div class="coach-section" style="border-top: none; margin-top: 10px; padding-top: 10px;">
-                <h3 style="font-size: 20px; margin-bottom: 10px; letter-spacing: -0.01em;">Wat Kost Dit Jou?</h3>
-                <p style="font-size: 14px; color: #e5e7eb; line-height: 1.6; max-width: 420px; margin: 0 auto 25px auto;">
-                  Energie en focus lekken betekent dat je hard werkt voor een systeem dat niet is geoptimaliseerd. 
-                  Bekijk je blueprint en ontdek waar jouw grootste groeipotentie ligt. Dit is geen discipline-probleem, dit is een systeem-probleem.
-                </p>
+        <body style="background-color: #0c1f0c; color: #e5e7eb; margin: 0; padding: 0;">
+          <div style="background-color: #0c1f0c; min-height: 100vh; padding: 20px 0;">
+            <div class="email-container">
+              <div class="main-card">
+                <div class="logo-wrapper">
+                  <span class="thryve-logo">THRYVE</span>
+                </div>
                 
-                <h3 style="font-size: 20px; margin-bottom: 6px; letter-spacing: -0.01em; margin-top: 30px;">Klaar Voor Actie?</h3>
-                <p style="font-size: 14px; color: #a3b8a3; line-height: 1.6; max-width: 420px; margin: 0 auto 25px auto; font-weight: 500;">
-                  Plan een gratis kennismakingsgesprek om te ontdekken hoe we samen jouw valkuilen kunnen dichten via Peak Performance architecture.
+                <h1 style="font-size: 28px; text-align: center; line-height: 1.1; margin-bottom: 12px; color: #ffffff;">Jouw Performance Audit is Klaar</h1>
+                <p style="font-size: 15px; text-align: center; color: #a3b8a3; margin: 0 0 20px 0; line-height: 1.5; font-weight: 500;">
+                  Beste ${firstName}, we hebben je systeem geanalyseerd. Je persoonlijke Blueprint zit als PDF in de bijlage.
                 </p>
-                <a href="https://cal.com/thryvemethod/45min" class="cta-button">Plan een Performance Call</a>
-              </div>
 
-              <p class="footer-text">
-                © ${new Date().getFullYear()} The Thryve Method. Built for high performers.
-              </p>
+                <div class="coach-section" style="border-top: none; margin-top: 10px; padding-top: 10px;">
+                  <h3 style="font-size: 20px; margin-bottom: 10px; letter-spacing: -0.01em; color: #ffffff;">Wat Kost Dit Jou?</h3>
+                  <p style="font-size: 14px; color: #e5e7eb; line-height: 1.6; max-width: 420px; margin: 0 auto 25px auto;">
+                    Energie en focus lekken betekent dat je hard werkt voor een systeem dat niet is geoptimaliseerd. 
+                    Bekijk je blueprint en ontdek waar jouw grootste groeipotentie ligt. Dit is geen discipline-probleem, dit is een systeem-probleem.
+                  </p>
+                  
+                  <h3 style="font-size: 20px; margin-bottom: 6px; letter-spacing: -0.01em; margin-top: 30px; color: #ffffff;">Klaar Voor Actie?</h3>
+                  <p style="font-size: 14px; color: #a3b8a3; line-height: 1.6; max-width: 420px; margin: 0 auto 25px auto; font-weight: 500;">
+                    Plan een gratis kennismakingsgesprek om te ontdekken hoe we samen jouw valkuilen kunnen dichten via Peak Performance architecture.
+                  </p>
+                  <a href="https://cal.com/thryvemethod/45min" class="cta-button">Plan een Performance Call</a>
+                </div>
+
+                <p class="footer-text">
+                  © ${new Date().getFullYear()} The Thryve Method. Built for high performers.
+                </p>
+              </div>
             </div>
           </div>
         </body>
@@ -159,40 +160,42 @@ export default async function handler(req: Request, res: Response) {
           <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
           ${emailStyles}
         </head>
-        <body>
-          <div class="email-container">
-            <div class="main-card">
-              <div class="logo-wrapper">
-                <span class="thryve-logo">THRYVE SYSTEM</span>
-              </div>
-              
-              <div class="lead-info-box">
-                <h4 class="lead-title">📋 Contactgegevens Ondernemer</h4>
-                <div class="lead-metric"><strong>Naam:</strong> ${firstName} ${lastName}</div>
-                <div class="lead-metric"><strong>E-mail:</strong> ${email}</div>
-                <div class="lead-metric"><strong>Telefoon:</strong> ${phone}</div>
-              </div>
+        <body style="background-color: #0c1f0c; color: #e5e7eb; margin: 0; padding: 0;">
+          <div style="background-color: #0c1f0c; min-height: 100vh; padding: 20px 0;">
+            <div class="email-container">
+              <div class="main-card">
+                <div class="logo-wrapper">
+                  <span class="thryve-logo">THRYVE SYSTEM</span>
+                </div>
+                
+                <div class="lead-info-box">
+                  <h4 class="lead-title">📋 Contactgegevens Ondernemer</h4>
+                  <div class="lead-metric"><strong>Naam:</strong> ${firstName} ${lastName}</div>
+                  <div class="lead-metric"><strong>E-mail:</strong> ${email}</div>
+                  <div class="lead-metric"><strong>Telefoon:</strong> ${phone}</div>
+                </div>
 
-              <h1 style="font-size: 22px; text-align: center; line-height: 1.2; margin-bottom: 5px;">Gegenereerd Rapport Overzicht</h1>
-              <p style="font-size: 14px; text-align: center; color: #a3b8a3; margin: 0; padding-bottom: 15px; font-weight: 500;">Dit is de exacte blauwdruk die naar de lead is verzonden:</p>
-              
-              <div class="score-badge-box">
-                <div class="score-number">${totalScore}<span style="font-size: 26px; color: rgba(255,255,255,0.35);">/100</span></div>
-                <div class="type-label">Systeem Profiel: ${type}</div>
+                <h1 style="font-size: 22px; text-align: center; line-height: 1.2; margin-bottom: 5px; color: #ffffff;">Gegenereerd Rapport Overzicht</h1>
+                <p style="font-size: 14px; text-align: center; color: #a3b8a3; margin: 0; padding-bottom: 15px; font-weight: 500;">Dit is de exacte blauwdruk die naar de lead is verzonden:</p>
+                
+                <div class="score-badge-box">
+                  <div class="score-number">${totalScore}<span style="font-size: 26px; color: rgba(255,255,255,0.35);">/100</span></div>
+                  <div class="type-label">Systeem Profiel: ${type}</div>
+                </div>
+
+                <h3 style="font-size: 15px; border-bottom: 1px solid rgba(16, 185, 129, 0.2); padding-bottom: 10px; margin-bottom: 25px; letter-spacing: 0.05em; color: #10b981;">Pijler Verdeling</h3>
+                <table class="pillar-table">
+                  ${pillarBarsHtml}
+                </table>
+
+                <div class="coach-section">
+                  <img src="${COACH_IMAGE_URL}" alt="Iven van Stekelenburg" class="coach-avatar">
+                </div>
+
+                <p class="footer-text">
+                  © ${new Date().getFullYear()} The Thryve Method HQ. Directe opvolging vereist.
+                </p>
               </div>
-
-              <h3 style="font-size: 15px; border-bottom: 1px solid rgba(16, 185, 129, 0.2); padding-bottom: 10px; margin-bottom: 25px; letter-spacing: 0.05em; color: #10b981;">Pijler Verdeling</h3>
-              <table class="pillar-table">
-                ${pillarBarsHtml}
-              </table>
-
-              <div class="coach-section">
-                <img src="${COACH_IMAGE_URL}" alt="Iven van Stekelenburg" class="coach-avatar">
-              </div>
-
-              <p class="footer-text">
-                © ${new Date().getFullYear()} The Thryve Method HQ. Directe opvolging vereist.
-              </p>
             </div>
           </div>
         </body>
