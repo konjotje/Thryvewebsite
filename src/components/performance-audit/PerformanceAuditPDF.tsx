@@ -138,6 +138,36 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#1e381e',
     paddingTop: 10,
+  },
+  pillarRow: {
+    marginBottom: 20,
+  },
+  pillarHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 8,
+  },
+  pillarName: {
+    fontSize: 14,
+    color: '#ffffff',
+    fontWeight: 'bold',
+  },
+  pillarScore: {
+    fontSize: 14,
+    color: '#10b981',
+    fontWeight: 'bold',
+  },
+  trackBar: {
+    backgroundColor: '#112611',
+    height: 10,
+    borderRadius: 5,
+    width: '100%',
+    overflow: 'hidden',
+  },
+  fillBar: {
+    backgroundColor: '#10b981',
+    height: '100%',
+    borderRadius: 5,
   }
 });
 
@@ -194,6 +224,30 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
           Dit is geen discipline-probleem. Dit is een structuur-probleem.
           Je werkt keihard voor een systeem dat hier niet op gebouwd is.
         </Text>
+
+        <Text style={styles.footer}>© {new Date().getFullYear()} The Thryve Method | Performance Audit</Text>
+      </Page>
+
+      {/* Pillar Breakdown Page */}
+      <Page size="A4" style={styles.page}>
+        <Text style={styles.header}>Gedetailleerde Pijler Status</Text>
+        
+        <View style={{ marginTop: 20 }}>
+          {Object.entries(breakdown).map(([cat, scoreOutOf10]) => {
+            const percentage = Math.round(scoreOutOf10 * 10);
+            return (
+              <View key={cat} style={styles.pillarRow}>
+                <View style={styles.pillarHeader}>
+                  <Text style={styles.pillarName}>{cat}</Text>
+                  <Text style={styles.pillarScore}>{percentage}%</Text>
+                </View>
+                <View style={styles.trackBar}>
+                  <View style={[styles.fillBar, { width: `${percentage}%` }]} />
+                </View>
+              </View>
+            );
+          })}
+        </View>
 
         <Text style={styles.footer}>© {new Date().getFullYear()} The Thryve Method | Performance Audit</Text>
       </Page>

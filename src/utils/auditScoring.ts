@@ -96,38 +96,38 @@ export const calculateScores = (answers: Record<string, any>, questions: AuditQu
   const archetypes = {
     1: {
       name: 'De Stapelaar',
-      profile: 'Stapelt stimulansen om door de dag te komen. Cafeïne, suiker, scrollen. Energie voelt extern, niet intern.',
-      problem: 'Tolerantie opgebouwd. Normaal werk voelt traag. Motivatie afhankelijk van prikkels.',
-      actionName: 'De Lege Ochtend',
-      actionDesc: 'Eerste 60 minuten na wakker worden: geen telefoon, geen cafeïne. Alleen water, daglicht, beweging. Geeft je dopamine-systeem ruimte om te recalibreren.'
+      profile: 'Je leunt op externe stimulansen. Cafeïne, snelle koolhydraten, micro-dopamine hits van je telefoon. Je energie voelt opgepompt en reactief, niet kalm en gefundeerd. Je dagen bestaan uit het managen van pieken en dalen, waardoor je cognitieve output grillig is.',
+      problem: 'Je neurologische baseline is verschoven. Wat ooit voelde als "veel" energie, voelt nu als normaal. Omdat je systeem tolerant is geworden voor prikkels, heb je steeds meer nodig om dezelfde focus te bereiken. Uiteindelijk leidt dit tot bijnier-vermoeidheid en een constant gejaagd gevoel zonder daadwerkelijke productiviteit.',
+      actionName: 'De Lege Ochtend Protocol',
+      actionDesc: 'De eerste 60 minuten van je dag definiëren je neurochemie. Geen telefoon (geen externe dopamine). Geen cafeïne (geef je adenosine-receptoren de tijd om natuurlijk vrij te komen). Alleen hydratatie (500ml water met een snufje zeezout), daglicht in je ogen, en fysieke beweging. Binnen 7 dagen herkalibreert dit je vermogen om zonder externe push gefocust te blijven.'
     },
     2: {
       name: 'De Uitgeputte Atleet',
-      profile: 'Werkt hard, traint hard, herstelt niet. Stapelt fysieke en mentale belasting zonder structurele recovery.',
-      problem: 'Niet te weinig effort. Te weinig herstel. Overtraining op leven, niet op de sportschool.',
-      actionName: 'De Herstelweek',
-      actionDesc: '7 dagen lang: vaste bedtijd ±30 min, geen training na 19:00, geen cafeïne na 14:00. Eén week is genoeg om je baseline te voelen verschuiven.'
+      profile: 'Je bent gedisciplineerd. Je werkt hard in je bedrijf én je sport hard. Maar je vergeet dat het neurologisch systeem geen onderscheid maakt tussen fysieke en mentale stress. Alles telt op uit dezelfde emmer, en jij vult hem sneller dan je hem leegt.',
+      problem: 'Je probleem is niet een gebrek aan output, maar een structureel tekort aan gestructureerd herstel. Je lichaam bouwt cortisol en inflammatie op. Hierdoor stagneert je fysieke progressie, slaap je onrustig (ondanks vermoeidheid), en mis je de scherpte die je van jezelf gewend bent. Je bent aan het overtrainen op het leven.',
+      actionName: 'Periodisering & Parasympathische Shift',
+      actionDesc: 'Je moet leren "afschakelen" met dezelfde intensiteit waarmee je "aanschakelt". Implementeer een harde avondroutine: na 20:00 geen werk, fel licht of zware fysieke of mentale belasting. Neem magnesium bisglycinaat en doe 10-15 minuten down-regulation ademhaling (zoals box-breathing of 4-7-8 ademhaling) om je zenuwstelsel force-matig in rust (parasympathisch) te brengen voordat je gaat slapen.'
     },
     3: {
       name: 'De Mentale Draaier',
-      profile: 'Cognitief overbelast. Hoofd staat altijd aan. Veel werk, weinig resultaat per uur. Aanwezig maar niet echt aanwezig.',
-      problem: 'Geen mentale schakelaar. Brein krijgt nooit het signaal dat het werk klaar is.',
-      actionName: 'De Shutdown',
-      actionDesc: 'Elke werkdag om 18:00: schrijf drie regels op. (1) Wat is af. (2) Wat staat open voor morgen. (3) Eén zin: "Het werk is af voor vandaag." Dit installeert het schakelaar-signaal dat je brein mist.'
+      profile: 'Je cognitieve bandbreedte staat de hele dag op 90%. Zelfs als je niet werkt, ben je in je hoofd bezig met strategie, problemen oplossen, en vooruit plannen. Fysiek ben je misschien thuis, maar mentaal ben je in je bedrijf. Het lukt je niet om simpelweg aanwezig te zijn.',
+      problem: 'Je brein opereert in een constante "threat en strategize" status (hoge bèta-hersengolven). Omdat de mentale motor nooit écht afkoelt, daalt je daadwerkelijke beslissingskwaliteit overdag, brand je mentaal sneller op, en vind je het moeilijk om ontspanning te ervaren zonder je schuldig te voelen.',
+      actionName: 'De Architectonische Shutdown',
+      actionDesc: 'Creëer een onbreekbaar overgangsritueel aan het einde van je werkdag. Rond 17:30 of 18:00 neem je 10 minuten om expliciet te noteren: 1) Wat heb ik vandaag voltooid? 2) Wat is het exacte actieplan voor morgenochtend? Door open loops op papier te sluiten, ontlast je je werkgeheugen en geef je je brein het fysiologische signaal dat het werk daadwerkelijk afgesloten is.'
     },
     4: {
       name: 'De Stille Leaker',
-      profile: 'Lijkt van buiten oké. Functioneert. Maar leakt structureel via voeding, hydratatie, timing. Geen crash, wel een plafond.',
-      problem: 'Onderschatte basisvariabelen. Eiwit, timing, alcohol — kleine lekken die optellen.',
-      actionName: 'De 40-gram Regel',
-      actionDesc: 'Minimaal 40g eiwit bij ontbijt. Eén verandering, één maaltijd. Stabiliseert je energie tot lunch en breekt de middagdip-cyclus.'
+      profile: 'Van de buitenkant houd je alles draaiende. Je stort niet in. Maar gedurende de dag verlies je subtiel energie en focus door gefragmenteerde voeding, slechte hydratatie, of het missen van fysiologische ankers. Je presteert op een "goed" niveau, maar bereikt nooit je fysiologische limiet.',
+      problem: 'Je optimaliseert op de verkeerde, kleine details of je negeert de meest impactvolle fysiologische variabelen (zoals bloedsuikerspiegel-stabilisatie en circadiaanse ritmiek). Hierdoor ontstaat de beruchte middagdip, brain fog na de lunch, en merk je dat je aan het eind van de week op reserves draait.',
+      actionName: 'Stabiele Bloedsuiker & 40-gram Eiwit Regel',
+      actionDesc: 'Piekende en dalende bloedsuiker is de nummer 1 vijand van langdurige cognitieve output. Start je dag met minimaal 40 gram hoogwaardige eiwitten en gezonde vetten (bijv. eieren, gerookte zalm, of een zware proteïneshake), en mijd koolhydraten in de vroege ochtend. Dit hakt je middagdip volledig weg en creëert een stalen energie-baseline tot ver in de middag.'
     },
     5: {
       name: 'De Compounder',
-      profile: 'Systeem werkt grotendeels. Wint op consistentie. Wil van goed naar uitzonderlijk. ',
-      problem: 'Niet meer toevoegen. Maar verfijnen.',
-      actionName: 'De Audit Cycle',
-      actionDesc: 'Track 14 dagen één variabele die je nu niet meet (HRV, deep work uren, of avond-cafeïne). Data toont waar je laatste 20% rendement zit.'
+      profile: 'Je systeem is in de kern solide. Je slaapt redelijk tot goed, traint, let op je voeding en bent bovengemiddeld productief. Je valt niet in de valkuilen van de massa. Nu begint het spel van percentages. Hoe ga je van top 10% naar de top 1%.',
+      problem: 'Wat je hier bracht, brengt je niet naar the next level. Het gevaar is dat je blindelings meer protocollen gaat toevoegen. Meer supplementen, meer ijsbaden, meer biohacking. "Meer" is in deze fase vaak de oorzaak van stress en sub-optimale prestaties. Je moet niet toevoegen, maar meedogenloos verfijnen.',
+      actionName: 'Datagedreven Isolatie (The Audit Cycle)',
+      actionDesc: 'Selecteer en track voor 14 dagen slechts één variabele die je normaal negeert. Bijvoorbeeld: de impact van een bepaalde koolhydraatbron in de avond op je HRV, of de correlatie tussen je wektijd en netto deep-work uren. Vervang aannames door objectieve data en identificeer de specifieke fysiologische hefboom die jou persoonlijk die laatste 20% hefboomwerking geeft.'
     }
   };
 
