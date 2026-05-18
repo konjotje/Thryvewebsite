@@ -15,7 +15,7 @@ export const Card = ({ children, className = "", innerClassName = "", ...props }
     >
       <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-emerald-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
       
-      <div className={`relative w-full h-full rounded-[calc(1.5rem-1px)] bg-[#0c1f0c]/90 backdrop-blur-xl overflow-hidden ${innerClassName}`}>
+      <div className={`relative w-full h-full rounded-[calc(1.5rem-1px)] bg-thryve-card/90 backdrop-blur-xl overflow-hidden ${innerClassName}`}>
         {/* Subtler central green glow inside the card */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-emerald-500/10 blur-[60px] rounded-full pointer-events-none transition-opacity duration-300 group-hover:opacity-100 opacity-50"></div>
         

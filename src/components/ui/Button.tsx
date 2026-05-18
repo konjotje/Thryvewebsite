@@ -32,7 +32,7 @@ export const Button = ({ children, className = "", size = "md", onClick, disable
     >
       <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none"></div>
       
-      <div className={`relative w-full h-full rounded-[11px] bg-[#0c1f0c] backdrop-blur-xl flex items-center justify-center overflow-hidden ${paddingClasses[size]}`}>
+      <div className={`relative w-full h-full rounded-[11px] bg-thryve-card backdrop-blur-xl flex items-center justify-center overflow-hidden ${paddingClasses[size]}`}>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-emerald-500/20 blur-[20px] rounded-full pointer-events-none transition-opacity duration-300 group-hover:opacity-100 opacity-50"></div>
         
         <div className={`relative z-10 flex items-center gap-2 text-white font-bold font-heading tracking-wide ${textClasses[size]}`}>
