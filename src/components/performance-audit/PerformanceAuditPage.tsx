@@ -243,7 +243,7 @@ export default function PerformanceAuditPage() {
                     <button
                       key={idx}
                       onClick={() => handleAnswer(idx)}
-                      className={`w-full text-left p-4 md:p-5 rounded-none border border-gray-800 transition-all duration-200 group flex justify-between items-center ${
+                      className={`w-full text-left p-4 md:p-5 rounded-xl border border-gray-800 transition-all duration-200 group flex justify-between items-center ${
                         isSelected 
                           ? 'bg-thryve-accent/10 border-thryve-accent text-white' 
                           : 'bg-black/20 text-gray-300 hover:border-gray-600 hover:bg-black/40'
@@ -325,7 +325,7 @@ export default function PerformanceAuditPage() {
                     required
                     value={firstName}
                     onChange={e => setFirstName(e.target.value)}
-                    className="w-full bg-black/30 border border-gray-800 p-3 md:p-4 text-sm md:text-base font-body text-white focus:border-thryve-accent focus:ring-1 focus:ring-thryve-accent outline-none transition-all"
+                    className="w-full bg-black/30 rounded-xl border border-gray-800 p-3 md:p-4 text-sm md:text-base font-body text-white focus:border-thryve-accent focus:ring-1 focus:ring-thryve-accent outline-none transition-all"
                   />
                 </div>
                 <div>
@@ -335,7 +335,7 @@ export default function PerformanceAuditPage() {
                     required
                     value={email}
                     onChange={e => setEmail(e.target.value)}
-                    className="w-full bg-black/30 border border-gray-800 p-3 md:p-4 text-sm md:text-base font-body text-white focus:border-thryve-accent focus:ring-1 focus:ring-thryve-accent outline-none transition-all"
+                    className="w-full bg-black/30 rounded-xl border border-gray-800 p-3 md:p-4 text-sm md:text-base font-body text-white focus:border-thryve-accent focus:ring-1 focus:ring-thryve-accent outline-none transition-all"
                   />
                 </div>
 
@@ -346,7 +346,7 @@ export default function PerformanceAuditPage() {
                       type="tel" 
                       value={phone}
                       onChange={e => setPhone(e.target.value)}
-                      className="w-full bg-black/30 border border-gray-800 p-3 md:p-4 text-sm md:text-base font-body text-white focus:border-thryve-accent focus:ring-1 focus:ring-thryve-accent outline-none transition-all"
+                      className="w-full bg-black/30 rounded-xl border border-gray-800 p-3 md:p-4 text-sm md:text-base font-body text-white focus:border-thryve-accent focus:ring-1 focus:ring-thryve-accent outline-none transition-all"
                     />
                   </motion.div>
                 )}

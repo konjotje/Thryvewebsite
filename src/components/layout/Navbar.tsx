@@ -23,6 +23,7 @@ export const Navbar = () => {
   return (
     <>
       <motion.nav 
+        aria-label="Main navigation"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -71,6 +72,8 @@ export const Navbar = () => {
             <div 
               className="relative z-10 flex flex-col space-y-4 sm:space-y-6"
               onClick={(e) => e.stopPropagation()}
+              role="navigation"
+              aria-label="Mobile navigation"
             >
               {[
                 { name: 'The Method', path: '/#method' },

@@ -239,7 +239,7 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
         
         <View style={{ marginTop: 20 }}>
           {Object.entries(breakdown).map(([cat, scoreOutOf10]) => {
-            const percentage = Math.round(scoreOutOf10 * 10);
+            const percentage = Math.round(Number(scoreOutOf10) * 10);
             return (
               <View key={cat} style={styles.pillarRow}>
                 <View style={styles.pillarHeader}>

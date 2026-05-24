@@ -36,12 +36,37 @@ export default function App() {
   return (
     <div className="bg-thryve-dark min-h-screen text-thryve-cream selection:bg-thryve-accent selection:text-white">
       <Navbar />
-      <Routes>
-        <Route path="/" element={
+      <main>
+        <Routes>
+          <Route path="/" element={
           <>
             <Helmet>
               <title>The Thryve Method | Peak Performance Coaching</title>
               <meta name="description" content="Ontdek The Thryve Method: Peak performance coaching, biohacking en fysiologie voor ambitieuze ondernemers. Verhoog direct je energie, productiviteit en focus." />
+              <link rel="canonical" href="https://thethryvemethod.com/" />
+              <script type="application/ld+json">
+                {`
+                  {
+                    "@context": "https://schema.org",
+                    "@type": "HealthAndBeautyBusiness",
+                    "name": "The Thryve Method",
+                    "image": "https://thethryvemethod.com/images/thryvemethodsocial.webp",
+                    "@id": "",
+                    "url": "https://thethryvemethod.com/",
+                    "telephone": "",
+                    "address": {
+                      "@type": "PostalAddress",
+                      "addressCountry": "NL"
+                    },
+                    "founder": {
+                      "@type": "Person",
+                      "name": "Iven van Stekelenburg",
+                      "jobTitle": "Peak Performance Coach & Fysiotherapeut"
+                    },
+                    "description": "Peak performance coaching, biohacking en vitaliteit voor ambitieuze ondernemers. Bereik een ongekend energieniveau."
+                  }
+                `}
+              </script>
             </Helmet>
             <Hero />
             <Features />
@@ -73,6 +98,7 @@ export default function App() {
             <Helmet>
               <title>Algemene Voorwaarden | The Thryve Method</title>
               <meta name="description" content="Lees onze algemene voorwaarden." />
+              <link rel="canonical" href="https://thethryvemethod.com/terms-and-conditions" />
             </Helmet>
             <TermsAndConditions />
           </>
@@ -82,6 +108,7 @@ export default function App() {
             <Helmet>
               <title>Privacybeleid | The Thryve Method</title>
               <meta name="description" content="Lees ons privacybeleid en leer hoe we omgaan met jouw gegevens." />
+              <link rel="canonical" href="https://thethryvemethod.com/privacy-policy" />
             </Helmet>
             <PrivacyPolicy />
           </>
@@ -91,11 +118,13 @@ export default function App() {
             <Helmet>
               <title>Performance Audit | The Thryve Method</title>
               <meta name="description" content="Krijg direct inzicht in wat je energie en focus kost. Start de Performance Audit." />
+              <link rel="canonical" href="https://thethryvemethod.com/performance-audit" />
             </Helmet>
             <PerformanceAuditPage />
           </>
         } />
       </Routes>
+      </main>
       <Footer />
       <SpeedInsights />
       <Analytics />
