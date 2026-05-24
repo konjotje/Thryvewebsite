@@ -243,23 +243,23 @@ export default function PerformanceAuditPage() {
                     <button
                       key={idx}
                       onClick={() => handleAnswer(idx)}
-                      className={`w-full text-left p-4 md:p-5 rounded-xl border border-gray-800 transition-all duration-200 group flex justify-between items-center ${
+                      className={`w-full text-left p-4 md:p-5 rounded-xl border transition-all duration-200 group flex justify-between items-center ${
                         isSelected 
                           ? 'bg-thryve-accent/10 border-thryve-accent text-white' 
-                          : 'bg-black/20 text-gray-300 hover:border-gray-600 hover:bg-black/40'
+                          : 'border-[#E8E3D4]/50 bg-black/20 text-gray-300 hover:border-[#E8E3D4] hover:bg-black/40'
                       }`}
                     >
                       <span className="font-medium text-sm md:text-base pr-4">{answer.text}</span>
                       
                       {currentQuestion.type !== 'multiple' && (
                         <div className={`w-4 h-4 rounded-full border-2 flex-shrink-0 ${
-                          isSelected ? 'border-thryve-accent bg-thryve-accent' : 'border-gray-600'
+                          isSelected ? 'border-thryve-accent bg-thryve-accent' : 'border-[#E8E3D4]/50'
                         }`} />
                       )}
                       
                       {currentQuestion.type === 'multiple' && (
                         <div className={`w-4 h-4 border-2 flex-shrink-0 flex items-center justify-center ${
-                          isSelected ? 'border-thryve-accent bg-thryve-accent' : 'border-gray-600'
+                          isSelected ? 'border-thryve-accent bg-thryve-accent' : 'border-[#E8E3D4]/50'
                         }`}>
                           {isSelected && <div className="w-1.5 h-1.5 bg-white" />}
                         </div>

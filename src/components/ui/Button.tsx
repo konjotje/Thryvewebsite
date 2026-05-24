@@ -31,7 +31,7 @@ export const Button = ({ children, className = "", size = "md", onClick, disable
       {...props}
     >
       <div className={`relative w-full h-full rounded-[11px] bg-thryve-card flex items-center justify-center overflow-hidden ${paddingClasses[size]}`}>
-        <div className={`relative z-10 flex items-center gap-2 text-white font-bold font-heading tracking-wide ${textClasses[size]}`}>
+        <div className={`relative z-10 flex items-center gap-2 text-[#E8E3D4] font-bold font-heading tracking-wide ${textClasses[size]}`}>
           {children}
         </div>
       </div>
