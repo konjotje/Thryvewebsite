@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'motion/react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, FileText } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useNavigate } from 'react-router-dom';
 
@@ -64,16 +64,17 @@ export const StructureAndAudit: React.FC = () => {
               Performance Audit
             </span>
             <h2 className="text-3xl md:text-4xl mb-6">
-              Weet waar je staat, in 5 minuten
+              Jouw Performance Audit: Ontvang Direct een PDF Rapport
             </h2>
             <p className="text-thryve-cream/80 text-sm leading-relaxed mb-8">
-              Ontdek direct welke factoren jouw prestaties belemmeren en ontvang een concreet plan van aanpak om je energie en focus te optimaliseren.
+              Vul onze Performance Audit in (5 min) en ontvang direct een gratis PDF met je resultaten.
             </p>
           </div>
 
           <div className="flex justify-start relative z-10">
             <Button onClick={() => navigate('/performance-audit')}>
-              Start de Performance Audit
+              <FileText size={20} className="mr-2" />
+              Start de Audit en Ontvang de PDF
               <ChevronRight size={20} className="text-thryve-title group-hover:translate-x-1 transition-transform inline-block ml-2" />
             </Button>
           </div>
