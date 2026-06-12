@@ -52,7 +52,7 @@ export const ClientStories = () => {
                     innerClassName="p-6 h-full flex flex-col"
                   >
                     <div className="relative overflow-hidden rounded-xl group/img mb-6">
-                      <img src={story.image} alt={`Resultaat van ${story.name}`} className="object-cover aspect-[4/5] w-full transition-transform duration-700 group-hover/img:scale-110" referrerPolicy="no-referrer" />
+                      <img src={story.image} alt={`Resultaat van ${story.name}`} className="object-cover aspect-[4/5] w-full" referrerPolicy="no-referrer" />
                       <span className="absolute top-2 left-2 bg-black/50 text-white text-[10px] px-2 py-1 rounded-full uppercase tracking-wider font-semibold">Before</span>
                       <span className="absolute top-2 right-2 bg-thryve-accent text-black text-[10px] px-2 py-1 rounded-full uppercase tracking-wider font-bold">After</span>
                     </div>

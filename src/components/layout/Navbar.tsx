@@ -40,8 +40,9 @@ export const Navbar = () => {
             <Link to="/#about" className="hover:text-white transition-colors">Over mij</Link>
             <Link to="/#testimonials" className="hover:text-white transition-colors">Reviews</Link>
             <Link to="/#faq" className="hover:text-white transition-colors">FAQ</Link>
-            <Button size="sm" onClick={() => navigate('/#contact')}>
-              Contact
+            <Link to="/#contact" className="hover:text-white transition-colors">Contact</Link>
+            <Button size="sm" onClick={() => navigate('/performance-audit')}>
+              Performance Audit
             </Button>
           </div>
 
@@ -82,6 +83,7 @@ export const Navbar = () => {
                 { name: 'Reviews', path: '/#testimonials' },
                 { name: 'FAQ', path: '/#faq' },
                 { name: 'Contact', path: '/#contact' },
+                { name: 'Performance Audit', path: '/performance-audit' },
               ].map((item, i) => (
                 <motion.button 
                   key={item.name}
