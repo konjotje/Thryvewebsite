@@ -1,4 +1,3 @@
-import { CheckCircle2 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Card } from '../ui/Card';
 import { CLIENT_STORIES } from '../../constants/content';
@@ -36,8 +35,9 @@ export const ClientStories = () => {
           transition={{ duration: 1.0 }}
           className="text-center mb-16"
         >
-          <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Stories</div>
-          <h2>RESULTATEN SPREKEN VOOR ZICH</h2>
+          <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">RESULTATEN</div>
+          <h2 className="text-3xl md:text-5xl mb-6">Meer dan een sterker lichaam</h2>
+          <p className="text-thryve-cream/80 text-lg md:text-xl">Echte resultaten van klanten die hun lichaam, energie en mindset op orde kregen.</p>
         </motion.div>
 
         <div className="relative">
@@ -51,19 +51,13 @@ export const ClientStories = () => {
                     className={`transition-all duration-500 flex flex-col h-full w-full opacity-100 scale-100 ${story.active ? 'md:scale-105 z-10 border-thryve-accent/30' : 'md:opacity-50 md:scale-95 hover:opacity-100'}`}
                     innerClassName="p-6 h-full flex flex-col"
                   >
-                    <div className="grid grid-cols-2 gap-3 mb-6">
-                      <div className="relative overflow-hidden rounded-xl group/img">
-                        <img src={story.before} alt={`Fysieke conditie van ${story.name} voor de samenwerking`} className="object-cover aspect-[3/4] w-full transition-transform duration-700 group-hover/img:scale-110" referrerPolicy="no-referrer" />
-                        <span className="absolute top-2 left-2 bg-black/50 text-white text-[10px] px-2 py-1 rounded-full uppercase tracking-wider">Voor</span>
-                      </div>
-                      <div className="relative overflow-hidden rounded-xl group/img">
-                        <img src={story.after} alt={`Bereikte resultaten en fysiek van ${story.name} na The Thryve Method`} className="object-cover aspect-[3/4] w-full transition-transform duration-700 group-hover/img:scale-110" referrerPolicy="no-referrer" />
-                        <span className="absolute top-2 left-2 bg-thryve-accent text-black text-[10px] px-2 py-1 rounded-full uppercase tracking-wider font-bold">Na</span>
-                      </div>
+                    <div className="relative overflow-hidden rounded-xl group/img mb-6">
+                      <img src={story.image} alt={`Resultaat van ${story.name}`} className="object-cover aspect-[4/5] w-full transition-transform duration-700 group-hover/img:scale-110" referrerPolicy="no-referrer" />
+                      <span className="absolute top-2 left-2 bg-black/50 text-white text-[10px] px-2 py-1 rounded-full uppercase tracking-wider font-semibold">Before</span>
+                      <span className="absolute top-2 right-2 bg-thryve-accent text-black text-[10px] px-2 py-1 rounded-full uppercase tracking-wider font-bold">After</span>
                     </div>
-                    <div className="flex items-center gap-3 mb-3">
-                      <CheckCircle2 className="w-5 h-5 text-thryve-accent" />
-                      <h3>{story.title}</h3>
+                    <div className="mb-3">
+                      <h3 className="font-semibold text-lg">{story.title}</h3>
                     </div>
                     <p className="text-thryve-cream/60 text-sm leading-relaxed mb-6 flex-grow">
                       {story.desc}

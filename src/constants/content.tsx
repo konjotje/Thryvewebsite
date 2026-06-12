@@ -30,27 +30,24 @@ export const THRYVE_METHOD_CONTENT = {
 
 export const CLIENT_STORIES = [
   {
-    name: "Philip Thompson",
-    title: "PHILIP'S SUCCES",
-    desc: "Philip wilde vet verliezen en spiermassa opbouwen. Met vastberadenheid en een solide plan heeft hij opmerkelijke resultaten behaald.",
-    before: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=500&auto=format&fit=crop",
-    after: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=500&auto=format&fit=crop",
+    name: "Dexter",
+    title: "10 kg lichter & productiever",
+    desc: "In vier maanden naar de beste vorm van zijn leven. Niet alleen fysiek, ook in structuur, focus en productiviteit, met direct positief effect op zijn bedrijf.",
+    image: "/images/Dexter.png",
     active: false
   },
   {
-    name: "Jack Smith",
-    title: "JACK'S TRANSFORMATIE",
-    desc: "Jack streefde naar een gespierd en strak lichaam. Door toewijding en hard werken heeft hij dit werkelijkheid gemaakt.",
-    before: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=500&auto=format&fit=crop",
-    after: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=500&auto=format&fit=crop",
+    name: "Geraldine",
+    title: "Sterker, in balans & meer energie",
+    desc: "Door een gezondere relatie met voeding kreeg ze haar energie, hormonen en cyclus weer in balans. En het gevoel dat ze sterker en meer verbonden met haar lichaam is dan ooit.",
+    image: "/images/geraldine.png",
     active: true
   },
   {
-    name: "Anna Taylor",
-    title: "ANNA'S DROOMFYSIEK",
-    desc: "Een jaar geleden kwam Anna bij mij met het doel om tegelijkertijd vet te verliezen en spiermassa op te bouwen.",
-    before: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=500&auto=format&fit=crop",
-    after: "https://images.unsplash.com/photo-1583465539801-bf10f51931a3?q=80&w=500&auto=format&fit=crop",
+    name: "Sven",
+    title: "10 kg eraf & geconcentreerder",
+    desc: "Na jaren worstelen met voeding en discipline eindelijk de juiste structuur gevonden. In 15 weken naar zijn droomlichaam, en een mindset die ook zijn werk scherper maakte.",
+    image: "/images/Sven.png",
     active: false
   }
 ];
