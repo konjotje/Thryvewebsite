@@ -1,7 +1,7 @@
 import { Target, Moon, Dumbbell, Brain, Activity, Shield, Sliders, Zap } from 'lucide-react';
 
 export const HERO_CONTENT = {
-  title: "ONTDEK JOUW POTENTIEEL",
+  title: "GROEI ONDER DRUK",
   subtitle: "PEAK PERFORMANCE COACHING",
   description: "Wetenschappelijk onderbouwde coaching voor ambitieuze ondernemers die hun energie, focus en prestaties naar een hoger niveau willen tillen.",
   cta: "Performance audit"

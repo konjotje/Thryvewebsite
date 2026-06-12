@@ -22,7 +22,7 @@ export const StructureAndAudit: React.FC = () => {
           <span className="text-thryve-accent text-sm font-bold tracking-widest uppercase mb-4 block">
             PEAK PERFORMANCE COACHING
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl mb-4 md:mb-6 break-words hyphens-auto mx-auto max-w-full">
+          <h2 className="text-base sm:text-3xl md:text-5xl mb-4 md:mb-6 mx-auto max-w-full break-words leading-tight">
             <span className="block">Geen disciplineprobleem.</span>
             <span className="block !text-thryve-accent italic mt-2">Een structuurprobleem.</span>
           </h2>
