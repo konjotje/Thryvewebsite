@@ -25,7 +25,7 @@ export const Contact = () => {
             <h2 className="mb-6">KLAAR OM TE<br/>STARTEN?</h2>
             <div className="max-w-2xl mx-auto">
               <p className="text-thryve-cream/70 leading-relaxed text-sm md:text-base">
-                Plan een gratis en vrijblijvende strategische sessie. We bespreken je doelen, analyseren je obstakels en ontdekken direct hoe The Thryve Method jouw potentieel kan unlocken.
+                Plan een gratis en vrijblijvende kennismaking. We bespreken je doelen, brengen je grootste obstakels in kaart en je ontdekt direct hoe The Thryve Method je verder kan helpen.
               </p>
             </div>
           </motion.div>
