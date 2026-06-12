@@ -42,7 +42,7 @@ export const About = () => {
               Ik ben Iven van Stekelenburg, fysiotherapeut en peak performance coach. Met ruim 8 jaar ervaring in training, herstel en leefstijl help ik mensen die veel van zichzelf vragen om hun lichaam én geest op hun best te krijgen. Geen quick fixes en geen extreme regimes, maar systemen die werken onder druk en die je vol kunt houden.
             </p>
             <Button onClick={() => navigate('/#contact')}>
-              Klaar voor?
+              Plan een kennismaking
               <ChevronRight size={20} strokeWidth={3} className="text-thryve-accent" />
             </Button>
           </motion.div>
