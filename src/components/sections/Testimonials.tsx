@@ -43,12 +43,12 @@ export const Testimonials = () => {
         </motion.div>
 
         <div className="relative group">
-          <div className="overflow-hidden p-4 -m-4" ref={emblaRef}>
-            <div className="flex gap-6 items-stretch">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex items-stretch -ml-6">
               {TESTIMONIALS.map((t, i) => (
                 <div
                   key={i}
-                  className="flex-[0_0_85vw] sm:flex-[0_0_400px] lg:flex-[0_0_calc(33.333%-1rem)] min-w-0 h-auto"
+                  className="flex-[0_0_85vw] sm:flex-[0_0_400px] lg:flex-[0_0_calc(33.333%)] min-w-0 h-auto pl-6"
                 >
                   <Card className="flex flex-col relative h-full shadow-none w-full" innerClassName="p-6 h-full flex flex-col">
                     <p className="text-thryve-cream/80 text-sm leading-relaxed mb-8 flex-grow italic">"{t.text}"</p>
