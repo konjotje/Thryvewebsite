@@ -30,8 +30,8 @@ export const Navbar = () => {
         className={`fixed top-0 w-full z-50 transition-colors duration-300 ${scrolled ? 'bg-thryve-dark/95 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-4 sm:py-6'}`}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <Link to="/" className="text-xl font-heading font-bold tracking-widest text-white uppercase relative z-50">
-            THRYVE
+          <Link to="/" className="relative z-50 flex items-center">
+            <img src="/images/logoTTM.svg" alt="The Thryve Method" className="h-6 md:h-8 w-auto" />
           </Link>
           
           <div className="hidden lg:flex items-center space-x-6 text-sm font-medium font-heading text-thryve-cream">

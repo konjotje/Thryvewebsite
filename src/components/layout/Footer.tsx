@@ -8,8 +8,8 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand & Description */}
           <div className="flex flex-col gap-4">
-            <Link to="/" className="text-2xl font-heading font-bold tracking-widest text-white uppercase inline-block">
-              THRYVE
+            <Link to="/" className="inline-block">
+              <img src="/images/logoTTM.svg" alt="The Thryve Method" className="h-8 md:h-10 w-auto" />
             </Link>
             <p className="text-thryve-cream/80 text-sm leading-relaxed">
               Premium online en in-person fitness coaching om jouw potentieel volledig te unlocken. Optimale gezondheid, fysieke en mentale performance.
