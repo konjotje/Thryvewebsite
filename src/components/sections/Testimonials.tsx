@@ -1,17 +1,20 @@
 import { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { motion } from 'motion/react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card } from '../ui/Card';
 import { TESTIMONIALS } from '../../constants/content';
 
 export const Testimonials = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     align: 'start', 
-    loop: false, 
-    containScroll: 'trimSnaps',
-    breakpoints: { '(min-width: 1024px)': { active: false } }
+    loop: true, 
+    containScroll: 'trimSnaps'
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -27,7 +30,7 @@ export const Testimonials = () => {
 
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-thryve-dark overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,30 +42,45 @@ export const Testimonials = () => {
           <h2 className="mb-10 text-center">WAT KLANTEN ZEGGEN</h2>
         </motion.div>
 
-        <div className="overflow-hidden p-4 -m-4 pb-12 lg:overflow-visible" ref={emblaRef}>
-          <div className="flex gap-6 items-stretch lg:grid lg:grid-cols-4">
-            {TESTIMONIALS.map((t, i) => (
-              <div
-                key={i}
-                className="flex-[0_0_85vw] sm:flex-[0_0_300px] lg:flex-[1_1_100%] min-w-0 h-auto"
-              >
-                <Card className="flex flex-col relative h-full shadow-none w-full" innerClassName="p-6 h-full flex flex-col">
-                  <p className="text-thryve-cream/80 text-sm leading-relaxed mb-8 flex-grow italic">"{t.text}"</p>
-                  <div className="border-t border-white/10 pt-4 flex justify-between items-center mt-auto">
-                    <div>
+        <div className="relative group">
+          <div className="overflow-hidden p-4 -m-4" ref={emblaRef}>
+            <div className="flex gap-6 items-stretch">
+              {TESTIMONIALS.map((t, i) => (
+                <div
+                  key={i}
+                  className="flex-[0_0_85vw] sm:flex-[0_0_400px] lg:flex-[0_0_calc(33.333%-1rem)] min-w-0 h-auto"
+                >
+                  <Card className="flex flex-col relative h-full shadow-none w-full" innerClassName="p-6 h-full flex flex-col">
+                    <p className="text-thryve-cream/80 text-sm leading-relaxed mb-8 flex-grow italic">"{t.text}"</p>
+                    <div className="border-t border-white/10 pt-4 mt-auto">
                       <p className="font-bold text-white text-sm">{t.name}</p>
                       <p className="text-xs text-thryve-accent">{t.role}</p>
                     </div>
-                    <img src={t.image} alt={t.name} className="w-10 h-10 rounded-full object-cover transition-transform duration-500 hover:scale-125" referrerPolicy="no-referrer" />
-                  </div>
-                </Card>
-              </div>
-            ))}
+                  </Card>
+                </div>
+              ))}
+            </div>
           </div>
+          
+          <button 
+            className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 p-2 bg-thryve-accent rounded-full text-black hover:bg-white transition-colors"
+            onClick={scrollPrev}
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          
+          <button 
+            className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 p-2 bg-thryve-accent rounded-full text-black hover:bg-white transition-colors"
+            onClick={scrollNext}
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
         </div>
         
         {emblaApi && (
-          <div className="flex justify-center gap-2 mt-4 lg:hidden">
+          <div className="flex justify-center gap-2 mt-8 lg:hidden">
             {emblaApi.scrollSnapList().map((_, index) => (
               <button
                 key={index}

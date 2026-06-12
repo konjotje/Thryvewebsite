@@ -54,28 +54,40 @@ export const CLIENT_STORIES = [
 
 export const TESTIMONIALS = [
   {
-    name: "Mark de Vries",
-    role: "CEO TechStartup",
-    text: "Sinds ik met Iven werk, is mijn focus en energielevel enorm gestegen. Ik kan veel meer aan zonder me opgebrand te voelen.",
+    name: "Aymen",
+    role: "Ondernemer",
+    text: "De samenwerking met de coach heb ik als enorm fijn en professioneel ervaren. Wat voor mij echt het verschil maakte, was de persoonlijke aanpak. Alles werd afgestemd op mijn eigen doelen, levensstijl en behoeften. Daarnaast was het super prettig dat ik gedurende de dag altijd vragen kon stellen via WhatsApp. Het traject heeft mij uiteindelijk veel meer opgeleverd dan alleen fysieke resultaten. Ik merk dat ik meer energie heb, productiever ben en beter in mijn vel zit.",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop"
+  },
+  {
+    name: "Morris",
+    role: "Klant",
+    text: "Mijn grootste uitdaging tijdens dit traject was mezelf tegenkomen, vooral op het gebied van gezonde voeding, iets waar ik voorheen totaal niet mee bezig was. De samenwerking met Iven was uitstekend: ik kon alles vragen en kreeg altijd duidelijke uitleg en begeleiding. Het traject heeft me lichamelijk veel gebracht, maar ook mentaal heb ik veel geleerd. Ik heb waardevolle inzichten gekregen over onder andere rust, discipline en voeding.",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop"
+  },
+  {
+    name: "Dexter",
+    role: "E-commerce ondernemer",
+    text: "Ik werk inmiddels enkele maanden samen met Iven en heb grote resultaten geboekt, zowel fysiek als in mijn bedrijf. In slechts vier maanden ben ik ruim 10 kg afgevallen, ben ik in de beste vorm van mijn leven gekomen en ben ik mentaal veel sterker geworden. Wat Iven onderscheidt, is zijn persoonlijke betrokkenheid. Hij denkt echt met je mee, blijft betrokken en ondersteunt je gedurende het hele traject.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
   },
   {
-    name: "Sarah Jansen",
-    role: "Marketing Director",
-    text: "De combinatie van training en biohacking heeft mijn slaapkwaliteit en dagelijkse productiviteit drastisch verbeterd.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100&auto=format&fit=crop"
-  },
-  {
-    name: "Thomas Bakker",
-    role: "Ondernemer",
-    text: "Iven begrijpt precies wat een ondernemer nodig heeft. Geen standaard schema's, maar maatwerk dat echt werkt.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop"
-  },
-  {
-    name: "Lisa van Dijk",
-    role: "Creative Lead",
-    text: "Ik voel me fitter en scherper dan ooit. Het programma is uitdagend maar perfect in te passen in een drukke agenda.",
+    name: "Joshua",
+    role: "E-commerce ondernemer",
+    text: "Voordat ik met Iven begon, liep ik vast op iets dat ik eerst niet eens als het echte probleem zag: mijn slaap en mijn dagstructuur. Ik dacht dat ik gewoon harder moest werken, terwijl het probleem onder de oppervlakte zat. De samenwerking met Iven was direct en praktisch. Hij hielp me niet met vage theorie, maar met concrete bewustwording: waar mijn energie heen lekte, hoe mijn ritme in elkaar zat.",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop"
+  },
+  {
+    name: "Geraldine",
+    role: "UGC creator",
+    text: "Ik ben echt ontzettend blij met de vooruitgang die ik heb geboekt met mijn traject bij The Thryve Method. Wat Iven echt anders maakt dan andere coaches, is hoe persoonlijk en ondersteunend zijn aanpak is. Hij luistert oprecht, denkt met je mee en is er op de momenten dat je begeleiding nodig hebt. Zijn kennis gaat veel verder dan alleen trainingen; hij heeft me geholpen om herstel, slaap en productiviteit te begrijpen.",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=100&auto=format&fit=crop"
+  },
+  {
+    name: "Sven",
+    role: "E-commerce ondernemer",
+    text: "Voordat ik met het programma begon, was mijn grootste uitdaging mijn voeding. Ik wist wat ik wilde: mijn droomlichaam, maar de discipline en structuur rondom eten ontbraken. Ik had er jarenlang naar gestreefd, maar kwam er alleen niet uit. De samenwerking met Iven was uitstekend. Hij is streng waar nodig, maar denkt altijd met je mee en weet je te motiveren op de momenten dat het écht zwaar wordt.",
+    image: "https://images.unsplash.com/photo-1550525811-e5869dd03032?q=80&w=100&auto=format&fit=crop"
   }
 ];
 
