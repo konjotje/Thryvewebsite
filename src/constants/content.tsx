@@ -31,21 +31,21 @@ export const THRYVE_METHOD_CONTENT = {
 export const CLIENT_STORIES = [
   {
     name: "Dexter",
-    title: "10 kg lichter & productiever",
+    title: "10 KG LICHTER, SCHERPER OP HET WERK",
     desc: "In vier maanden naar de beste vorm van zijn leven. Niet alleen fysiek, ook in structuur, focus en productiviteit, met direct positief effect op zijn bedrijf.",
     image: "/images/Dexter.png",
     active: false
   },
   {
     name: "Geraldine",
-    title: "Sterker, in balans & meer energie",
+    title: "STERKER, IN BALANS, MEER ENERGIE",
     desc: "Door een gezondere relatie met voeding kreeg ze haar energie, hormonen en cyclus weer in balans. En het gevoel dat ze sterker en meer verbonden met haar lichaam is dan ooit.",
     image: "/images/geraldine.png",
     active: true
   },
   {
     name: "Sven",
-    title: "10 kg eraf & geconcentreerder",
+    title: "NA JAREN ZOEKEN, EINDELIJK STRUCTUUR",
     desc: "Na jaren worstelen met voeding en discipline eindelijk de juiste structuur gevonden. In 15 weken naar zijn droomlichaam, en een mindset die ook zijn werk scherper maakte.",
     image: "/images/Sven.png",
     active: false
