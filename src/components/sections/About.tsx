@@ -39,7 +39,7 @@ export const About = () => {
             <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Over Mij</div>
             <h2 className="mb-8">JOUW PARTNER IN<br/>PEAK PERFORMANCE</h2>
             <p className="text-thryve-cream/70 leading-relaxed mb-10 text-sm">
-              Ik ben Iven van Stekelenburg, fysiotherapeut en peak performance coach. Met ruim 8 jaar ervaring in sport en krachttraining help ik ondernemers om hun lichaam en geest te optimaliseren voor duurzame groei. Geen quick fixes, maar systemen die werken onder druk.
+              Ik ben Iven van Stekelenburg, fysiotherapeut en peak performance coach. Met ruim 8 jaar ervaring in training, herstel en leefstijl help ik mensen die veel van zichzelf vragen om hun lichaam én geest op hun best te krijgen. Geen quick fixes en geen extreme regimes, maar systemen die werken onder druk en die je vol kunt houden.
             </p>
             <Button onClick={() => navigate('/#contact')}>
               Klaar voor?

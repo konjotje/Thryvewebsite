@@ -80,8 +80,32 @@ export const TESTIMONIALS = [
 ];
 
 export const FAQS = [
-  { q: "Wat maakt The Thryve Method anders dan een standaard personal trainer?", a: "Waar een personal trainer stopt bij de gymdeur, begint The Thryve Method. We kijken holistisch naar jouw leven als ondernemer. Door training, voeding, slaap en stressmanagement te integreren met cutting-edge biohacking, implementeren we systemen die jouw absolute peak performance ontsluiten in zowel business als privé." },
-  { q: "Hoeveel tijd kost dit traject per week?", a: "Tijd is je meest kostbare bezit. Daarom is de methode volledig ontworpen voor drukke agenda's. In plaats van tijd te kósten, levert het juist tijd óp. Door je energie, slaap en mentale helderheid te optimaliseren, win je wekelijks uren aan productiviteit en onverstoorbare focus terug." },
-  { q: "Wat is de toegevoegde waarde van jouw achtergrond als fysiotherapeut?", a: "Met mijn klinische expertise analyseer ik jouw biomechanica en herstelvermogen op microniveau. Dat betekent trainen zonder blessures, slimme stressregulatie en een onverwoestbaar fundament. We bouwen een fysiek pantser dat bestand is tegen de extreme druk van het ondernemerschap." },
-  { q: "Welke resultaten kan ik verwachten van dit traject?", a: "Verwacht geen incrementele verbetering, maar een complete transformatie. Je zult ervaren wat het is om te domineren met onuitputtelijke energie, vlijmscherpe focus en een fysiek waar je trots op bent. Het is een duurzame upgrade van jouw operating system, waardoor je doelen sneller en met meer overtuiging bereikt." }
+  {
+    q: "Wat maakt The Thryve Method anders dan een personal trainer of life coach?",
+    a: "Een personal trainer kijkt naar je training, een life coach naar je mindset. Ik kijk naar het geheel: training, herstel, slaap, voeding, focus en mentale rust. Die dingen beïnvloeden elkaar voortdurend. Als fysiotherapeut begrijp ik hoe je lichaam echt werkt, en als coach vertaal ik dat naar een aanpak die past bij jouw leven. Geen los onderdeel, maar een compleet systeem."
+  },
+  {
+    q: "Voor wie is dit traject, en voor wie niet?",
+    a: "Dit is voor mensen die veel van zichzelf vragen en op hun best willen presteren. Het gaat niet om je beroep, maar om je instelling. Wat je ook doet: als je bereid bent verantwoordelijkheid te nemen voor je energie, gezondheid en prestaties, dan past dit. Zoek je een snelle truc of een tijdelijke oplossing, dan ben ik niet de juiste persoon."
+  },
+  {
+    q: "Werkt dit ook als ik geen fanatieke sporter ben of weinig ervaring heb?",
+    a: "Zeker. Ik werk niet met extreme regimes en je hoeft geen ervaren sporter te zijn. We beginnen waar jij staat en bouwen rustig op naar iets dat je vol kunt houden. Het doel is niet om jou in mijn leefstijl te persen, maar om een aanpak te vinden die in jouw leven past."
+  },
+  {
+    q: "Hoeveel tijd kost dit traject per week?",
+    a: "Reken op een paar uur per week voor training en het voorbereiden van je voeding. Dat klinkt als tijd die je investeert, maar je verdient het ruimschoots terug. Door betere focus, meer energie en scherpere besluitvorming haal je veel meer uit de uren die je werkt. De meeste mensen krijgen netto juist tijd terug, omdat ze productiever en helderder worden."
+  },
+  {
+    q: "Wat heb ik aan jouw achtergrond als fysiotherapeut?",
+    a: "Veel. Ik kijk verder dan trainen alleen: naar hoe je lichaam belast wordt, hoe je herstelt en waar je klachten of energieverlies vandaan komen. Daardoor voorkomen we blessures en overbelasting, en bouwen we een lichaam dat druk aankan in plaats van eronder bezwijkt."
+  },
+  {
+    q: "Welke resultaten kan ik verwachten?",
+    a: "Meer energie door de dag, scherpere focus, beter herstel en diepere slaap, en een sterker, fitter lichaam. Maar bovenal het gevoel dat presteren je minder kost. Niet langer leven op wilskracht en cafeïne, maar op een lichaam en brein die je ambities dragen."
+  },
+  {
+    q: "Hoe verloopt de begeleiding?",
+    a: "Het traject is volledig online, zodat het past in elk schema en op elke locatie. Toch blijft de begeleiding persoonlijk en dichtbij. Je hebt elke maand een evaluatiecall waarin we je voortgang doornemen en bijsturen, en daartussen kun je me 24/7 bereiken via WhatsApp. Vragen, twijfels of een moment dat het even tegenzit: ik ben er als je me nodig hebt."
+  }
 ];
