@@ -13,6 +13,7 @@ import { ThryveMethod } from './components/sections/ThryveMethod';
 import { About } from './components/sections/About';
 import { FAQ } from './components/sections/FAQ';
 import { Contact } from './components/sections/Contact';
+import { StructureAndAudit } from './components/sections/StructureAndAudit';
 import { TermsAndConditions } from './components/pages/TermsAndConditions';
 import { PrivacyPolicy } from './components/pages/PrivacyPolicy';
 import PerformanceAuditPage from './components/performance-audit/PerformanceAuditPage';
@@ -70,6 +71,7 @@ export default function App() {
             </Helmet>
             <Hero />
             <Features />
+            <StructureAndAudit />
             <ThryveMethod />
             <ClientStories />
             <About />

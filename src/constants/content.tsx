@@ -1,4 +1,4 @@
-import { Calendar, Users, Zap, Target, Moon, Dumbbell, Brain } from 'lucide-react';
+import { Target, Moon, Dumbbell, Brain, Activity, Shield, Sliders, Zap } from 'lucide-react';
 
 export const HERO_CONTENT = {
   title: "ONTDEK JOUW POTENTIEEL",
@@ -8,9 +8,9 @@ export const HERO_CONTENT = {
 };
 
 export const FEATURES_ITEMS = [
-  { icon: Calendar, title: "Gepersonaliseerde Planning", desc: "Flexibele schema's die naadloos aansluiten op jouw drukke agenda als ondernemer." },
-  { icon: Users, title: "Exclusieve Community", desc: "Sluit je aan bij een netwerk van gelijkgestemde high-performers." },
-  { icon: Zap, title: "Maximale Energie", desc: "Wetenschappelijk onderbouwde methoden om jouw dagelijkse output te verhogen." }
+  { icon: Activity, title: "Lichaam én geest", desc: "Eén aanpak op training, herstel, slaap, focus en mindset. Geen losse onderdelen, maar een compleet systeem." },
+  { icon: Shield, title: "Vakmanschap", desc: "Fysiotherapeut en peak performance coach. Ik begrijp het lichaam tot in detail en vertaal dat naar wat voor jóu werkt." },
+  { icon: Sliders, title: "100% Persoonlijk", desc: "Geen standaardplan. We kijken naar jouw leven, jouw lijf en jouw doelen — en bouwen daaromheen een aanpak die past." }
 ];
 
 export const THRYVE_METHOD_CONTENT = {
