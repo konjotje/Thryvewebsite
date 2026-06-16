@@ -9,7 +9,7 @@ export const StructureAndAudit: React.FC = () => {
   const auditSectionRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="bg-thryve-dark py-16 md:py-24 border-t border-white/5 relative overflow-hidden">
+    <section className="bg-thryve-dark pt-32 pb-16 md:pt-40 md:pb-24 border-t border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-thryve-accent/5 via-transparent to-transparent pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center mb-12 md:mb-20">
@@ -59,25 +59,25 @@ export const StructureAndAudit: React.FC = () => {
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-thryve-accent/5 rounded-full blur-[80px] pointer-events-none"></div>
           
-          <div className="max-w-2xl mb-12">
-            <span className="text-thryve-accent text-sm font-bold tracking-widest uppercase mb-4 block">
-              Performance Audit
-            </span>
-            <h2 className="text-3xl md:text-4xl mb-6">
-              Jouw Performance Audit: Ontvang Direct een PDF Rapport
-            </h2>
-            <p className="text-thryve-cream/80 text-sm leading-relaxed mb-8">
-              Vul onze Performance Audit in (5 min) en ontvang direct een gratis PDF met je resultaten.
-            </p>
-          </div>
+        <div className="max-w-2xl mb-12">
+          <span className="text-thryve-accent text-sm font-bold tracking-widest uppercase mb-4 block">
+            Performance Audit
+          </span>
+          <h2 className="text-3xl md:text-4xl mb-6">
+            JOUW PERSOONLIJKE PERFORMANCE-DIAGNOSE.
+          </h2>
+          <p className="text-thryve-cream/80 text-sm leading-relaxed mb-8">
+            Een complete analyse van je prestaties op zeven pijlers. Je archetype, je verborgen energielekken, en het ene protocol dat je deze week direct kunt installeren.
+          </p>
+        </div>
 
-          <div className="flex justify-start relative z-10">
-            <Button onClick={() => navigate('/performance-audit')}>
-              <FileText size={20} className="mr-2" />
-              Start de Audit en Ontvang de PDF
-              <ChevronRight size={20} className="text-thryve-title group-hover:translate-x-1 transition-transform inline-block ml-2" />
-            </Button>
-          </div>
+        <div className="flex justify-start relative z-10">
+          <Button onClick={() => navigate('/performance-audit')}>
+            <FileText size={20} className="mr-2" />
+            Doe de Performance Audit
+            <ChevronRight size={20} className="text-thryve-title group-hover:translate-x-1 transition-transform inline-block ml-2" />
+          </Button>
+        </div>
         </motion.div>
       </div>
     </section>

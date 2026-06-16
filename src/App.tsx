@@ -5,7 +5,6 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Analytics } from '@vercel/analytics/react';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
-import { Hero } from './components/sections/Hero';
 import { Features } from './components/sections/Features';
 import { ClientStories } from './components/sections/ClientStories';
 import { Testimonials } from './components/sections/Testimonials';
@@ -69,13 +68,11 @@ export default function App() {
                 `}
               </script>
             </Helmet>
-            <Hero />
-            <Features />
             <StructureAndAudit />
-            <ThryveMethod />
+            <Features />
             <ClientStories />
+            <ThryveMethod />
             <About />
-            <Testimonials />
             <div className="relative bg-thryve-dark overflow-hidden">
               <div 
                 className="absolute inset-0 z-0 opacity-20 image-fade-abstract"
@@ -90,6 +87,7 @@ export default function App() {
               <div className="absolute inset-0 bg-gradient-to-b from-thryve-dark via-transparent to-thryve-dark pointer-events-none z-[1]"></div>
               <div className="relative z-10">
                 <Contact />
+                <Testimonials />
                 <FAQ />
               </div>
             </div>
