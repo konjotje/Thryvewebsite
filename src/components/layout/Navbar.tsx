@@ -37,7 +37,6 @@ export const Navbar = () => {
           <div className="hidden lg:flex items-center space-x-6 text-sm font-medium font-heading text-thryve-cream">
             <Link to="/#method" className="hover:text-white transition-colors">The Method</Link>
             <Link to="/#stories" className="hover:text-white transition-colors">Stories</Link>
-            <Link to="/#about" className="hover:text-white transition-colors">Over mij</Link>
             <Link to="/#testimonials" className="hover:text-white transition-colors">Reviews</Link>
             <Link to="/#faq" className="hover:text-white transition-colors">FAQ</Link>
             <Link to="/#contact" className="hover:text-white transition-colors">Contact</Link>
@@ -79,7 +78,6 @@ export const Navbar = () => {
               {[
                 { name: 'The Method', path: '/#method' },
                 { name: 'Stories', path: '/#stories' },
-                { name: 'Over mij', path: '/#about' },
                 { name: 'Reviews', path: '/#testimonials' },
                 { name: 'FAQ', path: '/#faq' },
                 { name: 'Contact', path: '/#contact' },

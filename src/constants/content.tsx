@@ -16,8 +16,8 @@ export const FEATURES_ITEMS = [
 export const THRYVE_METHOD_CONTENT = {
   title: "THE THRYVE METHOD",
   paragraphs: [
-    "The Thryve Method is een peak performance coachingtraject, speciaal ontwikkeld voor ambitieuze ondernemers die het maximale uit zichzelf en hun onderneming willen halen.",
-    "De methode combineert cutting-edge biohacking technieken met wetenschappelijk onderbouwde leefstijlinterventies om focus, productiviteit en vitaliteit naar een next level te tillen."
+    "Ik ben Iven van Stekelenburg, fysiotherapeut en peak performance coach. Met ruim acht jaar ervaring in training, herstel en leefstijl help ik mensen die veel van zichzelf vragen om hun lichaam én geest op hun best te krijgen.",
+    "The Thryve Method kijkt naar het hele plaatje: training, herstel, slaap, voeding, focus en mindset. Geen losse onderdelen of extreme regimes, maar een complete aanpak die past in jouw leven. Geen quick fixes, maar systemen die werken onder druk en die je vol kunt houden."
   ],
   bullets: [
     { text: "Meer focus, minder afleiding", icon: Target },

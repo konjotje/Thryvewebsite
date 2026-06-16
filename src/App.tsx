@@ -9,7 +9,6 @@ import { Features } from './components/sections/Features';
 import { ClientStories } from './components/sections/ClientStories';
 import { Testimonials } from './components/sections/Testimonials';
 import { ThryveMethod } from './components/sections/ThryveMethod';
-import { About } from './components/sections/About';
 import { FAQ } from './components/sections/FAQ';
 import { Contact } from './components/sections/Contact';
 import { StructureAndAudit } from './components/sections/StructureAndAudit';
@@ -72,7 +71,6 @@ export default function App() {
             <Features />
             <ClientStories />
             <ThryveMethod />
-            <About />
             <div className="relative bg-thryve-dark overflow-hidden">
               <div 
                 className="absolute inset-0 z-0 opacity-20 image-fade-abstract"
