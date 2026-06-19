@@ -106,7 +106,7 @@ export const FAQS = [
   },
   {
     q: "Hoeveel tijd kost dit traject per week?",
-    a: "Reken op een paar uur per week voor training en het voorbereiden van je voeding. Dat klinkt als tijd die je investeert, maar je verdient het ruimschoots terug. Door betere focus, meer energie en scherpere besluitvorming haal je veel meer uit de uren die je werkt. De meeste mensen krijgen netto juist tijd terug, omdat ze productiever en helderder worden."
+    a: "Reken op een paar uur per week voor het voorbereiden van je voeding, plus de training die je doet. Dat klinkt als tijd die je investeert, maar je verdient het ruimschoots terug. Door betere focus, meer energie en scherpere besluitvorming haal je veel meer uit de uren die je werkt. De meeste mensen krijgen netto juist tijd terug, omdat ze productiever en helderder worden."
   },
   {
     q: "Wat heb ik aan jouw achtergrond als fysiotherapeut?",
