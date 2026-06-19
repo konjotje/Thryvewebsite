@@ -12,7 +12,7 @@ export const Footer = () => {
               <img src="/images/logoTTM.svg" alt="The Thryve Method" className="h-8 md:h-10 w-auto" />
             </Link>
             <p className="text-thryve-cream/80 text-sm leading-relaxed">
-              Premium online en in-person fitness coaching om jouw potentieel volledig te unlocken. Optimale gezondheid, fysieke en mentale performance.
+              Premium online peak performance coaching voor mensen die het beste uit zichzelf willen halen. Meer energie, focus en rust, met een sterker lichaam en een helderder hoofd.
             </p>
             <div className="flex items-center gap-4 mt-2">
               <a href="https://www.instagram.com/thethryvemethod" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-thryve-cream/80 hover:text-white hover:border-white hover:bg-white/5 transition-all">

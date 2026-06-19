@@ -43,7 +43,7 @@ export const ThryveMethod = () => {
               </p>
             ))}
 
-            <ul className="space-y-4 font-heading font-bold">
+            <ul className="space-y-4 font-heading font-normal not-italic">
               {THRYVE_METHOD_CONTENT.bullets.map((bullet, i) => {
                 const Icon = bullet.icon;
                 return (

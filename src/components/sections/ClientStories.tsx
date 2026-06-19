@@ -37,7 +37,7 @@ export const ClientStories = () => {
         >
           <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">RESULTATEN</div>
           <h2 className="text-3xl md:text-5xl mb-6">Meer dan een sterker lichaam</h2>
-          <p className="text-thryve-cream/80 text-lg md:text-xl">Echte resultaten van klanten die hun lichaam, energie en mindset op orde kregen.</p>
+          <p className="text-thryve-cream/80 text-[14px]">Echte resultaten van klanten die hun lichaam, energie en mindset op orde kregen.</p>
         </motion.div>
 
         <div className="relative">
@@ -48,11 +48,11 @@ export const ClientStories = () => {
               {CLIENT_STORIES.map((story, i) => (
                 <div key={i} className="flex-[0_0_85vw] sm:flex-[0_0_350px] lg:flex-none min-w-0 h-auto">
                   <Card 
-                    className={`transition-all duration-500 flex flex-col h-full w-full opacity-100 scale-100 ${story.active ? 'md:scale-105 z-10 border-thryve-accent/30' : 'md:opacity-50 md:scale-95 hover:opacity-100'}`}
+                    className={`transition-all duration-500 flex flex-col h-full w-full opacity-100 scale-100 ${story.active ? 'md:scale-105 z-10 border-thryve-accent/30' : 'md:scale-95'}`}
                     innerClassName="p-6 h-full flex flex-col"
                   >
                     <div className="relative overflow-hidden rounded-xl group/img mb-6">
-                      <img src={story.image} alt={`Resultaat van ${story.name}`} className="object-cover aspect-[4/5] w-full" referrerPolicy="no-referrer" />
+                      <img src={story.image} alt={`Resultaat van ${story.name}`} className="object-cover aspect-square w-full" referrerPolicy="no-referrer" />
                       <span className="absolute top-2 left-2 bg-black/50 text-white text-[10px] px-2 py-1 rounded-full uppercase tracking-wider font-semibold">Before</span>
                       <span className="absolute top-2 right-2 bg-thryve-accent text-black text-[10px] px-2 py-1 rounded-full uppercase tracking-wider font-bold">After</span>
                     </div>

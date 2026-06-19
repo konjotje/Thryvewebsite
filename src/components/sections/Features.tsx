@@ -23,7 +23,7 @@ export const Features = () => {
                   </div>
                   <h3 className="text-white text-lg font-bold">{f.title}</h3>
                 </div>
-                <p className="text-thryve-cream/60 text-sm leading-relaxed">{f.desc}</p>
+                <p className="text-[14px] text-thryve-cream/60 leading-relaxed">{f.desc}</p>
               </motion.div>
             );
           })}

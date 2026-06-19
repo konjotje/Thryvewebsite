@@ -24,7 +24,7 @@ export const Contact = () => {
             <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Contact</div>
             <h2 className="mb-6">KLAAR OM TE<br/>STARTEN?</h2>
             <div className="max-w-2xl mx-auto">
-              <p className="text-thryve-cream/70 leading-relaxed text-sm md:text-base">
+              <p className="text-thryve-cream/70 leading-relaxed text-[14px] w-[648px] max-w-full">
                 Plan een gratis en vrijblijvende kennismaking. We bespreken je doelen, brengen je grootste obstakels in kaart en je ontdekt hoe The Thryve Method je verder kan helpen.
               </p>
             </div>
