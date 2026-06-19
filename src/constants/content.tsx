@@ -10,7 +10,7 @@ export const HERO_CONTENT = {
 export const FEATURES_ITEMS = [
   { icon: Activity, title: "Lichaam én geest", desc: "Eén aanpak op training, herstel, slaap, focus en mindset. Geen losse onderdelen, maar een compleet systeem." },
   { icon: Shield, title: "Vakmanschap", desc: "Fysiotherapeut en peak performance coach. Ik begrijp het lichaam tot in detail en vertaal dat naar wat voor jóu werkt." },
-  { icon: Sliders, title: "100% Persoonlijk", desc: "Geen standaardplan. We kijken naar jouw leven, jouw lijf en jouw doelen - en bouwen daaromheen een aanpak die past." }
+  { icon: Sliders, title: "100% Persoonlijk", desc: "Geen standaardplan. We kijken naar jouw leven, jouw lijf en jouw doelen en bouwen daaromheen een aanpak die past." }
 ];
 
 export const THRYVE_METHOD_CONTENT = {
