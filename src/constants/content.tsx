@@ -10,7 +10,7 @@ export const HERO_CONTENT = {
 export const FEATURES_ITEMS = [
   { icon: Activity, title: "Lichaam én geest", desc: "Eén aanpak op training, herstel, slaap, focus en mindset. Geen losse onderdelen, maar een compleet systeem." },
   { icon: Shield, title: "Vakmanschap", desc: "Fysiotherapeut en peak performance coach. Ik begrijp het lichaam tot in detail en vertaal dat naar wat voor jóu werkt." },
-  { icon: Sliders, title: "100% Persoonlijk", desc: "Geen standaardplan. We kijken naar jouw leven, jouw lijf en jouw doelen — en bouwen daaromheen een aanpak die past." }
+  { icon: Sliders, title: "100% Persoonlijk", desc: "Geen standaardplan. We kijken naar jouw leven, jouw lijf en jouw doelen - en bouwen daaromheen een aanpak die past." }
 ];
 
 export const THRYVE_METHOD_CONTENT = {
@@ -67,26 +67,26 @@ export const TESTIMONIALS = [
   },
   {
     name: "Dexter",
-    role: "E-commerce ondernemer",
-    text: "Ik werk inmiddels enkele maanden samen met Iven en heb grote resultaten geboekt, zowel fysiek als in mijn bedrijf. In slechts vier maanden ben ik ruim 10 kg afgevallen, ben ik in de beste vorm van mijn leven gekomen en ben ik mentaal veel sterker geworden. Wat Iven onderscheidt, is zijn persoonlijke betrokkenheid. Hij denkt echt met je mee, blijft betrokken en ondersteunt je gedurende het hele traject.",
+    role: "E-commerceondernemer",
+    text: "Ik werk inmiddels enkele maanden samen met Iven dan ook grote resultaten geboekt, zowel fysiek als in mijn bedrijf. In slechts vier maanden ben ik ruim 10 kg afgevallen, ben ik in de beste vorm van mijn leven gekomen en ben ik mentaal veel sterker geworden. Wat Iven onderscheidt, is zijn persoonlijke betrokkenheid. Hij denkt echt met je mee, blijft betrokken en ondersteunt je gedurende het hele traject.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
   },
   {
     name: "Joshua",
-    role: "E-commerce ondernemer",
+    role: "E-commerceondernemer",
     text: "Voordat ik met Iven begon, liep ik vast op iets dat ik eerst niet eens als het echte probleem zag: mijn slaap en mijn dagstructuur. Ik dacht dat ik gewoon harder moest werken, terwijl het probleem onder de oppervlakte zat. De samenwerking met Iven was direct en praktisch. Hij hielp me niet met vage theorie, maar met concrete bewustwording: waar mijn energie heen lekte, hoe mijn ritme in elkaar zat.",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop"
   },
   {
     name: "Geraldine",
-    role: "UGC creator",
+    role: "UGC-creator",
     text: "Ik ben echt ontzettend blij met de vooruitgang die ik heb geboekt met mijn traject bij The Thryve Method. Wat Iven echt anders maakt dan andere coaches, is hoe persoonlijk en ondersteunend zijn aanpak is. Hij luistert oprecht, denkt met je mee en is er op de momenten dat je begeleiding nodig hebt. Zijn kennis gaat veel verder dan alleen trainingen; hij heeft me geholpen om herstel, slaap en productiviteit te begrijpen.",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=100&auto=format&fit=crop"
   },
   {
     name: "Sven",
-    role: "E-commerce ondernemer",
-    text: "Voordat ik met het programma begon, was mijn grootste uitdaging mijn voeding. Ik wist wat ik wilde: mijn droomlichaam, maar de discipline en structuur rondom eten ontbraken. Ik had er jarenlang naar gestreefd, maar kwam er alleen niet uit. De samenwerking met Iven was uitstekend. Hij is streng waar nodig, maar denkt altijd met je mee en weet je te motiveren op de momenten dat het écht zwaar wordt.",
+    role: "E-commerceondernemer",
+    text: "Voordat ik met het programma begon, was mijn grootste uitdaging mijn voeding. Ik knew wat ik wilde: mijn droomlichaam, maar de discipline en structuur rondom eten ontbraken. Ik had er jarenlang naar gestreefd, maar kwam er alleen niet uit. De samenwerking met Iven was uitstekend. Hij is streng waar nodig, maar denkt altijd met je mee en weet je te motiveren op de momenten dat het écht zwaar wordt.",
     image: "https://images.unsplash.com/photo-1550525811-e5869dd03032?q=80&w=100&auto=format&fit=crop"
   }
 ];
@@ -114,7 +114,7 @@ export const FAQS = [
   },
   {
     q: "Welke resultaten kan ik verwachten?",
-    a: "Meer energie door de dag, scherpere focus, beter herstel en diepere slaap, en een sterker, fitter lichaam. Maar bovenal het gevoel dat presteren je minder kost. Niet langer leven op wilskracht en cafeïne, maar op een lichaam en brein die je ambities dragen."
+    a: "Meer energie door de dag, scherpere focus, beter herstel dat leidt tot een diepere slaap, en een sterker, fitter lichaam. Maar bovenal het gevoel dat presteren je minder kost. Niet langer leven op wilskracht en cafeïne, maar op een lichaam en brein die je ambities dragen."
   },
   {
     q: "Hoe verloopt de begeleiding?",

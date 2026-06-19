@@ -65,7 +65,7 @@ export const StructureAndAudit: React.FC = () => {
             JOUW PERSOONLIJKE PERFORMANCE-DIAGNOSE.
           </h2>
           <p className="text-thryve-cream/80 text-sm leading-relaxed mb-8">
-            Een complete analyse van je prestaties op zeven pijlers. Je archetype, je verborgen energielekken, en het ene protocol dat je deze week direct kunt installeren.
+            Een complete analyse van je prestaties op zeven pijlers. Je archetype, je verborgen energielekken, en een protocol dat je deze week direct kunt toepassen.
           </p>
         </div>
 
