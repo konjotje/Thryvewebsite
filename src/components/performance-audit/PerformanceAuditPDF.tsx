@@ -202,6 +202,7 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
     <Document>
       {/* Cover Page */}
       <Page size="A4" style={styles.coverPage}>
+        <Image src="/images/logoTTM.svg" style={{ width: 150, marginBottom: 40 }} />
         <Text style={styles.logo}>THE THRYVE METHOD</Text>
         <Text style={styles.title}>Jouw Performance Audit</Text>
         <Text style={styles.subtitle}>{firstName}</Text>
