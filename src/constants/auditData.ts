@@ -391,7 +391,7 @@ export const AUDIT_QUESTIONS: AuditQuestion[] = [
     part: 3,
     text: 'Sta je open voor gepersonaliseerde begeleiding op basis van deze uitkomst?',
     answers: [
-      { text: 'Ja, ik wil horen hoe Thryve dit aanpakt' },
+      { text: 'Ja, ik wil horen hoe the Thryve Method dit aanpakt' },
       { text: 'Misschien, eerst de uitkomst zien' },
       { text: 'Nee, ik wil alleen de analyse' }
     ]
@@ -404,8 +404,8 @@ export const MICRO_MOMENTS: MicroMoment[] = [
     type: 'intro_diagnostiek',
     title: 'INTRO DIAGNOSTIEK',
     content: [
-      'De volgende 20 vragen brengen je huidige systeem in kaart.',
-      'Geen mindset-vragen. Geen vage gevoelens. Concrete signalen van waar je energie lekt — fysiek én mentaal.',
+      'De volgende vragen brengen je huidige systeem in kaart.',
+      'Geen mindset-vragen. Geen vage gevoelens. Concrete signalen van waar je energie lekt, fysiek én mentaal.',
       'Antwoord vanuit hoe het écht is, niet hoe je wilt dat het is.'
     ]
   },
@@ -415,7 +415,7 @@ export const MICRO_MOMENTS: MicroMoment[] = [
     title: 'WAT DE MEESTE ONDERNEMERS ZELF ONTDEKKEN:',
     content: [
       "Het probleem is niet wat je doet 's avonds. Het probleem is wat je niet doet 's ochtends.",
-      'De 250+ ondernemers die we begeleidden, scoorden hun eerste 12 weken gemiddeld 40-60% hoger op energie. Niet door meer te doen. Door slimmer te bouwen.'
+      'De ondernemers die we begeleidden, scoorden hun eerste 12 weken gemiddeld 40-60% hoger op energie. Niet door meer te doen. Door slimmer te bouwen.'
     ]
   },
   {

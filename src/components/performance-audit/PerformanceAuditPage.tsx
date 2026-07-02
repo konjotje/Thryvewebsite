@@ -12,7 +12,7 @@ type StepType = 'start' | 'question' | 'micro_moment' | 'email_capture' | 'succe
 
 export default function PerformanceAuditPage() {
   const navigate = useNavigate();
-  const [stepType, setStepType] = useState<StepType>('start');
+  const [stepType, setStepType] = useState<StepType>('question');
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [loading, setLoading] = useState(false);
@@ -319,7 +319,7 @@ export default function PerformanceAuditPage() {
 
               <form onSubmit={calculateAndSend} className="space-y-5">
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">Voornaam</label>
+                  <label className="block text-sm font-medium text-gray-400 mb-2">Voornaam *</label>
                   <input 
                     type="text" 
                     required
@@ -329,7 +329,7 @@ export default function PerformanceAuditPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">E-mailadres</label>
+                  <label className="block text-sm font-medium text-gray-400 mb-2">E-mailadres *</label>
                   <input 
                     type="email" 
                     required
