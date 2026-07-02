@@ -57,7 +57,6 @@ export const Footer = () => {
             <h3 className="text-white font-bold tracking-widest uppercase text-sm mb-2">Legal</h3>
             <nav className="flex flex-col gap-3 text-sm text-thryve-cream/80" aria-label="Legal Navigatie">
               <Link to="/privacy-policy" className="hover:text-white transition-colors w-fit">Privacy Policy</Link>
-              <Link to="/terms-and-conditions" className="hover:text-white transition-colors w-fit">Algemene Voorwaarden</Link>
             </nav>
           </div>
         </div>

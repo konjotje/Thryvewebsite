@@ -339,17 +339,15 @@ export default function PerformanceAuditPage() {
                   />
                 </div>
 
-                {showPhone && (
-                  <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }}>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">Telefoonnummer (Optioneel)</label>
-                    <input 
-                      type="tel" 
-                      value={phone}
-                      onChange={e => setPhone(e.target.value)}
-                      className="w-full bg-black/30 rounded-xl border border-gray-800 p-3 md:p-4 text-sm md:text-base font-body text-white focus:border-thryve-accent focus:ring-1 focus:ring-thryve-accent outline-none transition-all"
-                    />
-                  </motion.div>
-                )}
+                <div>
+                  <label className="block text-sm font-medium text-gray-400 mb-2">Telefoonnummer (Optioneel)</label>
+                  <input 
+                    type="tel" 
+                    value={phone}
+                    onChange={e => setPhone(e.target.value)}
+                    className="w-full bg-black/30 rounded-xl border border-gray-800 p-3 md:p-4 text-sm md:text-base font-body text-white focus:border-thryve-accent focus:ring-1 focus:ring-thryve-accent outline-none transition-all"
+                  />
+                </div>
 
                 {showError && <p className="text-red-500 text-sm font-medium">{showError}</p>}
 

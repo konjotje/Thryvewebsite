@@ -12,7 +12,6 @@ import { ThryveMethod } from './components/sections/ThryveMethod';
 import { FAQ } from './components/sections/FAQ';
 import { Contact } from './components/sections/Contact';
 import { StructureAndAudit } from './components/sections/StructureAndAudit';
-import { TermsAndConditions } from './components/pages/TermsAndConditions';
 import { PrivacyPolicy } from './components/pages/PrivacyPolicy';
 import PerformanceAuditPage from './components/performance-audit/PerformanceAuditPage';
 
@@ -89,16 +88,6 @@ export default function App() {
                 <FAQ />
               </div>
             </div>
-          </>
-        } />
-        <Route path="/terms-and-conditions" element={
-          <>
-            <Helmet>
-              <title>Algemene Voorwaarden | The Thryve Method</title>
-              <meta name="description" content="Lees onze algemene voorwaarden." />
-              <link rel="canonical" href="https://thethryvemethod.com/terms-and-conditions" />
-            </Helmet>
-            <TermsAndConditions />
           </>
         } />
         <Route path="/privacy-policy" element={
