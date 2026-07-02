@@ -40,7 +40,7 @@ export const Navbar = () => {
             <Link to="/#testimonials" className="hover:text-white transition-colors">Reviews</Link>
             <Link to="/#faq" className="hover:text-white transition-colors">FAQ</Link>
             <Link to="/#contact" className="hover:text-white transition-colors">Contact</Link>
-            <Button size="sm" onClick={() => navigate('/performance-audit')}>
+            <Button size="sm" onClick={() => navigate('/performance-audit')} className="pulsate-glow">
               Performance Audit
             </Button>
           </div>

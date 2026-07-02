@@ -70,9 +70,9 @@ export const StructureAndAudit: React.FC = () => {
         </div>
 
         <div className="flex justify-start relative z-10">
-          <Button onClick={() => navigate('/performance-audit')} className="text-[14px]">
+          <Button onClick={() => navigate('/performance-audit')} className="text-[14px] pulsate-glow">
             <FileText size={20} className="mr-2" />
-            Doe de Performance Audit
+            Gratis Audit
             <ChevronRight size={20} className="text-thryve-title group-hover:translate-x-1 transition-transform inline-block ml-2" />
           </Button>
         </div>
