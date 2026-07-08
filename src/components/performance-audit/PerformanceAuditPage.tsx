@@ -3,15 +3,21 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight, ArrowLeft, Loader2 } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { calculateScores } from '../../utils/auditScoring';
-import { AUDIT_QUESTIONS, MICRO_MOMENTS } from '../../constants/auditData';
+import { AUDIT_QUESTIONS_BY_LANG, MICRO_MOMENTS_BY_LANG } from '../../constants/auditData';
 import { pdf } from '@react-pdf/renderer';
 import { PerformanceAuditPDF } from './PerformanceAuditPDF';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../../context/LanguageContext';
 
 type StepType = 'start' | 'question' | 'micro_moment' | 'email_capture' | 'success';
 
 export default function PerformanceAuditPage() {
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  
+  const AUDIT_QUESTIONS = AUDIT_QUESTIONS_BY_LANG[language];
+  const MICRO_MOMENTS = MICRO_MOMENTS_BY_LANG[language];
+
   const [stepType, setStepType] = useState<StepType>('question');
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, any>>({});
@@ -26,7 +32,6 @@ export default function PerformanceAuditPage() {
   const currentQuestion = AUDIT_QUESTIONS[currentQIndex];
   
   // Find if there's a micro moment to show AFTER the previous question
-  // Actually, it's easier to check if we just COMPLETED a question that has a micro moment AFTER it.
   const [activeMicroMoment, setActiveMicroMoment] = useState<any>(null);
 
   const handleStart = () => {
@@ -43,7 +48,7 @@ export default function PerformanceAuditPage() {
         newSelection = newSelection.filter(i => i !== answerIdx);
       } else {
         if (!currentQuestion.maxAnswers || newSelection.length < currentQuestion.maxAnswers) {
-          // If "Geen van deze" was clicked (isCustom = true)
+          // If "Geen van deze" or "None of these" was clicked (isCustom = true)
           if (currentQuestion.answers[answerIdx].isCustom) {
             newSelection = [answerIdx];
           } else {
@@ -86,7 +91,6 @@ export default function PerformanceAuditPage() {
   const goBack = () => {
     if (stepType === 'email_capture') {
       setStepType('question');
-      // currentQIndex is already at the last question
     } else if (stepType === 'micro_moment') {
       setStepType('question');
     } else if (stepType === 'question') {
@@ -114,7 +118,7 @@ export default function PerformanceAuditPage() {
     setShowError('');
 
     try {
-      const result = calculateScores(answers, AUDIT_QUESTIONS);
+      const result = calculateScores(answers, AUDIT_QUESTIONS, language);
       
       // Generate PDF 
       const pdfBlob = await pdf(
@@ -126,6 +130,7 @@ export default function PerformanceAuditPage() {
           diagnosisText={result.diagnosisText}
           archetype={result.archetype}
           breakdown={result.breakdown}
+          language={language}
         />
       ).toBlob();
 
@@ -153,19 +158,20 @@ export default function PerformanceAuditPage() {
         if (res.ok) {
           setStepType('success');
         } else {
-          setShowError('Er is iets misgegaan. Probeer het opnieuw.');
+          setShowError(language === 'ENG' ? 'Something went wrong. Please try again.' : 'Er is iets misgegaan. Probeer het opnieuw.');
         }
         setLoading(false);
       };
     } catch (err) {
       console.error(err);
-      setShowError('Er was een probleem met het genereren van de PDF.');
+      setShowError(language === 'ENG' ? 'There was a problem generating the PDF.' : 'Er was een probleem met het genereren van de PDF.');
       setLoading(false);
     }
   };
 
   const progress = ((currentQIndex + 1) / AUDIT_QUESTIONS.length) * 100;
-  const showPhone = answers['q30'] === 0; // index 0 is "Ja, ik wil horen hoe Thryve dit aanpakt"
+  const showPhone = answers['q30'] === 0; // index 0 is open to guidance
+  const isEng = language === 'ENG';
 
   return (
     <div className="min-h-screen bg-thryve-dark py-24 flex items-center justify-center px-4 relative overflow-hidden">
@@ -175,7 +181,7 @@ export default function PerformanceAuditPage() {
           onClick={goBack}
           className="absolute top-24 left-4 md:left-10 text-gray-400 hover:text-white flex items-center gap-2 transition"
         >
-          <ArrowLeft size={20} /> <span className="hidden sm:inline font-sans">Vorige</span>
+          <ArrowLeft size={20} /> <span className="hidden sm:inline font-sans">{isEng ? 'Previous' : 'Vorige'}</span>
         </button>
       )}
 
@@ -203,10 +209,12 @@ export default function PerformanceAuditPage() {
                 Performance <br/><span className="text-thryve-accent">Audit</span>
               </h1>
               <p className="text-base md:text-lg text-gray-400 mb-8 max-w-lg mx-auto">
-                Ontdek waar jouw systeem lekt en wat je blueprint is om fysieke én cognitieve overmacht op te bouwen. Geschatte invultijd: 6 minuten.
+                {isEng 
+                  ? 'Discover where your system leaks energy and what your blueprint is to build physical and cognitive dominance. Estimated completion time: 6 minutes.'
+                  : 'Ontdek waar jouw systeem lekt en wat je blueprint is om fysieke én cognitieve overmacht op te bouwen. Geschatte invultijd: 6 minuten.'}
               </p>
               <Button onClick={handleStart} size="lg">
-                Start de Audit <ChevronRight className="ml-2" />
+                {isEng ? 'Start the Audit' : 'Start de Audit'} <ChevronRight className="ml-2" />
               </Button>
             </motion.div>
           )}
@@ -229,7 +237,11 @@ export default function PerformanceAuditPage() {
                   {currentQuestion.text}
                 </h2>
                 {currentQuestion.type === 'multiple' && (
-                  <p className="text-gray-400 mt-2 text-xs md:text-sm">Selecteer de opties die van toepassing zijn (Max {currentQuestion.maxAnswers || 'alles'}).</p>
+                  <p className="text-gray-400 mt-2 text-xs md:text-sm">
+                    {isEng 
+                      ? `Select the options that apply (Max ${currentQuestion.maxAnswers || 'all'}).`
+                      : `Selecteer de opties die van toepassing zijn (Max ${currentQuestion.maxAnswers || 'alles'}).`}
+                  </p>
                 )}
               </div>
 
@@ -272,7 +284,7 @@ export default function PerformanceAuditPage() {
               {currentQuestion.type === 'multiple' && (
                 <div className="mt-8 flex justify-end">
                   <Button onClick={() => advance()} disabled={!(answers[currentQuestion.id] && answers[currentQuestion.id].length > 0)}>
-                    Volgende Vraag <ChevronRight className="ml-2" />
+                    {isEng ? 'Next Question' : 'Volgende Vraag'} <ChevronRight className="ml-2" />
                   </Button>
                 </div>
               )}
@@ -296,7 +308,7 @@ export default function PerformanceAuditPage() {
                 ))}
               </div>
               <Button onClick={() => advance()}>
-                Volgende Vraag <ChevronRight className="ml-2" />
+                {isEng ? 'Next Question' : 'Volgende Vraag'} <ChevronRight className="ml-2" />
               </Button>
             </motion.div>
           )}
@@ -310,16 +322,18 @@ export default function PerformanceAuditPage() {
             >
               <div className="mb-6 text-center">
                 <h2 className="text-2xl md:text-3xl font-heading font-black mb-3 uppercase">
-                  De audit is <span className="text-thryve-accent">voltooid.</span>
+                  {isEng ? 'The audit is ' : 'De audit is '}<span className="text-thryve-accent">{isEng ? 'completed.' : 'voltooid.'}</span>
                 </h2>
                 <p className="text-gray-400 text-sm md:text-base">
-                  Naar welk e-mailadres mogen we je gepersonaliseerde rapport sturen?
+                  {isEng 
+                    ? 'To which email address can we send your personalized report?'
+                    : 'Naar welk e-mailadres mogen we je gepersonaliseerde rapport sturen?'}
                 </p>
               </div>
 
               <form onSubmit={calculateAndSend} className="space-y-5">
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">Voornaam *</label>
+                  <label className="block text-sm font-medium text-gray-400 mb-2">{isEng ? 'First name *' : 'Voornaam *'}</label>
                   <input 
                     type="text" 
                     required
@@ -329,7 +343,7 @@ export default function PerformanceAuditPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">E-mailadres *</label>
+                  <label className="block text-sm font-medium text-gray-400 mb-2">{isEng ? 'Email address *' : 'E-mailadres *'}</label>
                   <input 
                     type="email" 
                     required
@@ -340,7 +354,7 @@ export default function PerformanceAuditPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-400 mb-2">Telefoonnummer (Optioneel)</label>
+                  <label className="block text-sm font-medium text-gray-400 mb-2">{isEng ? 'Phone number (Optional)' : 'Telefoonnummer (Optioneel)'}</label>
                   <input 
                     type="tel" 
                     value={phone}
@@ -357,9 +371,17 @@ export default function PerformanceAuditPage() {
                   className="w-full mt-4 flex items-center justify-center justify-items-center"
                 >
                   {loading ? (
-                    <>Rapport genereren... <Loader2 className="ml-2 animate-spin" size={20} /></>
+                    isEng ? (
+                      <>Generating report... <Loader2 className="ml-2 animate-spin" size={20} /></>
+                    ) : (
+                      <>Rapport genereren... <Loader2 className="ml-2 animate-spin" size={20} /></>
+                    )
                   ) : (
-                    <>Verstuur Mijn Blueprint <ChevronRight className="ml-2" /></>
+                    isEng ? (
+                      <>Send My Blueprint <ChevronRight className="ml-2" /></>
+                    ) : (
+                      <>Verstuur Mijn Blueprint <ChevronRight className="ml-2" /></>
+                    )
                   )}
                 </Button>
               </form>
@@ -377,27 +399,33 @@ export default function PerformanceAuditPage() {
                 <ChevronRight size={32} className="text-thryve-accent" />
               </div>
               <h2 className="text-3xl md:text-4xl font-heading font-black tracking-tight mb-4 uppercase">
-                Je bent <span className="text-thryve-accent">binnen</span>
+                {isEng ? "You're " : 'Je bent '}<span className="text-thryve-accent">{isEng ? 'in!' : 'binnen'}</span>
               </h2>
               <p className="text-base md:text-lg text-gray-400 mb-8 max-w-lg mx-auto">
-                Je Blueprint Blueprint is onderweg naar <strong>{email}</strong>. Zorg dat je hem niet mist (check evt. je spambox). 
+                {isEng 
+                  ? <>Your Blueprint is on its way to <strong>{email}</strong>. Make sure you don't miss it (check your spam folder if needed).</>
+                  : <>Je Blueprint is onderweg naar <strong>{email}</strong>. Zorg dat je hem niet mist (check evt. je spambox).</>}
               </p>
 
               {showPhone && (
                 <div className="bg-black/30 border border-thryve-accent p-6 md:p-8 rounded-xl max-w-xl mx-auto">
-                  <h3 className="text-xl md:text-2xl font-heading font-bold mb-3">Plan je Performance Call</h3>
+                  <h3 className="text-xl md:text-2xl font-heading font-bold mb-3">
+                    {isEng ? 'Schedule your Performance Call' : 'Plan je Performance Call'}
+                  </h3>
                   <p className="text-sm md:text-base text-gray-400 mb-6">
-                    Je hebt aangegeven open te staan voor gepersonaliseerde begeleiding. In deze gratis call deconstrueren we je knelpunten direct.
+                    {isEng 
+                      ? 'You have indicated that you are open to personalized guidance. In this free call, we will deconstruct your bottlenecks directly.'
+                      : 'Je hebt aangegeven open te staan voor gepersonaliseerde begeleiding. In deze gratis call deconstrueren we je knelpunten direct.'}
                   </p>
                   <Button onClick={() => window.open('https://cal.com/thethryvemethod/30min', '_blank')} className="w-full">
-                    Plan Direct In
+                    {isEng ? 'Schedule Directly' : 'Plan Direct In'}
                   </Button>
                 </div>
               )}
               
               {!showPhone && (
                 <Button onClick={() => navigate('/')} className="mt-8">
-                  Terug naar Home
+                  {isEng ? 'Back to Home' : 'Terug naar Home'}
                 </Button>
               )}
             </motion.div>

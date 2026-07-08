@@ -3,9 +3,13 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { motion } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card } from '../ui/Card';
-import { TESTIMONIALS } from '../../constants/content';
+import { TESTIMONIALS_BY_LANG } from '../../constants/content';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const Testimonials = () => {
+  const { language, t } = useLanguage();
+  const testimonials = TESTIMONIALS_BY_LANG[language];
+
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     align: 'start', 
     loop: true, 
@@ -39,13 +43,13 @@ export const Testimonials = () => {
           className="text-center mb-12"
         >
           <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Reviews</div>
-          <h2 className="mb-10 text-center">WAT KLANTEN ZEGGEN</h2>
+          <h2 className="mb-10 text-center uppercase">{t('testimonials.title')}</h2>
         </motion.div>
 
         <div className="relative group">
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex items-stretch -ml-6">
-              {TESTIMONIALS.map((t, i) => (
+              {testimonials.map((t, i) => (
                 <div
                   key={i}
                   className="flex-[0_0_85vw] sm:flex-[0_0_400px] lg:flex-[0_0_calc(33.333%)] min-w-0 h-auto pl-6"

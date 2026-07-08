@@ -3,11 +3,13 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -35,23 +37,60 @@ export const Navbar = () => {
           </Link>
           
           <div className="hidden lg:flex items-center space-x-6 text-sm font-medium font-heading text-thryve-cream">
-            <Link to="/#method" className="hover:text-white transition-colors">The Method</Link>
-            <Link to="/#stories" className="hover:text-white transition-colors">Stories</Link>
-            <Link to="/#testimonials" className="hover:text-white transition-colors">Reviews</Link>
-            <Link to="/#faq" className="hover:text-white transition-colors">FAQ</Link>
-            <Link to="/#contact" className="hover:text-white transition-colors">Contact</Link>
+            <Link to="/#method" className="hover:text-white transition-colors">{t('nav.method')}</Link>
+            <Link to="/#stories" className="hover:text-white transition-colors">{t('nav.stories')}</Link>
+            <Link to="/#testimonials" className="hover:text-white transition-colors">{t('nav.reviews')}</Link>
+            <Link to="/#faq" className="hover:text-white transition-colors">{t('nav.faq')}</Link>
+            <Link to="/#contact" className="hover:text-white transition-colors">{t('nav.contact')}</Link>
+            
+            {/* Language Switcher (Desktop) */}
+            <div className="flex items-center space-x-2 select-none font-mono text-xs tracking-wider">
+              <button 
+                onClick={() => setLanguage('NL')} 
+                className={`transition-colors cursor-pointer py-1 ${language === 'NL' ? 'text-white font-semibold' : 'text-thryve-cream/40 hover:text-white'}`}
+              >
+                NL
+              </button>
+              <span className="text-white/10 font-sans">/</span>
+              <button 
+                onClick={() => setLanguage('ENG')} 
+                className={`transition-colors cursor-pointer py-1 ${language === 'ENG' ? 'text-white font-semibold' : 'text-thryve-cream/40 hover:text-white'}`}
+              >
+                ENG
+              </button>
+            </div>
+
             <Button size="sm" onClick={() => navigate('/performance-audit')} className="pulsate-glow">
-              Performance Audit
+              {t('nav.audit')}
             </Button>
           </div>
 
-          <button 
-            className="lg:hidden text-white relative z-50 p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle mobile menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center space-x-4 lg:hidden">
+            {/* Language Switcher (Mobile) */}
+            <div className="flex items-center space-x-1.5 select-none font-mono text-[10px] tracking-wider relative z-50 mr-1">
+              <button 
+                onClick={() => setLanguage('NL')} 
+                className={`transition-colors cursor-pointer py-1 ${language === 'NL' ? 'text-white font-semibold' : 'text-thryve-cream/40 hover:text-white'}`}
+              >
+                NL
+              </button>
+              <span className="text-white/10 font-sans">/</span>
+              <button 
+                onClick={() => setLanguage('ENG')} 
+                className={`transition-colors cursor-pointer py-1 ${language === 'ENG' ? 'text-white font-semibold' : 'text-thryve-cream/40 hover:text-white'}`}
+              >
+                ENG
+              </button>
+            </div>
+
+            <button 
+              className="text-white relative z-50 p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle mobile menu"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </motion.nav>
 
@@ -76,12 +115,12 @@ export const Navbar = () => {
               aria-label="Mobile navigation"
             >
               {[
-                { name: 'The Method', path: '/#method' },
-                { name: 'Stories', path: '/#stories' },
-                { name: 'Reviews', path: '/#testimonials' },
-                { name: 'FAQ', path: '/#faq' },
-                { name: 'Contact', path: '/#contact' },
-                { name: 'Performance Audit', path: '/performance-audit' },
+                { name: t('nav.method'), path: '/#method' },
+                { name: t('nav.stories'), path: '/#stories' },
+                { name: t('nav.reviews'), path: '/#testimonials' },
+                { name: t('nav.faq'), path: '/#faq' },
+                { name: t('nav.contact'), path: '/#contact' },
+                { name: t('nav.audit'), path: '/performance-audit' },
               ].map((item, i) => (
                 <motion.button 
                   key={item.name}

@@ -1,7 +1,10 @@
 import { Instagram, Mail, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="pt-16 pb-8 border-t border-white/10 bg-black/40 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-6">
@@ -12,7 +15,7 @@ export const Footer = () => {
               <img src="/images/logoTTM.svg" alt="The Thryve Method" className="h-8 md:h-10 w-auto" />
             </Link>
             <p className="text-thryve-cream/80 text-sm leading-relaxed">
-              Premium online peak performance coaching voor mensen die het beste uit zichzelf willen halen. Meer energie, focus en rust, met een sterker lichaam en een helderder hoofd.
+              {t('footer.desc')}
             </p>
             <div className="flex items-center gap-4 mt-2">
               <a href="https://www.instagram.com/thethryvemethod" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-thryve-cream/80 hover:text-white hover:border-white hover:bg-white/5 transition-all">
@@ -23,14 +26,14 @@ export const Footer = () => {
 
           {/* Navigatie */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-white font-bold tracking-widest uppercase text-sm mb-2">Navigatie</h3>
+            <h3 className="text-white font-bold tracking-widest uppercase text-sm mb-2">{t('footer.nav_title')}</h3>
             <nav className="flex flex-col gap-3 text-sm text-thryve-cream/80" aria-label="Footer Navigatie">
-              <Link to="/#method" className="hover:text-white transition-colors w-fit">The Method</Link>
-              <Link to="/#stories" className="hover:text-white transition-colors w-fit">Stories</Link>
-              <Link to="/#about" className="hover:text-white transition-colors w-fit">Over mij</Link>
-              <Link to="/#testimonials" className="hover:text-white transition-colors w-fit">Reviews</Link>
-              <Link to="/#faq" className="hover:text-white transition-colors w-fit">FAQ</Link>
-              <Link to="/performance-audit" className="hover:text-white transition-colors w-fit text-thryve-accent">Performance Audit</Link>
+              <Link to="/#method" className="hover:text-white transition-colors w-fit">{t('nav.method')}</Link>
+              <Link to="/#stories" className="hover:text-white transition-colors w-fit">{t('nav.stories')}</Link>
+              <Link to="/#about" className="hover:text-white transition-colors w-fit">{t('nav.about')}</Link>
+              <Link to="/#testimonials" className="hover:text-white transition-colors w-fit">{t('nav.reviews')}</Link>
+              <Link to="/#faq" className="hover:text-white transition-colors w-fit">{t('nav.faq')}</Link>
+              <Link to="/performance-audit" className="hover:text-white transition-colors w-fit text-thryve-accent">{t('nav.audit')}</Link>
             </nav>
           </div>
 
@@ -44,7 +47,7 @@ export const Footer = () => {
               </a>
               <div className="flex items-center gap-3">
                 <MapPin size={16} className="text-thryve-accent shrink-0" />
-                Nederland
+                {t('footer.location')}
               </div>
               <div className="flex items-center gap-3 mt-2">
                 <span className="text-thryve-cream/80">KVK:</span> 74191187
@@ -63,7 +66,7 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 text-center md:text-left text-xs text-thryve-cream/90">
-          &copy; {new Date().getFullYear()} The Thryve Method. Alle rechten voorbehouden.
+          &copy; {new Date().getFullYear()} The Thryve Method. {t('footer.copy')}
         </div>
       </div>
     </footer>

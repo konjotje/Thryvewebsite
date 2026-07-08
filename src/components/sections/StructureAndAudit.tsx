@@ -3,10 +3,12 @@ import { motion } from 'motion/react';
 import { ChevronRight, FileText } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const StructureAndAudit: React.FC = () => {
   const navigate = useNavigate();
   const auditSectionRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   return (
     <section className="bg-thryve-dark pt-32 pb-16 md:pt-40 md:pb-24 border-t border-white/5 relative overflow-hidden">
@@ -20,12 +22,11 @@ export const StructureAndAudit: React.FC = () => {
            transition={{ duration: 0.6 }}
         >
           <span className="text-thryve-accent text-sm font-bold tracking-widest uppercase mb-4 block">
-            PEAK PERFORMANCE COACHING
+            {t('audit.subtitle')}
           </span>
-          {/* AANGEPASTE REGEL HIERONDER: text-base is veranderd naar text-xl op mobiel */}
           <h2 className="text-xl sm:text-3xl md:text-5xl mb-4 md:mb-6 mx-auto max-w-full break-words leading-tight">
-            <span className="block text-[24px] md:text-[48px]">Geen disciplineprobleem.</span>
-            <span className="block !text-thryve-accent italic mt-2 text-[24px] md:text-[48px]">Een structuurprobleem.</span>
+            <span className="block text-[24px] md:text-[48px]">{t('audit.title1')}</span>
+            <span className="block !text-thryve-accent italic mt-2 text-[24px] md:text-[48px]">{t('audit.title2')}</span>
           </h2>
 
           <div className="aspect-video w-full max-w-4xl mx-auto rounded-xl md:rounded-2xl overflow-hidden shadow-2xl shadow-thryve-accent/10 border border-white/10 bg-thryve-card relative group mb-8 md:mb-12">
@@ -59,20 +60,20 @@ export const StructureAndAudit: React.FC = () => {
           
         <div className="max-w-2xl mb-12">
           <span className="text-thryve-accent text-sm font-bold tracking-widest uppercase mb-4 block">
-            Performance Audit
+            {t('audit.box_subtitle')}
           </span>
           <h2 className="text-3xl md:text-4xl mb-6">
-            JOUW PERSOONLIJKE PERFORMANCE-DIAGNOSE.
+            {t('audit.box_title')}
           </h2>
           <p className="text-thryve-cream/80 text-sm leading-relaxed mb-8">
-            Een complete analyse van je prestaties op zeven pijlers. Je archetype, je verborgen energielekken, en een protocol dat je deze week direct kunt toepassen.
+            {t('audit.box_desc')}
           </p>
         </div>
 
         <div className="flex justify-start relative z-10">
           <Button onClick={() => navigate('/performance-audit')} className="text-[14px] pulsate-glow">
             <FileText size={20} className="mr-2" />
-            Gratis Audit
+            {t('audit.box_cta')}
             <ChevronRight size={20} className="text-thryve-title group-hover:translate-x-1 transition-transform inline-block ml-2" />
           </Button>
         </div>

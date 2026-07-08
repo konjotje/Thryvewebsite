@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { FAQS } from '../../constants/content';
+import { FAQS_BY_LANG } from '../../constants/content';
 import { Plus, Minus } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { language, t } = useLanguage();
+  const faqs = FAQS_BY_LANG[language];
 
   return (
     <section id="faq" className="pt-8 pb-16 md:pt-12 md:pb-24 relative overflow-hidden">
@@ -19,10 +22,10 @@ export const FAQ = () => {
         className="max-w-3xl mx-auto px-6 relative z-10"
       >
         <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4 text-center">FAQ</div>
-        <h2 className="text-center mb-12">VEELGESTELDE VRAGEN</h2>
+        <h2 className="text-center mb-12 uppercase">{t('faq.title')}</h2>
         
         <div className="space-y-3">
-          {FAQS.map((faq, i) => (
+          {faqs.map((faq, i) => (
             <div 
               key={i} 
               className="border border-white/10 rounded-2xl bg-thryve-card/80 backdrop-blur-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.2)] transition-colors hover:border-white/20"

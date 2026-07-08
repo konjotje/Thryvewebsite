@@ -2,9 +2,13 @@ import { motion } from 'motion/react';
 import { Check, Monitor, User } from 'lucide-react';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
-import { THRYVE_METHOD_CONTENT } from '../../constants/content';
+import { THRYVE_METHOD_CONTENT_BY_LANG } from '../../constants/content';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const ThryveMethod = () => {
+  const { language } = useLanguage();
+  const content = THRYVE_METHOD_CONTENT_BY_LANG[language];
+
   return (
     <section id="method" className="py-16 md:py-24 bg-thryve-dark overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -36,15 +40,15 @@ export const ThryveMethod = () => {
             viewport={{ once: true }}
           >
             <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">The Method</div>
-            <h2 className="mb-8">{THRYVE_METHOD_CONTENT.title}</h2>
-            {THRYVE_METHOD_CONTENT.paragraphs.map((p, i) => (
-              <p key={i} className={`text-sm text-thryve-cream/80 leading-relaxed ${i === THRYVE_METHOD_CONTENT.paragraphs.length - 1 ? 'mb-10' : 'mb-6'}`}>
+            <h2 className="mb-8">{content.title}</h2>
+            {content.paragraphs.map((p, i) => (
+              <p key={i} className={`text-sm text-thryve-cream/80 leading-relaxed ${i === content.paragraphs.length - 1 ? 'mb-10' : 'mb-6'}`}>
                 {p}
               </p>
             ))}
 
             <ul className="space-y-4 font-heading font-bold not-italic">
-              {THRYVE_METHOD_CONTENT.bullets.map((bullet, i) => {
+              {content.bullets.map((bullet, i) => {
                 const Icon = bullet.icon;
                 return (
                   <li key={i} className="flex items-center gap-4">

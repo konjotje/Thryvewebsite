@@ -1,12 +1,16 @@
 import { motion } from 'motion/react';
-import { FEATURES_ITEMS } from '../../constants/content';
+import { FEATURES_ITEMS_BY_LANG } from '../../constants/content';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const Features = () => {
+  const { language } = useLanguage();
+  const items = FEATURES_ITEMS_BY_LANG[language];
+
   return (
     <section className="py-12 md:py-24 border-b border-white/5">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-12 text-center">
-          {FEATURES_ITEMS.map((f, i) => {
+          {items.map((f, i) => {
             const Icon = f.icon;
             return (
               <motion.div 

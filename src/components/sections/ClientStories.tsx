@@ -1,10 +1,14 @@
 import { motion } from 'motion/react';
 import { Card } from '../ui/Card';
-import { CLIENT_STORIES } from '../../constants/content';
+import { CLIENT_STORIES_BY_LANG } from '../../constants/content';
 import { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const ClientStories = () => {
+  const { language, t } = useLanguage();
+  const stories = CLIENT_STORIES_BY_LANG[language];
+
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     align: 'start', 
     loop: false, 
@@ -35,17 +39,17 @@ export const ClientStories = () => {
           transition={{ duration: 1.0 }}
           className="text-center mb-16"
         >
-          <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">RESULTATEN</div>
-          <h2 className="text-3xl md:text-5xl mb-6">Meer dan een sterker lichaam</h2>
-          <p className="text-thryve-cream/80 text-[14px]">Echte resultaten van klanten die hun lichaam, energie en mindset op orde kregen.</p>
+          <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">{t('stories.badge')}</div>
+          <h2 className="text-3xl md:text-5xl mb-6">{t('stories.title')}</h2>
+          <p className="text-thryve-cream/80 text-[14px]">{t('stories.desc')}</p>
         </motion.div>
-
+ 
         <div className="relative">
           <div className="absolute inset-x-0 -top-20 h-96 bg-emerald-500/10 blur-3xl rounded-full -z-10 pointer-events-none"></div>
           
           <div className="overflow-hidden p-4 -m-4 pb-12 lg:overflow-visible" ref={emblaRef}>
             <div className="flex gap-6 md:gap-8 items-stretch lg:grid lg:grid-cols-3">
-              {CLIENT_STORIES.map((story, i) => (
+              {stories.map((story, i) => (
                 <div key={i} className="flex-[0_0_85vw] sm:flex-[0_0_350px] lg:flex-none min-w-0 h-auto">
                   <Card 
                     className={`transition-all duration-500 flex flex-col h-full w-full opacity-100 scale-100 ${story.active ? 'md:scale-105 z-10 border-thryve-accent/30' : 'md:scale-95'}`}
@@ -53,8 +57,8 @@ export const ClientStories = () => {
                   >
                     <div className="relative overflow-hidden rounded-xl group/img mb-6">
                       <img src={story.image} alt={`Resultaat van ${story.name}`} className="object-cover aspect-square w-full" referrerPolicy="no-referrer" />
-                      <span className="absolute top-2 left-2 bg-black/50 text-white text-[10px] px-2 py-1 rounded-full uppercase tracking-wider font-semibold">Before</span>
-                      <span className="absolute top-2 right-2 bg-thryve-accent text-black text-[10px] px-2 py-1 rounded-full uppercase tracking-wider font-bold">After</span>
+                      <span className="absolute top-2 left-2 bg-black/50 text-white text-[10px] px-2 py-1 rounded-full uppercase tracking-wider font-semibold">{t('stories.before')}</span>
+                      <span className="absolute top-2 right-2 bg-thryve-accent text-black text-[10px] px-2 py-1 rounded-full uppercase tracking-wider font-bold">{t('stories.after')}</span>
                     </div>
                     <div className="mb-3">
                       <h3 className="font-semibold text-lg">{story.title}</h3>

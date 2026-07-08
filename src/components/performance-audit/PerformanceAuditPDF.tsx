@@ -185,6 +185,7 @@ interface PerformanceAuditPDFProps {
     actionDesc: string;
   };
   breakdown: Record<string, number>; // Scores out of 10
+  language?: 'NL' | 'ENG';
 }
 
 export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
@@ -194,9 +195,14 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
   label,
   diagnosisText,
   archetype,
-  breakdown
+  breakdown,
+  language = 'NL'
 }) => {
-  const dateStr = new Date().toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' });
+  const isEng = language === 'ENG';
+
+  const dateStr = isEng
+    ? new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+    : new Date().toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
     <Document>
@@ -204,14 +210,14 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
       <Page size="A4" style={styles.coverPage}>
         <Image src="/images/logoTTM.svg" style={{ width: 150, marginBottom: 40 }} />
         <Text style={styles.logo}>THE THRYVE METHOD</Text>
-        <Text style={styles.title}>Jouw Performance Audit</Text>
+        <Text style={styles.title}>{isEng ? 'Your Performance Audit' : 'Jouw Performance Audit'}</Text>
         <Text style={styles.subtitle}>{firstName}</Text>
         <Text style={styles.date}>{dateStr}</Text>
       </Page>
 
       {/* Diagnosis Page */}
       <Page size="A4" style={styles.page}>
-        <Text style={styles.header}>De Diagnose</Text>
+        <Text style={styles.header}>{isEng ? 'The Diagnosis' : 'De Diagnose'}</Text>
         
         <View style={styles.scoreBox}>
           <Text style={styles.scoreNumber}>{totalScore}</Text>
@@ -219,7 +225,7 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
         </View>
 
         <View style={styles.highlightBox}>
-          <Text style={styles.highlightText}>Je zit in: {level}</Text>
+          <Text style={styles.highlightText}>{isEng ? `You are in: ${level}` : `Je zit in: ${level}`}</Text>
           <Text style={[styles.text, { marginTop: 10, fontSize: 16, color: '#10b981', fontWeight: 'bold' }]}>{label}</Text>
         </View>
 
@@ -228,7 +234,9 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
         </Text>
         
         <Text style={[styles.text, { marginTop: 30, fontSize: 12, color: '#a3b8a3', fontStyle: 'italic' }]}>
-          * Dit is een indicatie op basis van de ingevulde The Thryve Method Performance Audit. Echte peak performance begint bij het dichten van onzichtbare lekkages in je systeem.
+          {isEng 
+            ? '* This is an indication based on the completed The Thryve Method Performance Audit. Real peak performance starts with closing invisible leaks in your system.'
+            : '* Dit is een indicatie op basis van de ingevulde The Thryve Method Performance Audit. Echte peak performance begint bij het dichten van onzichtbare lekkages in je systeem.'}
         </Text>
 
         <Text style={styles.footer}>© {new Date().getFullYear()} The Thryve Method | Performance Audit</Text>
@@ -236,7 +244,7 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
 
       {/* Pillar Breakdown Page */}
       <Page size="A4" style={styles.page}>
-        <Text style={styles.header}>Gedetailleerde Pijler Status</Text>
+        <Text style={styles.header}>{isEng ? 'Detailed Pillar Status' : 'Gedetailleerde Pijler Status'}</Text>
         
         <View style={{ marginTop: 20 }}>
           {Object.entries(breakdown).map(([cat, scoreOutOf10]) => {
@@ -260,22 +268,24 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
 
       {/* Archetype Page */}
       <Page size="A4" style={styles.page}>
-        <Text style={styles.header}>Jouw Archetype</Text>
+        <Text style={styles.header}>{isEng ? 'Your Archetype' : 'Jouw Archetype'}</Text>
         
         <Text style={styles.archetypeTitle}>{archetype.name}</Text>
         <Text style={styles.archetypeDesc}>{archetype.profile}</Text>
         
         <View style={styles.highlightBox}>
-          <Text style={{ fontSize: 12, color: '#10b981', marginBottom: 5 }}>Kernprobleem</Text>
+          <Text style={{ fontSize: 12, color: '#10b981', marginBottom: 5 }}>{isEng ? 'Core Problem' : 'Kernprobleem'}</Text>
           <Text style={styles.text}>{archetype.problem}</Text>
         </View>
 
-        <Text style={styles.microActionTitle}>Eén Ding Voor Deze Week</Text>
+        <Text style={styles.microActionTitle}>{isEng ? 'One Thing For This Week' : 'Eén Ding Voor Deze Week'}</Text>
         <Text style={{ fontSize: 16, color: '#10b981', marginBottom: 10 }}>{archetype.actionName}</Text>
         <Text style={styles.text}>{archetype.actionDesc}</Text>
         
         <Text style={[styles.text, { marginTop: 15, fontStyle: 'italic', color: '#a3b8a3' }]}>
-          Dit is 1 van de 15+ protocollen die we jouw archetype laten installeren.
+          {isEng 
+            ? 'This is 1 of the 15+ protocols that we have your archetype install.'
+            : 'Dit is 1 van de 15+ protocollen die we jouw archetype laten installeren.'}
         </Text>
 
         <Text style={styles.footer}>© {new Date().getFullYear()} The Thryve Method | Performance Audit</Text>
@@ -283,42 +293,48 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
 
       {/* Over 12 Weken */}
       <Page size="A4" style={styles.page}>
-        <Text style={styles.header}>Nu vs. Over 12 Weken</Text>
+        <Text style={styles.header}>{isEng ? 'Now vs. In 12 Weeks' : 'Nu vs. Over 12 Weken'}</Text>
         
         <View style={{ marginTop: 20 }}>
           <View style={styles.row}>
-            <Text style={{ width: '20%', fontSize: 12, fontWeight: 'bold' }}>Pijler</Text>
-            <Text style={{ width: '40%', fontSize: 12, fontWeight: 'bold', color: '#e5e7eb' }}>Nu</Text>
-            <Text style={{ width: '40%', fontSize: 12, fontWeight: 'bold', color: '#10b981' }}>Over 12 Weken</Text>
+            <Text style={{ width: '20%', fontSize: 12, fontWeight: 'bold' }}>{isEng ? 'Pillar' : 'Pijler'}</Text>
+            <Text style={{ width: '40%', fontSize: 12, fontWeight: 'bold', color: '#e5e7eb' }}>{isEng ? 'Now' : 'Nu'}</Text>
+            <Text style={{ width: '40%', fontSize: 12, fontWeight: 'bold', color: '#10b981' }}>{isEng ? 'In 12 Weeks' : 'Over 12 Weken'}</Text>
           </View>
           
           <View style={styles.row}>
             <Text style={{ width: '20%', fontSize: 11 }}>Focus</Text>
-            <Text style={styles.colLeft}>Afgeleid, sprongen</Text>
-            <Text style={styles.colRight}>6 uur deep work direct</Text>
+            <Text style={styles.colLeft}>{isEng ? 'Distracted, jumps' : 'Afgeleid, sprongen'}</Text>
+            <Text style={styles.colRight}>{isEng ? '6 hours of deep work directly' : '6 uur deep work direct'}</Text>
           </View>
           
           <View style={styles.row}>
-            <Text style={{ width: '20%', fontSize: 11 }}>Stress</Text>
-            <Text style={styles.colLeft}>Hoofd staat altijd aan</Text>
-            <Text style={styles.colRight}>Mentale rust, ook in weekend</Text>
+            <Text style={{ width: '20%', fontSize: 11 }}>{isEng ? 'Stress' : 'Stress'}</Text>
+            <Text style={styles.colLeft}>{isEng ? 'Mind is always on' : 'Hoofd staat altijd aan'}</Text>
+            <Text style={styles.colRight}>{isEng ? 'Mental peace, also on weekends' : 'Mentale rust, ook in weekend'}</Text>
           </View>
 
           <View style={styles.row}>
-            <Text style={{ width: '20%', fontSize: 11 }}>Energie</Text>
-            <Text style={styles.colLeft}>Moe wakker, middagdip</Text>
-            <Text style={styles.colRight}>Stabiele energie de hele dag</Text>
+            <Text style={{ width: '20%', fontSize: 11 }}>{isEng ? 'Energy' : 'Energie'}</Text>
+            <Text style={styles.colLeft}>{isEng ? 'Wake up tired, afternoon dip' : 'Moe wakker, middagdip'}</Text>
+            <Text style={styles.colRight}>{isEng ? 'Stable energy all day' : 'Stabiele energie de hele dag'}</Text>
           </View>
 
           <View style={styles.row}>
-            <Text style={{ width: '20%', fontSize: 11 }}>Lichaam</Text>
-            <Text style={styles.colLeft}>Slecht herstel, geen progressie</Text>
-            <Text style={styles.colRight}>Sterker, strakker, volledig hersteld</Text>
+            <Text style={{ width: '20%', fontSize: 11 }}>{isEng ? 'Body' : 'Lichaam'}</Text>
+            <Text style={styles.colLeft}>{isEng ? 'Poor recovery, no progression' : 'Slecht herstel, geen progressie'}</Text>
+            <Text style={styles.colRight}>{isEng ? 'Stronger, leaner, fully recovered' : 'Sterker, strakker, volledig hersteld'}</Text>
           </View>
         </View>
 
-        <Text style={[styles.header, { marginTop: 60, borderBottomWidth: 0, fontSize: 20 }]}>Wat The Thryve Method Doet</Text>
-        <Text style={styles.text}>Dit is geen fitness coaching. Dit is performance architecture.</Text>
+        <Text style={[styles.header, { marginTop: 60, borderBottomWidth: 0, fontSize: 20 }]}>
+          {isEng ? 'What The Thryve Method Does' : 'Wat The Thryve Method Doet'}
+        </Text>
+        <Text style={styles.text}>
+          {isEng 
+            ? 'This is not fitness coaching. This is performance architecture.'
+            : 'Dit is geen fitness coaching. Dit is performance architecture.'}
+        </Text>
         <Text style={styles.text}>• Muscular Foundation</Text>
         <Text style={styles.text}>• Nervous System Control</Text>
         <Text style={styles.text}>• Dopamine Regulation</Text>

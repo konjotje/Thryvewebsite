@@ -1,8 +1,11 @@
 import Cal, { getCalApi } from '@calcom/embed-react';
 import { useEffect } from 'react';
 import { motion } from 'motion/react';
+import { useLanguage } from '../../context/LanguageContext';
 
 export const Contact = () => {
+  const { t } = useLanguage();
+
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({"namespace":"30min"});
@@ -22,10 +25,10 @@ export const Contact = () => {
             className="text-center"
           >
             <div className="text-thryve-accent text-xs font-bold tracking-widest uppercase mb-4">Contact</div>
-            <h2 className="mb-6">KLAAR OM TE<br/>STARTEN?</h2>
+            <h2 className="mb-6 uppercase" dangerouslySetInnerHTML={{ __html: t('contact.title') }} />
             <div className="max-w-2xl mx-auto">
-              <p className="text-thryve-cream/70 leading-relaxed text-[14px] w-[648px] max-w-full">
-                Plan een gratis en vrijblijvende kennismaking. We bespreken je doelen, brengen je grootste obstakels in kaart en je ontdekt hoe The Thryve Method je verder kan helpen.
+              <p className="text-thryve-cream/70 leading-relaxed text-[14px] w-[648px] max-w-full mx-auto">
+                {t('contact.desc')}
               </p>
             </div>
           </motion.div>
