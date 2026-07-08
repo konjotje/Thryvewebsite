@@ -44,21 +44,13 @@ export const Navbar = () => {
             <Link to="/#contact" className="hover:text-white transition-colors">{t('nav.contact')}</Link>
             
             {/* Language Switcher (Desktop) */}
-            <div className="flex items-center space-x-2 select-none font-mono text-xs tracking-wider">
-              <button 
-                onClick={() => setLanguage('NL')} 
-                className={`transition-colors cursor-pointer py-1 ${language === 'NL' ? 'text-white font-semibold' : 'text-thryve-cream/40 hover:text-white'}`}
-              >
-                NL
-              </button>
-              <span className="text-white/10 font-sans">/</span>
-              <button 
-                onClick={() => setLanguage('ENG')} 
-                className={`transition-colors cursor-pointer py-1 ${language === 'ENG' ? 'text-white font-semibold' : 'text-thryve-cream/40 hover:text-white'}`}
-              >
-                ENG
-              </button>
-            </div>
+            <button 
+              onClick={() => setLanguage(language === 'NL' ? 'ENG' : 'NL')} 
+              className="w-8 h-8 rounded-full bg-thryve-accent text-white font-sans text-xs font-black flex items-center justify-center hover:scale-110 active:scale-95 transition-transform duration-200 cursor-pointer shadow-md select-none"
+              title={language === 'NL' ? 'Switch to English' : 'Switch naar Nederlands'}
+            >
+              {language}
+            </button>
 
             <Button size="sm" onClick={() => navigate('/performance-audit')} className="pulsate-glow">
               {t('nav.audit')}
@@ -67,21 +59,13 @@ export const Navbar = () => {
 
           <div className="flex items-center space-x-4 lg:hidden">
             {/* Language Switcher (Mobile) */}
-            <div className="flex items-center space-x-1.5 select-none font-mono text-[10px] tracking-wider relative z-50 mr-1">
-              <button 
-                onClick={() => setLanguage('NL')} 
-                className={`transition-colors cursor-pointer py-1 ${language === 'NL' ? 'text-white font-semibold' : 'text-thryve-cream/40 hover:text-white'}`}
-              >
-                NL
-              </button>
-              <span className="text-white/10 font-sans">/</span>
-              <button 
-                onClick={() => setLanguage('ENG')} 
-                className={`transition-colors cursor-pointer py-1 ${language === 'ENG' ? 'text-white font-semibold' : 'text-thryve-cream/40 hover:text-white'}`}
-              >
-                ENG
-              </button>
-            </div>
+            <button 
+              onClick={() => setLanguage(language === 'NL' ? 'ENG' : 'NL')} 
+              className="w-7 h-7 rounded-full bg-thryve-accent text-white font-sans text-[10px] font-black flex items-center justify-center hover:scale-110 active:scale-95 transition-transform duration-200 cursor-pointer shadow-md select-none mr-1 relative z-50"
+              title={language === 'NL' ? 'Switch to English' : 'Switch naar Nederlands'}
+            >
+              {language}
+            </button>
 
             <button 
               className="text-white relative z-50 p-2"
