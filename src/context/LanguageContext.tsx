@@ -214,7 +214,7 @@ const UI_TRANSLATIONS: Record<Language, Record<string, string>> = {
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     const saved = localStorage.getItem('language');
-    return (saved === 'ENG' || saved === 'NL') ? saved : 'NL';
+    return (saved === 'ENG' || saved === 'NL') ? saved : 'ENG';
   });
 
   const setLanguage = (lang: Language) => {
