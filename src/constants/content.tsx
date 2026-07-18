@@ -111,14 +111,14 @@ export const CLIENT_STORIES_BY_LANG: Record<'NL' | 'ENG', ClientStory[]> = {
     {
       name: "Geraldine",
       title: "STERKER, IN BALANS, MEER ENERGIE",
-      desc: "Door een gezondere relatie met voeding kreeg ze haar energie, hormonen en cyclus weer in balans. En het gevoel dat ze sterker en meer verbonden met haar lichaam is dan ooit.",
+      desc: "Door een gezondere relatie met voeding kreeg ze haar energie, hormonen en cyclus weer in balans. En ze voelt zich sterker en meer verbonden met haar lichaam dan ooit.",
       image: "/images/geraldine.png",
       active: true
     },
     {
       name: "Sven",
       title: "NA JAREN ZOEKEN, EINDELIJK STRUCTUUR",
-      desc: "Na jaren worstelen met voeding en discipline eindelijk de juiste structuur gevonden. In 15 weken naar zijn droomlichaam, en een mindset die ook zijn werk scherper maakte.",
+      desc: "Na jaren worstelen met voeding en discipline heeft hij eindelijk de juiste structuur gevonden. In 15 weken naar zijn droomlichaam, en een mindset die ook zijn werk scherper maakte.",
       image: "/images/Sven.png",
       active: false
     }
@@ -134,14 +134,14 @@ export const CLIENT_STORIES_BY_LANG: Record<'NL' | 'ENG', ClientStory[]> = {
     {
       name: "Geraldine",
       title: "STRONGER, IN BALANCE, MORE ENERGY",
-      desc: "Through a healthier relationship with nutrition, she restored balance to her energy, hormones, and cycle. And the feeling that she is stronger and more connected to her body than ever.",
+      desc: "Through a healthier relationship with nutrition, she restored balance to her energy, hormones, and cycle. And she feels stronger and more connected to her body than ever.",
       image: "/images/geraldine.png",
       active: true
     },
     {
       name: "Sven",
       title: "AFTER YEARS OF SEARCHING, FINALLY STRUCTURE",
-      desc: "After years of struggling with nutrition and discipline, finally found the right structure. In 15 weeks to his dream body, and a mindset that also sharpened his work.",
+      desc: "After years of struggling with nutrition and discipline he finally found the right structure. In 15 weeks to his dream body, and a mindset that also sharpened his work.",
       image: "/images/Sven.png",
       active: false
     }

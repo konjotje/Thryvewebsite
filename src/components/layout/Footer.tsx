@@ -30,7 +30,6 @@ export const Footer = () => {
             <nav className="flex flex-col gap-3 text-sm text-thryve-cream/80" aria-label="Footer Navigatie">
               <Link to="/#method" className="hover:text-white transition-colors w-fit">{t('nav.method')}</Link>
               <Link to="/#stories" className="hover:text-white transition-colors w-fit">{t('nav.stories')}</Link>
-              <Link to="/#about" className="hover:text-white transition-colors w-fit">{t('nav.about')}</Link>
               <Link to="/#testimonials" className="hover:text-white transition-colors w-fit">{t('nav.reviews')}</Link>
               <Link to="/#faq" className="hover:text-white transition-colors w-fit">{t('nav.faq')}</Link>
               <Link to="/performance-audit" className="hover:text-white transition-colors w-fit text-thryve-accent">{t('nav.audit')}</Link>
@@ -45,10 +44,6 @@ export const Footer = () => {
                 <Mail size={16} className="text-thryve-accent shrink-0" />
                 info@thethryvemethod.com
               </a>
-              <div className="flex items-center gap-3">
-                <MapPin size={16} className="text-thryve-accent shrink-0" />
-                {t('footer.location')}
-              </div>
               <div className="flex items-center gap-3 mt-2">
                 <span className="text-thryve-cream/80">KVK:</span> 74191187
               </div>
@@ -66,7 +61,7 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 text-center md:text-left text-xs text-thryve-cream/90">
-          &copy; {new Date().getFullYear()} The Thryve Method. {t('footer.copy')}
+          &copy; {new Date().getFullYear()} The Thryve Method.
         </div>
       </div>
     </footer>
