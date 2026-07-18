@@ -151,7 +151,8 @@ export default function PerformanceAuditPage() {
             totalScore: result.performanceScore,
             type: result.archetype.name,
             breakdown: result.breakdown,
-            pdfBase64: base64data
+            pdfBase64: base64data,
+            language
           })
         });
 

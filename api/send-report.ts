@@ -9,7 +9,7 @@ export default async function handler(req: Request, res: Response) {
   }
 
   try {
-    const { firstName, email, phone, totalScore, breakdown, type, pdfBase64 } = req.body;
+    const { firstName, email, phone, totalScore, breakdown, type, pdfBase64, language } = req.body;
 
     if (!firstName || !email) {
       return res.status(400).json({ error: "Missing required fields" });
@@ -21,6 +21,8 @@ export default async function handler(req: Request, res: Response) {
     
     // Directe, live link van de coach (Imgur)
     const COACH_IMAGE_URL = "https://i.imgur.com/Nz2Hev1.jpg";
+
+    const isEnglish = language === 'ENG';
 
     // Gedeelde stijlen: Helvetica voor tekst, Space Grotesk voor titels. Geen zwarte buitenachtergrond.
     const emailStyles = `
@@ -92,10 +94,28 @@ export default async function handler(req: Request, res: Response) {
       content: pdfBase64
     }] : [];
 
+    const subjectLine = isEnglish 
+      ? `⚡ Your The Thryve Method Performance Report is ready, ${firstName}!`
+      : `⚡ Jouw The Thryve Method Performance Rapport is klaar, ${firstName}!`;
+
+    const titleText = isEnglish ? "Your Performance Audit is Ready" : "Jouw Performance Audit is Klaar";
+    const introText = isEnglish
+      ? `Dear ${firstName}, we have analyzed your system. Your personal Blueprint is attached as a PDF.`
+      : `Beste ${firstName}, we hebben je systeem geanalyseerd. Je persoonlijke Blueprint zit als PDF in de bijlage.`;
+    const costTitle = isEnglish ? "What Is This Costing You?" : "Wat Kost Dit Jou?";
+    const costText = isEnglish
+      ? "Leaking energy and focus means you are working hard for a system that is not optimized. Check your blueprint and discover where your greatest growth potential lies. This is not a discipline problem, this is a system problem."
+      : "Energie en focus lekken betekent dat je hard werkt voor een systeem dat niet is geoptimaliseerd. Bekijk je blueprint en ontdek waar jouw grootste groeipotentie ligt. Dit is geen discipline-probleem, dit is een systeem-probleem.";
+    const actionTitle = isEnglish ? "Ready For Action?" : "Klaar Voor Actie?";
+    const actionText = isEnglish
+      ? "Schedule a free introductory call to discover how we can close your gaps together through Peak Performance architecture."
+      : "Plan een gratis kennismakingsgesprek om te ontdekken hoe we samen jouw valkuilen kunnen dichten via Peak Performance architecture.";
+    const ctaText = isEnglish ? "Schedule a Performance Call" : "Plan een Performance Call";
+
     await resend.emails.send({
       from: FROM_EMAIL,
       to: [email], // Gestuurd naar het e-mailadres dat is ingevuld in de quiz
-      subject: `⚡ Jouw The Thryve Method Performance Rapport is klaar, ${firstName}!`,
+      subject: subjectLine,
       attachments: clientAttachments,
       html: `
         <!DOCTYPE html>
@@ -114,23 +134,22 @@ export default async function handler(req: Request, res: Response) {
                   <span class="thryve-logo">THE THRYVE METHOD</span>
                 </div>
                 
-                <h1 style="font-size: 28px; text-align: center; line-height: 1.1; margin-bottom: 12px; color: #ffffff;">Jouw Performance Audit is Klaar</h1>
+                <h1 style="font-size: 28px; text-align: center; line-height: 1.1; margin-bottom: 12px; color: #ffffff;">${titleText}</h1>
                 <p style="font-size: 15px; text-align: center; color: #a3b8a3; margin: 0 0 20px 0; line-height: 1.5; font-weight: 500;">
-                  Beste ${firstName}, we hebben je systeem geanalyseerd. Je persoonlijke Blueprint zit als PDF in de bijlage.
+                  ${introText}
                 </p>
 
                 <div class="coach-section" style="border-top: none; margin-top: 10px; padding-top: 10px;">
-                  <h3 style="font-size: 20px; margin-bottom: 10px; letter-spacing: -0.01em; color: #ffffff;">Wat Kost Dit Jou?</h3>
+                  <h3 style="font-size: 20px; margin-bottom: 10px; letter-spacing: -0.01em; color: #ffffff;">${costTitle}</h3>
                   <p style="font-size: 14px; color: #e5e7eb; line-height: 1.6; max-width: 420px; margin: 0 auto 25px auto;">
-                    Energie en focus lekken betekent dat je hard werkt voor een systeem dat niet is geoptimaliseerd. 
-                    Bekijk je blueprint en ontdek waar jouw grootste groeipotentie ligt. Dit is geen discipline-probleem, dit is een systeem-probleem.
+                    ${costText}
                   </p>
                   
-                  <h3 style="font-size: 20px; margin-bottom: 6px; letter-spacing: -0.01em; margin-top: 30px; color: #ffffff;">Klaar Voor Actie?</h3>
+                  <h3 style="font-size: 20px; margin-bottom: 6px; letter-spacing: -0.01em; margin-top: 30px; color: #ffffff;">${actionTitle}</h3>
                   <p style="font-size: 14px; color: #a3b8a3; line-height: 1.6; max-width: 420px; margin: 0 auto 25px auto; font-weight: 500;">
-                    Plan een gratis kennismakingsgesprek om te ontdekken hoe we samen jouw valkuilen kunnen dichten via Peak Performance architecture.
+                    ${actionText}
                   </p>
-                  <a href="https://cal.com/thethryvemethod/30min" class="cta-button">Plan een Performance Call</a>
+                  <a href="https://cal.com/thethryvemethod/30min" class="cta-button">${ctaText}</a>
                 </div>
 
                 <p class="footer-text">
