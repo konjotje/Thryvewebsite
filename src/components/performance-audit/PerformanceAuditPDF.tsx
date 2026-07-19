@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'Space Grotesk',
     fontSize: 32,
-    color: '#ffffff',
+    color: '#10b981',
     textAlign: 'center',
     marginBottom: 20,
     textTransform: 'uppercase',
@@ -208,8 +208,7 @@ export const PerformanceAuditPDF: React.FC<PerformanceAuditPDFProps> = ({
     <Document>
       {/* Cover Page */}
       <Page size="A4" style={styles.coverPage}>
-        <Image src="/images/logoTTM.png" style={{ width: 150, marginBottom: 40 }} />
-        <Text style={styles.logo}>THE THRYVE METHOD</Text>
+        <Image src="/images/logoTTM.png" style={{ width: 300, marginBottom: 50 }} />
         <Text style={styles.title}>{isEng ? 'Your Performance Audit' : 'Jouw Performance Audit'}</Text>
         <Text style={styles.subtitle}>{firstName}</Text>
         <Text style={styles.date}>{dateStr}</Text>

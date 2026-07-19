@@ -1,7 +1,5 @@
 import type { Request, Response } from 'express';
 import { Resend } from 'resend';
-import fs from 'fs';
-import path from 'path';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -15,17 +13,6 @@ export default async function handler(req: Request, res: Response) {
 
     if (!firstName || !email) {
       return res.status(400).json({ error: "Missing required fields" });
-    }
-
-    // Load Logo image as Base64 for inline email embedding
-    const logoPath = path.join(process.cwd(), 'public', 'images', 'logoTTM.png');
-    let logoBase64 = '';
-    try {
-      if (fs.existsSync(logoPath)) {
-        logoBase64 = fs.readFileSync(logoPath, { encoding: 'base64' });
-      }
-    } catch (err) {
-      console.error("Failed to read logo image:", err);
     }
 
     // CONFIGURATIE VOOR VERZENDEN (onboarding@resend.dev blijft actief)
@@ -107,13 +94,7 @@ export default async function handler(req: Request, res: Response) {
       content: pdfBase64
     }] : [];
 
-    if (logoBase64) {
-      clientAttachments.push({
-        filename: 'logoTTM.png',
-        content: logoBase64,
-        id: 'logo_ttm'
-      });
-    }
+    const LOGO_URL = "https://thethryvemethod.com/images/logoTTM.png";
 
     const subjectLine = isEnglish 
       ? `⚡ Your The Thryve Method Performance Report is ready, ${firstName}!`
@@ -122,7 +103,7 @@ export default async function handler(req: Request, res: Response) {
     const titleText = isEnglish ? "Your Performance Audit is Ready" : "Jouw Performance Audit is Klaar";
     const introText = isEnglish
       ? `Dear ${firstName}, we have analyzed your system. Your personal Blueprint is attached as a PDF.`
-      : `Beste ${firstName}, we hebben je systeem geanalyseerd. Je persoonlijke Blueprint zit als PDF in de bijlage.`;
+      : `Beste ${firstName}, we hebben je systeem geanaliseerd. Je persoonlijke Blueprint zit als PDF in de bijlage.`;
     const costTitle = isEnglish ? "What Is This Costing You?" : "Wat Kost Dit Jou?";
     const costText = isEnglish
       ? "Leaking energy and focus means you are working hard for a system that is not optimized. Check your blueprint and discover where your greatest growth potential lies. This is not a discipline problem, this is a system problem."
@@ -152,11 +133,7 @@ export default async function handler(req: Request, res: Response) {
             <div class="email-container">
               <div class="main-card">
                 <div class="logo-wrapper">
-                  ${logoBase64 ? `
-                    <img src="cid:logo_ttm" alt="THE THRYVE METHOD" style="height: 60px; margin: 0 auto; display: block;" />
-                  ` : `
-                    <span class="thryve-logo">THE THRYVE METHOD</span>
-                  `}
+                  <img src="${LOGO_URL}" alt="THE THRYVE METHOD" style="height: 50px; width: auto; margin: 0 auto; display: block;" />
                 </div>
                 
                 <h1 style="font-size: 28px; text-align: center; line-height: 1.1; margin-bottom: 12px; color: #ffffff;">${titleText}</h1>
@@ -210,11 +187,7 @@ export default async function handler(req: Request, res: Response) {
             <div class="email-container">
               <div class="main-card">
                 <div class="logo-wrapper">
-                  ${logoBase64 ? `
-                    <img src="cid:logo_ttm" alt="THE THRYVE METHOD" style="height: 60px; margin: 0 auto; display: block;" />
-                  ` : `
-                    <span class="thryve-logo">THE THRYVE METHOD</span>
-                  `}
+                  <img src="${LOGO_URL}" alt="THE THRYVE METHOD" style="height: 50px; width: auto; margin: 0 auto; display: block;" />
                 </div>
                 
                 <div class="lead-info-box">
