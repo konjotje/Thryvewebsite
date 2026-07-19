@@ -1,5 +1,7 @@
 import type { Request, Response } from 'express';
 import { Resend } from 'resend';
+import fs from 'fs';
+import path from 'path';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -13,6 +15,17 @@ export default async function handler(req: Request, res: Response) {
 
     if (!firstName || !email) {
       return res.status(400).json({ error: "Missing required fields" });
+    }
+
+    // Load Logo image as Base64 for inline email embedding
+    const logoPath = path.join(process.cwd(), 'public', 'images', 'logoTTM.png');
+    let logoBase64 = '';
+    try {
+      if (fs.existsSync(logoPath)) {
+        logoBase64 = fs.readFileSync(logoPath, { encoding: 'base64' });
+      }
+    } catch (err) {
+      console.error("Failed to read logo image:", err);
     }
 
     // CONFIGURATIE VOOR VERZENDEN (onboarding@resend.dev blijft actief)
@@ -89,10 +102,18 @@ export default async function handler(req: Request, res: Response) {
     // EMAIL 1: DYNAMISCH NAAR DE KLANT
     // ==========================================
     
-    const clientAttachments = pdfBase64 ? [{
+    const clientAttachments: any[] = pdfBase64 ? [{
       filename: 'The_Thryve_Method_Audit.pdf',
       content: pdfBase64
     }] : [];
+
+    if (logoBase64) {
+      clientAttachments.push({
+        filename: 'logoTTM.png',
+        content: logoBase64,
+        id: 'logo_ttm'
+      });
+    }
 
     const subjectLine = isEnglish 
       ? `⚡ Your The Thryve Method Performance Report is ready, ${firstName}!`
@@ -131,7 +152,11 @@ export default async function handler(req: Request, res: Response) {
             <div class="email-container">
               <div class="main-card">
                 <div class="logo-wrapper">
-                  <span class="thryve-logo">THE THRYVE METHOD</span>
+                  ${logoBase64 ? `
+                    <img src="cid:logo_ttm" alt="THE THRYVE METHOD" style="height: 60px; margin: 0 auto; display: block;" />
+                  ` : `
+                    <span class="thryve-logo">THE THRYVE METHOD</span>
+                  `}
                 </div>
                 
                 <h1 style="font-size: 28px; text-align: center; line-height: 1.1; margin-bottom: 12px; color: #ffffff;">${titleText}</h1>
@@ -185,7 +210,11 @@ export default async function handler(req: Request, res: Response) {
             <div class="email-container">
               <div class="main-card">
                 <div class="logo-wrapper">
-                  <span class="thryve-logo">THE THRYVE METHOD</span>
+                  ${logoBase64 ? `
+                    <img src="cid:logo_ttm" alt="THE THRYVE METHOD" style="height: 60px; margin: 0 auto; display: block;" />
+                  ` : `
+                    <span class="thryve-logo">THE THRYVE METHOD</span>
+                  `}
                 </div>
                 
                 <div class="lead-info-box">
